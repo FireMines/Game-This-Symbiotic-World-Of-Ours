@@ -1,4 +1,4 @@
-# This symbiotic world of ours
+# This Symbiotic World of Ours
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours.git
+git remote add origin https://gitlab.stud.idi.ntnu.no/larsbho/this-symbiotic-world-of-ours.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.stud.idi.ntnu.no/larsbho/this-symbiotic-world-of-ours/-/settings/integrations)
 
 ## Collaborate with your team
 
