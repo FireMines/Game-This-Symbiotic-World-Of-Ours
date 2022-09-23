@@ -235,3 +235,9 @@ Received Import Request.
   path: Assets/Sprites/platform.png
   artifactKey: Guid(e8f9f419583f689479cf174156152207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Sprites/platform.png using Guid(e8f9f419583f689479cf174156152207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36c8f876ffd55207930f5506c3541aa4') in 0.032195 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1151.251865 seconds.
+  path: Assets/Sprites/Flat Platform.asset
+  artifactKey: Guid(269294de47440ac4b9a1a31cf6be6bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Flat Platform.asset using Guid(269294de47440ac4b9a1a31cf6be6bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07e184d08d2e6d0f8e946c14ecba779c') in 0.002965 seconds 
