@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstaclePush : MonoBehaviour
 {
     [SerializeField]
-    private float forceMagnitude;
+    private float pushForce;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +18,13 @@ public class ObstaclePush : MonoBehaviour
         
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Rigidbody rigidbody = hit.collider.attachedRigidbody;
+        Rigidbody2D rigidbody = collision.rigidbody;
 
-        if(rigidbody != null)
-        {
-            Vector3 forceDirection = hit.gameObject.transform.position - transform.position; 
-            forceDirection.y = 0;
-            forceDirection.Normalize();
-
-            rigidbody.AddForceAtPosition(forceDirection*forceMagnitude, transform.position, ForceMode.Impulse);
-
+        if(rigidbody != null && rigidbody.tag != "Pushable" && rigidbody.tag !="Player") 
+        {   
+            rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;        
         }
     }
 }
