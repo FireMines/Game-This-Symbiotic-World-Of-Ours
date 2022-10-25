@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class CharacterController2D : MonoBehaviour
 
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
+
+	//"Library" that stores the orbTypes and the amount we collected (Modular, could be expanded for other collectibles)
+	public Dictionary<OrbController.Element, int> OrbsCollected = new Dictionary<OrbController.Element, int> ();
 
 	private void Awake()
 	{
@@ -143,4 +147,24 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	public int GetOrbAmount(OrbController.Element orbType) {
+	try {
+		return OrbsCollected[orbType];
+	} 
+	catch (KeyNotFoundException) {
+		OrbsCollected.Add(orbType, 0);
+		return OrbsCollected[orbType];
+	}
+	}
+
+	public void UpdateOrbAmount(int amount,OrbController.Element orbType) {
+	try {
+		OrbsCollected[orbType] = amount;
+	} 
+	catch (KeyNotFoundException) {
+		OrbsCollected.Add(orbType, amount);
+	}
+	} 
+
 }
