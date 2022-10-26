@@ -16,6 +16,6 @@ public class CrossfadeScript : MonoBehaviour
     public void StartCrossfade()
     {
         //print();
-        animationController.SetTrigger("Start");
+        animationController.SetBool("Fade", true);
     }
 }

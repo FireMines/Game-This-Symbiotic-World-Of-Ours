@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - SceneTriggers
-  - 
+  - Platforms
   - 
   - 
   - 
@@ -40,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 540129549
+    locked: 0
+  - name: Trees, rocks, houses infront of background
+    uniqueID: 2451849731
+    locked: 0
+  - name: Platforms
+    uniqueID: 4263498819
+    locked: 0
+  - name: Ground
+    uniqueID: 2049794527
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
