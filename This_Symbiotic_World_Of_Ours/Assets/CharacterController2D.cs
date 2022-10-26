@@ -30,6 +30,8 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
+	private bool isSwimming=false;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,6 +41,13 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+	}
+
+	private void OnTriggerEnter2D(Collider2D hit){
+		if(hit.gameObject.tag =="Water"){
+			isSwimming = !isSwimming;
+			Debug.Log(isSwimming);
+		}
 	}
 
 	private void FixedUpdate()
