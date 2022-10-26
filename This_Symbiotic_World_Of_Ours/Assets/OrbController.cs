@@ -21,14 +21,16 @@ public class OrbController : MonoBehaviour
         if (controller == null) Debug.Log("Error fordi det ikke finnes en playercontroller??? dette skal egt ikke skje");
     }
 
-    private void OnTriggerEnter2D(Collider2D other){
+    //This is called whenever the player collides with a "ontrigger" collision object
+    private void OnTriggerEnter2D(){
 
         //Update the amount of orbs collected by 1
         
         controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement)+1, OrbElement);
 
-        Debug.Log(controller.GetOrbAmount(OrbElement).ToString());
-        Debug.Log(OrbElement.ToString());
+        ////temp prints
+        //Debug.Log(controller.GetOrbAmount(OrbElement).ToString());
+        //Debug.Log(OrbElement.ToString());
         
         // Delete the Orb
         Destroy(gameObject);

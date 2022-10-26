@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using System;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+	private bool doubleJump = true; // Cant he player double jump? Default, False
+	private int extraJumps = 0,
+				jumpsLeft = 0;
+
 	[Header("Events")]
 	[Space]
 
@@ -34,7 +39,16 @@ public class CharacterController2D : MonoBehaviour
 	//"Library" that stores the orbTypes and the amount we collected (Modular, could be expanded for other collectibles)
 	public Dictionary<OrbController.Element, int> OrbsCollected = new Dictionary<OrbController.Element, int> ();
 
-	private void Awake()
+    private void Start()
+    {
+		//Initialize the enum Dictionary (OrbsCollected)
+		foreach (OrbController.Element orbType in Enum.GetValues(typeof(OrbController.Element)))
+        {
+			OrbsCollected.Add(orbType, 0);
+		}
+    }
+
+    private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -61,6 +75,11 @@ public class CharacterController2D : MonoBehaviour
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
+		}
+
+		if (m_Grounded && !wasGrounded)
+		{
+			jumpsLeft = extraJumps+1;
 		}
 	}
 
@@ -128,11 +147,20 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (m_Grounded && jump)
+		if ((m_Grounded || jumpsLeft > 0) && jump)
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+			// SETS the player's y velocity to be our jumpvelocity
+			Vector2 vel = m_Rigidbody2D.velocity;
+			vel.y = m_JumpForce / m_Rigidbody2D.mass;
+			vel.x /= Time.deltaTime;
+			m_Rigidbody2D.velocity = vel * Time.deltaTime;
+
+			// ADDS the player's jumpvelocity to their current velocity
+			//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			jumpsLeft--;
 		}
 	}
 
@@ -149,22 +177,50 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	public int GetOrbAmount(OrbController.Element orbType) {
-	try {
-		return OrbsCollected[orbType];
-	} 
-	catch (KeyNotFoundException) {
-		OrbsCollected.Add(orbType, 0);
-		return OrbsCollected[orbType];
-	}
+		try {
+			return OrbsCollected[orbType];
+		} 
+		catch (KeyNotFoundException) {
+			OrbsCollected.Add(orbType, 0);
+			return OrbsCollected[orbType];
+		}
 	}
 
 	public void UpdateOrbAmount(int amount,OrbController.Element orbType) {
-	try {
-		OrbsCollected[orbType] = amount;
-	} 
-	catch (KeyNotFoundException) {
-		OrbsCollected.Add(orbType, amount);
+		try {
+			OrbsCollected[orbType] = amount;
+		} 
+		catch (KeyNotFoundException) {
+			OrbsCollected.Add(orbType, amount);
+		}
+		updatePowers();
 	}
-	} 
 
+	private void updatePowers()
+    {
+
+		//Abilities tied to the first orb
+		if (OrbsCollected[OrbController.Element.Earth] > 0)
+        {
+			//Double jump
+			extraJumps = 1;
+
+			//Abilities tied to the second orb
+			if (OrbsCollected[OrbController.Element.Earth] > 1) 
+			{
+
+				//Abilities tied to the third orb
+				if (OrbsCollected[OrbController.Element.Earth] > 2)
+                {
+
+                }
+
+			}
+		}
+
+		//enable abilities based on the amount of orbs collected
+		//1st earth: Double jump
+		
+		//1st water: Ranged attack
+    }
 }
