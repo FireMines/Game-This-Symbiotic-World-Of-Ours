@@ -22,10 +22,8 @@ public class ObstaclePush : MonoBehaviour
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=0.00001F;
             }else{
                 grabCheck.collider.gameObject.transform.parent = null;
-                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-                
-                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=1F;//grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            }
+                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=10F;
+                }
         }
     }
 }
