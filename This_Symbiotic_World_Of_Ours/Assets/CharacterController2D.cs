@@ -153,13 +153,24 @@ public class CharacterController2D : MonoBehaviour
 			m_Grounded = false;
 
 			// SETS the player's y velocity to be our jumpvelocity
-			Vector2 vel = m_Rigidbody2D.velocity;
-			vel.y = m_JumpForce / m_Rigidbody2D.mass;
-			vel.x /= Time.deltaTime;
-			m_Rigidbody2D.velocity = vel * Time.deltaTime;
+			Vector2 velSet = m_Rigidbody2D.velocity;
+			velSet.y = m_JumpForce / m_Rigidbody2D.mass;
+			velSet.x /= Time.deltaTime;
+
+			Vector2 velAdd = m_Rigidbody2D.velocity;
+			velAdd.x /= Time.deltaTime; //keeps the current vel, prevents "chopping"
+			velAdd.y /= Time.deltaTime;
+			velAdd.y += m_JumpForce / m_Rigidbody2D.mass;
+
+			float lerpFactor = 0.5f; //0: SET the velocity 1: ADD the velocity
+
+			//m_Rigidbody2D.velocity = vel * Time.deltaTime;
 
 			// ADDS the player's jumpvelocity to their current velocity
 			//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+			m_Rigidbody2D.velocity = (velSet*(1f-lerpFactor) + (velAdd)*(lerpFactor)) * Time.deltaTime;
+
 			jumpsLeft--;
 		}
 	}
