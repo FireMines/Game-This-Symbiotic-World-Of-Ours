@@ -16,7 +16,7 @@ public class ObstaclePush : MonoBehaviour
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
         if(grabCheck.collider != null && grabCheck.collider.tag == "Pushable" ){
-            if(Input.GetKey(KeyCode.G)){
+            if(Input.GetKey(KeyCode.E)){
                 grabCheck.collider.gameObject.transform.parent = boxHolder;
                 grabCheck.collider.gameObject.transform.position = boxHolder.position;
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=0.00001F;
