@@ -31,7 +31,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 
 	private bool isSwimming=false;
-	private float swimmingGravity=0.2f;
+	private float swimmingGravity=0f;
 	private float defaultGravity=3f;
 	private float swimmingLinearDrag=1f;
 	private float defaultLinearDrag=0f;
@@ -99,10 +99,10 @@ public class CharacterController2D : MonoBehaviour
 	{
 		
 		//add downward and upward movement instead of crouch and jump when is swimming
-		if(isSwimming&&jump){
-			m_Rigidbody2D.AddForce(new Vector2(0f, 200f));
+		if(isSwimming&&jump||isSwimming&&Input.GetKeyDown(KeyCode.W)){
+			m_Rigidbody2D.AddForce(new Vector2(0f, 100f));
 		}else if(isSwimming&&crouch){
-			m_Rigidbody2D.AddForce(new Vector2(0f, -100f));
+			m_Rigidbody2D.AddForce(new Vector2(0f, -50f));
 		}else{
 			// If crouching, check to see if the character can stand up
 			if (!crouch)
