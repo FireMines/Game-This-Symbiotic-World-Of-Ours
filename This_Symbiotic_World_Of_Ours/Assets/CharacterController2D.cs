@@ -31,7 +31,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 
 	private bool isSwimming=false;
-	private float swimmingGravity=0f;
+	private float swimmingGravity=0.5f;
 	private float defaultGravity=3f;
 	private float swimmingLinearDrag=1f;
 	private float defaultLinearDrag=0f;
@@ -55,6 +55,9 @@ public class CharacterController2D : MonoBehaviour
 		if(hit.gameObject.tag =="Water"){
 			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 			isSwimming = !isSwimming;
+			//makes character stop moving when it hits the water but it looks kinda weird
+			//m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+			//m_Rigidbody2D.angularVelocity = 0f;
 			if(isSwimming){
 				//set player gravity to swimmingGravity if the player starts swimming
 				m_Rigidbody2D.gravityScale=swimmingGravity;
