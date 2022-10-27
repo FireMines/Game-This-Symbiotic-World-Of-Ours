@@ -31,14 +31,12 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 
 	private bool isSwimming=false;
-	private float swimmingGravity=0.5f;
+	private float swimmingGravity=0.2f;
 	private float defaultGravity=3f;
 	private float swimmingLinearDrag=1f;
 	private float defaultLinearDrag=0f;
 	private float swimmingAngularDrag=1f;
 	private float defaultAngularDrag=0.05f;
-	private float swimmingMass=2f;
-	private float defaultMass=1f;
 
 
 	private void Awake()
@@ -60,7 +58,6 @@ public class CharacterController2D : MonoBehaviour
 			if(isSwimming){
 				//set player gravity to swimmingGravity if the player starts swimming
 				m_Rigidbody2D.gravityScale=swimmingGravity;
-				m_Rigidbody2D.mass=swimmingMass;
 				m_Rigidbody2D.angularDrag=swimmingAngularDrag;
 			}
 		}
@@ -73,7 +70,6 @@ public class CharacterController2D : MonoBehaviour
 			isSwimming = !isSwimming;
 			if(!isSwimming){
 				m_Rigidbody2D.gravityScale=defaultGravity;
-				m_Rigidbody2D.mass=defaultMass;
 				m_Rigidbody2D.angularDrag=defaultAngularDrag;
 			}
 		}
