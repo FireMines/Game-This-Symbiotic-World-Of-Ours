@@ -31,6 +31,15 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 
 	private bool isSwimming=false;
+	private float swimmingGravity=0.5f;
+	private float defaultGravity=3f;
+	private float swimmingLinearDrag=1f;
+	private float defaultLinearDrag=0f;
+	private float swimmingAngularDrag=1f;
+	private float defaultAngularDrag=0.05f;
+	private float swimmingMass=2f;
+	private float defaultMass=1f;
+
 
 	private void Awake()
 	{
@@ -44,9 +53,30 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	private void OnTriggerEnter2D(Collider2D hit){
+		Debug.Log("Water hit detected");
 		if(hit.gameObject.tag =="Water"){
+			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 			isSwimming = !isSwimming;
-			Debug.Log(isSwimming);
+			if(isSwimming){
+				//set player gravity to swimmingGravity if the player starts swimming
+				m_Rigidbody2D.gravityScale=swimmingGravity;
+				m_Rigidbody2D.mass=swimmingMass;
+				m_Rigidbody2D.angularDrag=swimmingAngularDrag;
+				//add downward and upward movement instead of crouch and jump when is swimming
+			}
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D hit){
+		Debug.Log("Water exit detected");
+		if(hit.gameObject.tag =="Water"){
+			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
+			isSwimming = !isSwimming;
+			if(!isSwimming){
+				m_Rigidbody2D.gravityScale=defaultGravity;
+				m_Rigidbody2D.mass=defaultMass;
+				m_Rigidbody2D.angularDrag=defaultAngularDrag;
+			}
 		}
 	}
 
@@ -72,6 +102,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump)
 	{
+		//if the player is swimming, it can move every way, but cannot jump
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
 		{
