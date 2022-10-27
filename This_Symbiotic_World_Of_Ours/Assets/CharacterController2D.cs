@@ -209,7 +209,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void updatePowers()
     {
-
+		//EARTH ABILITIES
 		//Abilities tied to the first orb
 		if (OrbsCollected[OrbController.Element.Earth] > 0)
         {
@@ -219,19 +219,42 @@ public class CharacterController2D : MonoBehaviour
 			//Abilities tied to the second orb
 			if (OrbsCollected[OrbController.Element.Earth] > 1) 
 			{
+				//Heavy ranged attack (throw a boulder or smth)
 
 				//Abilities tied to the third orb
 				if (OrbsCollected[OrbController.Element.Earth] > 2)
                 {
 
+					//Glide
                 }
 
 			}
 		}
 
+		//WATER ABILITIES
+		//Abilities tied to the first orb
+		if (OrbsCollected[OrbController.Element.Water] > 0)
+		{
+			//light attack Ranged attack / projectile (water drops)
+
+
+
+			//Abilities tied to the second orb
+			if (OrbsCollected[OrbController.Element.Water] > 1)
+			{
+
+				//Illuminate player (see in the dark)
+
+
+				//Abilities tied to the third orb
+				if (OrbsCollected[OrbController.Element.Water] > 2)
+				{
+					//Dash / Blink (double tap direction)
+				}
+
+			}
+		}
+
 		//enable abilities based on the amount of orbs collected
-		//1st earth: Double jump
-		
-		//1st water: Ranged attack
-    }
+	}
 }
