@@ -48,7 +48,16 @@ public class CharacterController2D : MonoBehaviour
 		}
     }
 
-    private void Awake()
+	private bool isSwimming=false;
+	private float swimmingGravity=0.5f;
+	private float defaultGravity=3f;
+	private float swimmingLinearDrag=1f;
+	private float defaultLinearDrag=0f;
+	private float swimmingAngularDrag=1f;
+	private float defaultAngularDrag=0.05f;
+
+
+	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -57,6 +66,32 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+	}
+
+	private void OnTriggerEnter2D(Collider2D hit){
+		if(hit.gameObject.tag =="Water"){
+			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
+			isSwimming = !isSwimming;
+			//makes character stop moving when it hits the water but it looks kinda weird
+			//m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+			//m_Rigidbody2D.angularVelocity = 0f;
+			if(isSwimming){
+				//set player gravity to swimmingGravity if the player starts swimming
+				m_Rigidbody2D.gravityScale=swimmingGravity;
+				m_Rigidbody2D.angularDrag=swimmingAngularDrag;
+			}
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D hit){
+		if(hit.gameObject.tag =="Water"){
+			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
+			isSwimming = !isSwimming;
+			if(!isSwimming){
+				m_Rigidbody2D.gravityScale=defaultGravity;
+				m_Rigidbody2D.angularDrag=defaultAngularDrag;
+			}
+		}
 	}
 
 	private void FixedUpdate()
@@ -86,68 +121,77 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump)
 	{
-		// If crouching, check to see if the character can stand up
-		if (!crouch)
-		{
-			// If the character has a ceiling preventing them from standing up, keep them crouching
-			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
+		
+		//add downward and upward movement instead of crouch and jump when is swimming
+		if(isSwimming&&jump||isSwimming&&Input.GetKeyDown(KeyCode.W)){
+			m_Rigidbody2D.AddForce(new Vector2(0f, 100f));
+		}else if(isSwimming&&crouch){
+			m_Rigidbody2D.AddForce(new Vector2(0f, -50f));
+		}else{
+			// If crouching, check to see if the character can stand up
+			if (!crouch)
 			{
-				crouch = true;
-			}
-		}
-
-		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
-		{
-
-			// If crouching
-			if (crouch)
-			{
-				if (!m_wasCrouching)
+				// If the character has a ceiling preventing them from standing up, keep them crouching
+				if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
 				{
-					m_wasCrouching = true;
-					OnCrouchEvent.Invoke(true);
-				}
-
-				// Reduce the speed by the crouchSpeed multiplier
-				move *= m_CrouchSpeed;
-
-				// Disable one of the colliders when crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = false;
-			} else
-			{
-				// Enable the collider when not crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = true;
-
-				if (m_wasCrouching)
-				{
-					m_wasCrouching = false;
-					OnCrouchEvent.Invoke(false);
+					crouch = true;
 				}
 			}
 
-			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			//only control the player if grounded or airControl is turned on
+			if (m_Grounded || m_AirControl)
+			{
 
-			// If the input is moving the player right and the player is facing left...
-			if (move > 0 && !m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
+				// If crouching
+				if (crouch)
+				{
+					if (!m_wasCrouching)
+					{
+						m_wasCrouching = true;
+						OnCrouchEvent.Invoke(true);
+					}
+
+					// Reduce the speed by the crouchSpeed multiplier
+					move *= m_CrouchSpeed;
+
+					// Disable one of the colliders when crouching
+					if (m_CrouchDisableCollider != null)
+						m_CrouchDisableCollider.enabled = false;
+				} else
+				{
+					// Enable the collider when not crouching
+					if (m_CrouchDisableCollider != null)
+						m_CrouchDisableCollider.enabled = true;
+
+					if (m_wasCrouching)
+					{
+						m_wasCrouching = false;
+						OnCrouchEvent.Invoke(false);
+					}
+				}
+
+				// Move the character by finding the target velocity
+				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+				// And then smoothing it out and applying it to the character
+				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
+				// If the input is moving the player right and the player is facing left...
+				if (move > 0 && !m_FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
+				// Otherwise if the input is moving the player left and the player is facing right...
+				else if (move < 0 && m_FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
 			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (move < 0 && m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
-			}
+			
 		}
 		// If the player should jump...
-		if ((m_Grounded || jumpsLeft > 0) && jump)
+		if ((m_Grounded || jumpsLeft > 0) && jump && !isSwimming)
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;

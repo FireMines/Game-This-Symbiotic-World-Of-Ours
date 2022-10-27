@@ -22,18 +22,23 @@ public class OrbController : MonoBehaviour
     }
 
     //This is called whenever the player collides with a "ontrigger" collision object
-    private void OnTriggerEnter2D(){
+    private void OnTriggerEnter2D(Collider2D hit)
+    {
 
-        //Update the amount of orbs collected by 1
-        
-        controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement)+1, OrbElement);
+        if (hit.gameObject.tag == "Player")
+        {
 
-        ////temp prints
-        //Debug.Log(controller.GetOrbAmount(OrbElement).ToString());
-        //Debug.Log(OrbElement.ToString());
-        
-        // Delete the Orb
-        Destroy(gameObject);
+            //Update the amount of orbs collected by 1
+
+            controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
+
+            ////temp prints
+            //Debug.Log(controller.GetOrbAmount(OrbElement).ToString());
+            //Debug.Log(OrbElement.ToString());
+
+            // Delete the Orb
+            Destroy(gameObject);
+        }
     
-   }
+     }
 }
