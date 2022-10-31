@@ -48,24 +48,32 @@ public class CharacterController2D : MonoBehaviour
 		}
     }
 
-	private bool isSwimming=false;
-	private float swimmingGravity=0.5f;
-	private float defaultGravity=3f;
-	private float swimmingLinearDrag=1f;
-	private float defaultLinearDrag=0f;
-	private float swimmingAngularDrag=1f;
-	private float defaultAngularDrag=0.05f;
+	[Header("Swimming")]
+	private bool  isSwimming			= false;
+	private float swimmingGravity		= 0.5f;
+	private float defaultGravity		= 3f;
+	private float swimmingLinearDrag	= 1f;
+	private float defaultLinearDrag		= 0f;
+	private float swimmingAngularDrag	= 1f;
+	private float defaultAngularDrag	= 0.05f;
 
+	[Header("Attack visualizing and attack unit")]
 	public GameObject RangedSpellPrefab;
 	public GameObject selectedUnit;
 
 	[Header("Stats")]
-	public float AttackRange = 20f,
-				 ProjectileAcceleration = 15f;
+	public float AttackRange			= 20f;
+	public float ProjectileAcceleration = 15f,
+				 AttackTimer			= 0f,
+				 AttackCooldown			= 1f;
 
 	[Header("Spell animation")]
-	public float Curving	= 10f,
-				 Backdraft	= 5f;
+	public float Curving				= 10f;
+	public float Backdraft				= 5f,
+				 OrbitAcceleration		= 25f,		// How fast the projectile accelerates around the player, while in orbit.
+				 OrbitDeceleration		= 0.07f,	// How much the projectile decelerates, while in orbit.
+				 OrbitBeginRadius		= 1.4f;		// How far away from the player the projectile must be, before starting to orbit.
+
 
 
 	private void Awake()
@@ -107,6 +115,9 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{
+		// Count down attack timer
+		AttackTimer -= Time.deltaTime;
+
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
@@ -128,11 +139,12 @@ public class CharacterController2D : MonoBehaviour
 			jumpsLeft = extraJumps+1;
 		}
 
-		if(Input.GetMouseButtonDown(0))
+		// Attack
+		if(Input.GetMouseButton(0) && AttackTimer <= 0f)
         {
+			AttackTimer = AttackCooldown;
 			SelectTarget();
 			if (selectedUnit != null) RangedAttack();
-
 		}
 
 	}
@@ -190,8 +202,12 @@ public class CharacterController2D : MonoBehaviour
 		// Spawn the projectile
 		GameObject clone = Instantiate(RangedSpellPrefab, SpawnSpellLoc, Quaternion.Euler(0,90,0));
 		RangedAttack cloneProjectileScript = clone.transform.GetComponent<RangedAttack>();
-		cloneProjectileScript._Target = selectedUnit;
-		cloneProjectileScript._ProjectileAcceleration = ProjectileAcceleration;
+		cloneProjectileScript._Target					= selectedUnit;
+		cloneProjectileScript._ProjectileAcceleration	= ProjectileAcceleration;
+		cloneProjectileScript._OrbitAcceleration		= OrbitAcceleration;
+		cloneProjectileScript._OrbitDeceleration		= OrbitDeceleration;
+		cloneProjectileScript._OrbitBeginRadius			= OrbitBeginRadius;
+		cloneProjectileScript._Player					= gameObject;
 
 		// Decide the initial velocity of the projectile
 		Vector3 dir = (selectedUnit.transform.position - transform.position).normalized;
