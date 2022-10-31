@@ -56,6 +56,9 @@ public class CharacterController2D : MonoBehaviour
 	private float swimmingAngularDrag=1f;
 	private float defaultAngularDrag=0.05f;
 
+	public GameObject RangedSpellPrefab;
+	public GameObject selectedUnit;
+
 
 	private void Awake()
 	{
@@ -116,7 +119,40 @@ public class CharacterController2D : MonoBehaviour
 		{
 			jumpsLeft = extraJumps+1;
 		}
+
+		if(Input.GetMouseButtonDown(0))
+        {
+			SelectTarget();
+        }
+
+		if (Input.GetKeyDown("1"))
+        {
+			RangedAttack();
+		}
 	}
+
+	void SelectTarget()
+    {
+		Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+		if (hit.collider != null) {
+			if(hit.transform.tag == "Enemy")
+            {
+				selectedUnit = hit.transform.gameObject;
+
+			}
+        }
+    }
+
+	void RangedAttack()
+    {
+		Vector2 SpawnSpellLoc = new Vector2(this.transform.position.x, this.transform.position.y);
+
+		GameObject clone;
+		clone = Instantiate(RangedSpellPrefab, SpawnSpellLoc, Quaternion.identity);
+		clone.transform.GetComponent<RangedAttack>().Target = selectedUnit;
+    }
 
 
 	public void Move(float move, bool crouch, bool jump)
