@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b127ce750e5fba74e8ec4ae01f4fa2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SlipperyMaterial: {fileID: 6200000, guid: 2a5549702e58ac5408c756979038cbef, type: 2}
+  NotSlipperyMaterial: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_JumpForce: 700
   m_CrouchSpeed: 0.4
   m_MovementSmoothing: 0.05
@@ -2040,7 +2042,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 208512283}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -5343,7 +5345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.21, y: 1.3999999, z: -8.385748}
+  m_LocalPosition: {x: 3.2099998, y: 1.3999999, z: -8.385748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7214,7 +7216,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 682727625}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11089,7 +11091,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1061034795}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11707,7 +11709,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1083361398}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -16174,7 +16176,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1538450215}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -17106,7 +17108,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1558070211}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -18220,7 +18222,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1641989262}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -21488,7 +21490,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1875149407}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -22693,7 +22695,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1978513237}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -24497,7 +24499,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 2135903859}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -24739,7 +24741,15 @@ PrefabInstance:
     - target: {fileID: -8207243141080425102, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 2a5549702e58ac5408c756979038cbef, type: 2}
+      objectReference: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
+    - target: {fileID: -8207243141080425102, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8207243141080425102, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8207243141080425102, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -24753,7 +24763,35 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2897827380696457657, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2897827380696457657, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797663991968664384, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797663991968664384, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797663991968664384, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797663991968664384, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c95ee731fccbd1b46994b3fae8af8178, type: 2}
+    - target: {fileID: 2797663991968664384, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797663991968664384, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6187201502352004605, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}

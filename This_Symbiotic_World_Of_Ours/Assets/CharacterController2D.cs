@@ -5,6 +5,9 @@ using System;
 
 public class CharacterController2D : MonoBehaviour
 {
+	public PhysicsMaterial2D SlipperyMaterial;
+	public PhysicsMaterial2D NotSlipperyMaterial;
+
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
@@ -125,9 +128,12 @@ public class CharacterController2D : MonoBehaviour
 		//add downward and upward movement instead of crouch and jump when is swimming
 		if(isSwimming&&jump||isSwimming&&Input.GetKeyDown(KeyCode.W)){
 			m_Rigidbody2D.AddForce(new Vector2(0f, 100f));
-		}else if(isSwimming&&crouch){
+		}
+		else if(isSwimming&&crouch){
 			m_Rigidbody2D.AddForce(new Vector2(0f, -50f));
-		}else{
+		}
+		else
+		{
 			// If crouching, check to see if the character can stand up
 			if (!crouch)
 			{
@@ -175,6 +181,21 @@ public class CharacterController2D : MonoBehaviour
 				// And then smoothing it out and applying it to the character
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
+				// If we're standing still we're applying the Sticky Material,
+				// if not: Slippery material
+				// Why: Sticky prevents slipping on objects, Slippery prevents "chopping" when airborne
+				if (Mathf.Abs(move) <= 0.01f)
+                {
+					m_Rigidbody2D.sharedMaterial = NotSlipperyMaterial;
+					GetComponent<BoxCollider2D>().sharedMaterial = NotSlipperyMaterial;
+
+				}
+				else
+                {
+					m_Rigidbody2D.sharedMaterial = SlipperyMaterial;
+					GetComponent<BoxCollider2D>().sharedMaterial = SlipperyMaterial;
+				}
+
 				// If the input is moving the player right and the player is facing left...
 				if (move > 0 && !m_FacingRight)
 				{
@@ -190,6 +211,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 			
 		}
+
 		// If the player should jump...
 		if ((m_Grounded || jumpsLeft > 0) && jump && !isSwimming)
 		{
