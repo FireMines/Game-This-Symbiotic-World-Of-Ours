@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1052751709210975672}
   - component: {fileID: 1052751709210975679}
-  - component: {fileID: 4360731864366790193}
+  - component: {fileID: 5659743053572819527}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6685811558904944017}
   - {fileID: 1052751709494205105}
   m_Father: {fileID: 1052751710114277934}
   m_RootOrder: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4360731864366790193
+--- !u!95 &5659743053572819527
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -96,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 1052751709210975673}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 85cff7112e59272418edd945676932af, type: 2}
+  m_Controller: {fileID: 9100000, guid: 892275fe3a117f24496c12940f423dc2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -136,7 +137,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1052751709210975672}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1052751709494205104
 CircleCollider2D:
@@ -185,7 +186,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1052751709210975672}
-  - {fileID: 6685811558904944017}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -253,8 +253,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1052751710114277934}
-  m_RootOrder: 1
+  m_Father: {fileID: 1052751709210975672}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &4330007222907254558
 ParticleSystem:
@@ -446,7 +446,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.59621054, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.58835566, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1196,7 +1196,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1207,22 +1207,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
+          value: 1
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -5009,7 +5009,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 0.11
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
