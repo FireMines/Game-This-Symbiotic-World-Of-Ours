@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:695cb7703b689b9fdd4f9d97f73d71375cca5e39049f5fea8635cf35c229541e
-size 394
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    public int damage;
+    public PlayerHealth playerHealth;
+    
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag=="Player"){
+            playerHealth.takeDamage(damage);
+            Debug.Log("Damage taken");
+        }
+    }
+
+}
