@@ -262,6 +262,8 @@ MonoBehaviour:
       m_Calls: []
   RangedSpellPrefab: {fileID: 2105173642567733772, guid: 0153a67d301cb8b44b704c96fc96c17e, type: 3}
   selectedUnit: {fileID: 416674355}
+  AttackRange: 50
+  ProjectileAcceleration: 50
 --- !u!4 &10582561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6187201502352004607, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
@@ -6585,7 +6587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2599995, y: 1.2799999, z: -8.385748}
+  m_LocalPosition: {x: 3.329107, y: 1.2799999, z: -8.385748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10395,7 +10397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848299640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.53, y: 0.78, z: 0}
+  m_LocalPosition: {x: 0.56, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26571,7 +26573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032910527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.13, y: 0.78, z: 0}
+  m_LocalPosition: {x: 0.51, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28025,7 +28027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6187201502352004607, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3691075
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 6187201502352004607, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_LocalPosition.y

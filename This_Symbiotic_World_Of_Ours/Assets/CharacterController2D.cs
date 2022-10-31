@@ -59,6 +59,14 @@ public class CharacterController2D : MonoBehaviour
 	public GameObject RangedSpellPrefab;
 	public GameObject selectedUnit;
 
+	[Header("Stats")]
+	public float AttackRange = 20f,
+				 ProjectileAcceleration = 15f;
+
+	[Header("Spell animation")]
+	public float Curving	= 10f,
+				 Backdraft	= 5f;
+
 
 	private void Awake()
 	{
@@ -97,7 +105,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
@@ -123,36 +131,74 @@ public class CharacterController2D : MonoBehaviour
 		if(Input.GetMouseButtonDown(0))
         {
 			SelectTarget();
+			if (selectedUnit != null) RangedAttack();
+
+		}
+
+	}
+
+	bool GameObjectIsInLineOfSight(GameObject obj)
+    {
+		if (obj == null) return false;
+
+		//Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector2 direction = obj.transform.position - this.transform.position;
+		RaycastHit2D[] hits = Physics2D.RaycastAll(this.transform.position, direction.normalized, AttackRange);
+
+		// Iterate everything the raycast hit from start to end,
+		foreach (RaycastHit2D hit in hits)
+        {
+			// ...breaking the loop if it hit something "bad" (i.e. NOT the player).
+			if (hit.collider.gameObject == obj) return true;
+			if (hit.collider.gameObject.tag != "Player") break;
         }
 
-		if (Input.GetKeyDown("1"))
-        {
-			RangedAttack();
-		}
+		// Return
+		return false;
 	}
 
 	void SelectTarget()
     {
-		Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+		// Find gameobjects tagged "enemy" and return if there aren't any
+		GameObject[] enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+		if (enemyGameObjects.Length <= 0) return;
 
-		if (hit.collider != null) {
-			if(hit.transform.tag == "Enemy")
-            {
-				selectedUnit = hit.transform.gameObject;
+		// Find the nearest enemy that IS IN LINE OF SIGHT
+		float enemyDist = Mathf.Infinity; //Vector2.Distance(enemyGameObjects[0].transform.position, this.transform.position);
+		GameObject nearestenemy = null;
 
+		foreach (GameObject enemy in enemyGameObjects)
+		{
+			if (!GameObjectIsInLineOfSight(enemy)) continue;
+
+			float nearestEnemyDist = Vector2.Distance(enemy.transform.position, this.transform.position);
+			if (nearestEnemyDist < enemyDist)
+			{
+				enemyDist = nearestEnemyDist;
+				nearestenemy = enemy;
 			}
-        }
-    }
+		}
+
+		// Set target, if found, to the nearest valid enemy
+		if (nearestenemy != null) selectedUnit = nearestenemy;
+	}
 
 	void RangedAttack()
     {
 		Vector2 SpawnSpellLoc = new Vector2(this.transform.position.x, this.transform.position.y);
 
-		GameObject clone;
-		clone = Instantiate(RangedSpellPrefab, SpawnSpellLoc, Quaternion.identity);
-		clone.transform.GetComponent<RangedAttack>().Target = selectedUnit;
-    }
+		// Spawn the projectile
+		GameObject clone = Instantiate(RangedSpellPrefab, SpawnSpellLoc, Quaternion.Euler(0,90,0));
+		RangedAttack cloneProjectileScript = clone.transform.GetComponent<RangedAttack>();
+		cloneProjectileScript._Target = selectedUnit;
+		cloneProjectileScript._ProjectileAcceleration = ProjectileAcceleration;
+
+		// Decide the initial velocity of the projectile
+		Vector3 dir = (selectedUnit.transform.position - transform.position).normalized;
+		float upOrDown = UnityEngine.Random.Range(-2f, 2f);
+		Vector2 dir_orth2D = new Vector2(-dir.y*upOrDown, dir.x*upOrDown);
+		cloneProjectileScript._Vel = dir_orth2D * Curving - new Vector2(dir.x, dir.y) * Backdraft;
+	}
 
 
 	public void Move(float move, bool crouch, bool jump)
