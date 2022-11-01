@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  health: 10
+  health: 0
 --- !u!1 &19436793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,8 +4063,8 @@ GameObject:
   - component: {fileID: 416674360}
   - component: {fileID: 416674359}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Enemy
+  m_Name: EnemySprite
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4129,7 +4129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416674355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09, y: -0.1, z: -4.622707}
+  m_LocalPosition: {x: -0.02, y: -0.15, z: -4.622707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7779,7 +7779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697168392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.86, y: -0.06, z: 4.622707}
+  m_LocalPosition: {x: 13.56, y: 0.15, z: 4.622707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7799,8 +7799,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc8d146f4adec479322faccd24f940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   playerHealth: {fileID: 10582571}
+  _enemySprite: {fileID: 416674359}
+  distance: 5
 --- !u!50 &697168395
 Rigidbody2D:
   serializedVersion: 4
@@ -7821,7 +7823,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &697168396
 BoxCollider2D:
   m_ObjectHideFlags: 0
