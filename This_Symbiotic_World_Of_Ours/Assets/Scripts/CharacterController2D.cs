@@ -58,8 +58,8 @@ public class CharacterController2D : MonoBehaviour
 	private float defaultAngularDrag	= 0.05f;
 
 	[Header("Attack visualizing and attack unit")]
-	public GameObject RangedSpellPrefab;
-	public GameObject selectedUnit;
+	public GameObject	RangedSpellPrefab;
+	public GameObject	selectedUnit;
 
 	[Header("Stats")]
 	public float AttackRange			= 20f;
@@ -88,29 +88,34 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	private void OnTriggerEnter2D(Collider2D hit){
-		if(hit.gameObject.tag =="Water"){
-			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
-			isSwimming = !isSwimming;
-			//makes character stop moving when it hits the water but it looks kinda weird
-			//m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-			//m_Rigidbody2D.angularVelocity = 0f;
-			if(isSwimming){
-				//set player gravity to swimmingGravity if the player starts swimming
-				m_Rigidbody2D.gravityScale=swimmingGravity;
-				m_Rigidbody2D.angularDrag=swimmingAngularDrag;
-			}
+		// If we are entering something else than water, return
+		if (hit.gameObject.tag != "Water") return;
+
+		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
+		isSwimming = !isSwimming;
+
+		//makes character stop moving when it hits the water but it looks kinda weird
+		//m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+		//m_Rigidbody2D.angularVelocity = 0f;
+		if(isSwimming){
+			//set player gravity to swimmingGravity if the player starts swimming
+			m_Rigidbody2D.gravityScale=swimmingGravity;
+			m_Rigidbody2D.angularDrag=swimmingAngularDrag;
 		}
+		
 	}
 
 	private void OnTriggerExit2D(Collider2D hit){
-		if(hit.gameObject.tag =="Water"){
-			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
-			isSwimming = !isSwimming;
-			if(!isSwimming){
-				m_Rigidbody2D.gravityScale=defaultGravity;
-				m_Rigidbody2D.angularDrag=defaultAngularDrag;
-			}
+		// If we are exiting something else than water, return
+		if (hit.gameObject.tag != "Water") return;
+		
+		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
+		isSwimming = !isSwimming;
+		if(!isSwimming){
+			m_Rigidbody2D.gravityScale=defaultGravity;
+			m_Rigidbody2D.angularDrag=defaultAngularDrag;
 		}
+		
 	}
 
 	private void Update()
@@ -126,18 +131,18 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject)
-			{
-				m_Grounded = true;
-				if (!wasGrounded)
-					OnLandEvent.Invoke();
-			}
+			// If current collider belongs to player (this), skip to next
+			if (colliders[i].gameObject == gameObject) continue;
+
+			// Otherwise, ground player call OnLandEvent if player wasnt grounded
+			m_Grounded = true;
+			if (!wasGrounded)
+				OnLandEvent.Invoke();
+
 		}
 
-		if (m_Grounded && !wasGrounded)
-		{
-			jumpsLeft = extraJumps+1;
-		}
+		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps+1;
+
 
 		// Attack
 		if(Input.GetMouseButton(0) && AttackTimer <= 0f)

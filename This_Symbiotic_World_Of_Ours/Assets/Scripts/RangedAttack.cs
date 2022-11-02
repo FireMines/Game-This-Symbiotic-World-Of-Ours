@@ -12,13 +12,16 @@ public class RangedAttack : MonoBehaviour
                         _OrbitDeceleration = 0.07f, // How much the projectile decelerates, while in orbit.
                         _OrbitBeginRadius = 1.4f;   // How far away from the player the projectile must be, before starting to orbit.
     public Vector2      _Vel;
+    private GameObject  cam;
+    private CameraShake cameraShake;
 
     private bool        launched = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam = Camera.main.gameObject;
+        cameraShake = cam.GetComponent<CameraShake>();
     }
 
     private void Update()
@@ -75,11 +78,22 @@ public class RangedAttack : MonoBehaviour
 
         // If we're "touching" the target, hit it
         float distance2 = Vector2.Distance(_Target.transform.position, transform.position);
-        if (distance2 <= 2f) HitTarget();
+        if (distance2 <= .5f) HitTarget();
     }
 
     void HitTarget()
     {
+        //CameraShake test;
+        //StartCoroutine(test.Shake(1f, 5f));
+        //CinemachineShake.Instance.ShakeCamera(5f, 1.1f);
+        //if (usedUp == true) return;
+
+        cameraShake.StartShake();
+
+        //usedUp = true;
+
+        //gameObject.SetActive(false);
         Destroy(gameObject);
+
     }
 }

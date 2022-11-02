@@ -11,13 +11,10 @@ public class SceneLoader : MonoBehaviour
     // Public variables
     public string           SceneToLoad,
                             BelongsToScene;
-    public LoadSceneMode    SceneLoadMode = LoadSceneMode.Single;
-    public GameObject[]     DontDestroy;
     public ContactFilter2D  TriggerFilter;
 
     // Private variables
     private Collider2D  triggerCollider;
-    private AsyncOperation sceneAsync;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +27,12 @@ public class SceneLoader : MonoBehaviour
     void FixedUpdate()
     {
         // Don't update if we're in a different scene
-        if (SceneManager.GetActiveScene().name != BelongsToScene) return;
+        /**if (SceneManager.GetActiveScene().name != BelongsToScene)
+        {
+            print(SceneManager.GetActiveScene().name);
+            return;
+        }*/
+
 
         // Check for collisions with the trigger-box
         List<Collider2D> colliders = new List<Collider2D>();
@@ -55,7 +57,17 @@ public class SceneLoader : MonoBehaviour
             crossfade.StartCrossfade();
         }
 
+        // Unload all other scenes that arent DoNotUnload
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            // Skips unloading if its in the DoNotUnload Scene
+            if (SceneManager.GetSceneAt(i).name == "DoNotUnload") continue;
+
+            // Unloads all scenes passed through
+            SceneManager.UnloadScene(SceneManager.GetSceneAt(i));
+        }
+
         // Load scene
-        SceneManager.LoadScene(SceneToLoad, SceneLoadMode);
+        SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Additive);
     }
 }
