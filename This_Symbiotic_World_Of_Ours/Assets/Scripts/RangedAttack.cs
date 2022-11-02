@@ -7,21 +7,19 @@ public class RangedAttack : MonoBehaviour
     [Header("Set by scripts")]
     public GameObject   _Player;
     public GameObject   _Target;
-    public float        _ProjectileAcceleration,    // How fast the projectile accelerates towards the enemy.
+    public float _ProjectileAcceleration,    // How fast the projectile accelerates towards the enemy.
                         _OrbitAcceleration = 25f,   // How fast the projectile accelerates around the player, while in orbit.
                         _OrbitDeceleration = 0.07f, // How much the projectile decelerates, while in orbit.
-                        _OrbitBeginRadius = 1.4f;   // How far away from the player the projectile must be, before starting to orbit.
+                        _OrbitBeginRadius = 1.4f,   // How far away from the player the projectile must be, before starting to orbit.
+                        _CameraShakeDuration = 0.1f;
     public Vector2      _Vel;
     private GameObject  cam;
-    private CameraShake cameraShake;
 
     private bool        launched = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main.gameObject;
-        cameraShake = cam.GetComponent<CameraShake>();
     }
 
     private void Update()
@@ -83,17 +81,7 @@ public class RangedAttack : MonoBehaviour
 
     void HitTarget()
     {
-        //CameraShake test;
-        //StartCoroutine(test.Shake(1f, 5f));
-        //CinemachineShake.Instance.ShakeCamera(5f, 1.1f);
-        //if (usedUp == true) return;
-
-        cameraShake.StartShake();
-
-        //usedUp = true;
-
-        //gameObject.SetActive(false);
+        CinemachineCameraShaker.Instance.ShakeCamera(_CameraShakeDuration);
         Destroy(gameObject);
-
     }
 }

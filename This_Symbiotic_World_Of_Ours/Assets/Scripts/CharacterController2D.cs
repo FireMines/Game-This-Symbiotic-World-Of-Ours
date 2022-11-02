@@ -72,7 +72,8 @@ public class CharacterController2D : MonoBehaviour
 	public float Backdraft				= 5f,
 				 OrbitAcceleration		= 25f,		// How fast the projectile accelerates around the player, while in orbit.
 				 OrbitDeceleration		= 0.07f,	// How much the projectile decelerates, while in orbit.
-				 OrbitBeginRadius		= 1.4f;		// How far away from the player the projectile must be, before starting to orbit.
+				 OrbitBeginRadius		= 1.4f,     // How far away from the player the projectile must be, before starting to orbit.
+				 CameraShakeDuration	= 0.1f;
 
 
 
@@ -213,6 +214,7 @@ public class CharacterController2D : MonoBehaviour
 		cloneProjectileScript._OrbitDeceleration		= OrbitDeceleration;
 		cloneProjectileScript._OrbitBeginRadius			= OrbitBeginRadius;
 		cloneProjectileScript._Player					= gameObject;
+		cloneProjectileScript._CameraShakeDuration		= CameraShakeDuration;
 
 		// Decide the initial velocity of the projectile
 		Vector3 dir = (selectedUnit.transform.position - transform.position).normalized;
