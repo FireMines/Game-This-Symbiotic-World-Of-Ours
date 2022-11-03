@@ -25,15 +25,6 @@ public class CharacterController2D : MonoBehaviour
 	private int extraJumps = 0,
 				jumpsLeft = 0;
 
-	//values to enable/disable swimming
-	private bool isSwimming=false;
-	private float swimmingGravity=0.5f;
-	private float defaultGravity=3f;
-	private float swimmingLinearDrag=1f;
-	private float defaultLinearDrag=0f;
-	private float swimmingAngularDrag=1f;
-	private float defaultAngularDrag=0.05f;
-
 	[Header("Events")]
 	[Space]
 
@@ -57,7 +48,6 @@ public class CharacterController2D : MonoBehaviour
 		}
     }
 
-<<<<<<< HEAD:This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs
 	[Header("Swimming")]
 	private bool  isSwimming			= false;
 	private float swimmingGravity		= 0.5f;
@@ -87,8 +77,6 @@ public class CharacterController2D : MonoBehaviour
 
 
 
-=======
->>>>>>> main:This_Symbiotic_World_Of_Ours/Assets/CharacterController2D.cs
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -100,7 +88,6 @@ public class CharacterController2D : MonoBehaviour
 			OnCrouchEvent = new BoolEvent();
 	}
 
-<<<<<<< HEAD:This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs
 	private void OnTriggerEnter2D(Collider2D hit){
 		// If we are entering something else than water, return
 		if (hit.gameObject.tag != "Water") return;
@@ -115,27 +102,11 @@ public class CharacterController2D : MonoBehaviour
 			//set player gravity to swimmingGravity if the player starts swimming
 			m_Rigidbody2D.gravityScale=swimmingGravity;
 			m_Rigidbody2D.angularDrag=swimmingAngularDrag;
-=======
-	private void OnTriggerEnter2D(Collider2D hit){
-		if(hit.gameObject.tag =="Water"){
-			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
-			isSwimming = !isSwimming;
-			//makes character stop moving when it hits the water but it looks kinda weird:
-			//=>TO DO: make player "bounce" to top when he hits water or slow down
-			m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-			m_Rigidbody2D.angularVelocity = 0f;
-			if(isSwimming){
-				//set player gravity to swimmingGravity if the player starts swimming
-				m_Rigidbody2D.gravityScale=swimmingGravity;
-				m_Rigidbody2D.angularDrag=swimmingAngularDrag;
-			}
->>>>>>> main:This_Symbiotic_World_Of_Ours/Assets/CharacterController2D.cs
 		}
 		
 	}
 
 	private void OnTriggerExit2D(Collider2D hit){
-<<<<<<< HEAD:This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs
 		// If we are exiting something else than water, return
 		if (hit.gameObject.tag != "Water") return;
 		
@@ -144,15 +115,6 @@ public class CharacterController2D : MonoBehaviour
 		if(!isSwimming){
 			m_Rigidbody2D.gravityScale=defaultGravity;
 			m_Rigidbody2D.angularDrag=defaultAngularDrag;
-=======
-		if(hit.gameObject.tag =="Water"){
-			//if player exits the water, they are no longer swimming and values go back to default
-			isSwimming = !isSwimming;
-			if(!isSwimming){
-				m_Rigidbody2D.gravityScale=defaultGravity;
-				m_Rigidbody2D.angularDrag=defaultAngularDrag;
-			}
->>>>>>> main:This_Symbiotic_World_Of_Ours/Assets/CharacterController2D.cs
 		}
 		
 	}
@@ -265,7 +227,7 @@ public class CharacterController2D : MonoBehaviour
 	public void Move(float move, bool crouch, bool jump)
 	{
 		
-		//downward and upward movement instead of crouch and jump when is swimming
+		//add downward and upward movement instead of crouch and jump when is swimming
 		if(isSwimming&&jump||isSwimming&&Input.GetKeyDown(KeyCode.W)){
 			m_Rigidbody2D.AddForce(new Vector2(0f, 100f));
 		}else if(isSwimming&&crouch){

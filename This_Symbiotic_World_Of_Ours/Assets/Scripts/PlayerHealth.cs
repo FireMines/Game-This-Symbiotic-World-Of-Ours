@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 20;
-    [SerializeField] private int health;
+    public int maxHealth=10;
+    public int health;
 
+    // Start is called before the first frame update
     void Start()
     {
-        //player health is set to max when the game starts
-        health=maxHealth;   
+     health=maxHealth;   
     }
 
     public void takeDamage(int damage){
-        //damage is deducted from player's current health
         health-=damage;
         if(health<=0){
-            //player dies at health=0
-            Debug.Log("Player is dead"); 
-            //now what?
+            Debug.Log("Player is dead");
+           // Destroy(gameObject);
         }
     }
 }
