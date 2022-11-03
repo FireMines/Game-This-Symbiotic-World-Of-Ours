@@ -25,6 +25,15 @@ public class CharacterController2D : MonoBehaviour
 	private int extraJumps = 0,
 				jumpsLeft = 0;
 
+	//values to enable/disable swimming
+	private bool isSwimming=false;
+	private float swimmingGravity=0.5f;
+	private float defaultGravity=3f;
+	private float swimmingLinearDrag=1f;
+	private float defaultLinearDrag=0f;
+	private float swimmingAngularDrag=1f;
+	private float defaultAngularDrag=0.05f;
+
 	[Header("Events")]
 	[Space]
 
@@ -48,15 +57,6 @@ public class CharacterController2D : MonoBehaviour
 		}
     }
 
-	private bool isSwimming=false;
-	private float swimmingGravity=0.5f;
-	private float defaultGravity=3f;
-	private float swimmingLinearDrag=1f;
-	private float defaultLinearDrag=0f;
-	private float swimmingAngularDrag=1f;
-	private float defaultAngularDrag=0.05f;
-
-
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -72,9 +72,10 @@ public class CharacterController2D : MonoBehaviour
 		if(hit.gameObject.tag =="Water"){
 			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 			isSwimming = !isSwimming;
-			//makes character stop moving when it hits the water but it looks kinda weird
-			//m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-			//m_Rigidbody2D.angularVelocity = 0f;
+			//makes character stop moving when it hits the water but it looks kinda weird:
+			//=>TO DO: make player "bounce" to top when he hits water or slow down
+			m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+			m_Rigidbody2D.angularVelocity = 0f;
 			if(isSwimming){
 				//set player gravity to swimmingGravity if the player starts swimming
 				m_Rigidbody2D.gravityScale=swimmingGravity;
@@ -85,7 +86,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D hit){
 		if(hit.gameObject.tag =="Water"){
-			//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
+			//if player exits the water, they are no longer swimming and values go back to default
 			isSwimming = !isSwimming;
 			if(!isSwimming){
 				m_Rigidbody2D.gravityScale=defaultGravity;
@@ -122,7 +123,7 @@ public class CharacterController2D : MonoBehaviour
 	public void Move(float move, bool crouch, bool jump)
 	{
 		
-		//add downward and upward movement instead of crouch and jump when is swimming
+		//downward and upward movement instead of crouch and jump when is swimming
 		if(isSwimming&&jump||isSwimming&&Input.GetKeyDown(KeyCode.W)){
 			m_Rigidbody2D.AddForce(new Vector2(0f, 100f));
 		}else if(isSwimming&&crouch){

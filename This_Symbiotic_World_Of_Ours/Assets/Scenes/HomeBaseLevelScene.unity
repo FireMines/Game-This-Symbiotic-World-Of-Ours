@@ -7764,6 +7764,7 @@ GameObject:
   - component: {fileID: 697168396}
   - component: {fileID: 697168395}
   - component: {fileID: 697168394}
+  - component: {fileID: 697168397}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -7799,10 +7800,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc8d146f4adec479322faccd24f940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 10582561}
+  targetRange: 0
+  speed: 0.01
   damage: 1
   playerHealth: {fileID: 10582571}
   _enemySprite: {fileID: 416674359}
-  distance: 5
 --- !u!50 &697168395
 Rigidbody2D:
   serializedVersion: 4
@@ -7850,6 +7853,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6801095, y: 0.51254916}
   m_EdgeRadius: 0
+--- !u!114 &697168397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697168392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f6972c04f81474db4fc75d6bc6a32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  health: 5
 --- !u!1 &704574250
 GameObject:
   m_ObjectHideFlags: 0
