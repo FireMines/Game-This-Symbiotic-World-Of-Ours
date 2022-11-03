@@ -222,7 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabDetect: {fileID: 2032910528}
   boxHolder: {fileID: 848299641}
-  rayDist: 0
+  rayDistance: 0
+  objectMass: 10
 --- !u!114 &10582571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7801,7 +7802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 10582561}
-  targetRange: 0
+  targetRange: 10
   speed: 0.01
   damage: 1
   playerHealth: {fileID: 10582571}

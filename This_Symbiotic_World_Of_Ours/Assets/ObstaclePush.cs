@@ -13,7 +13,7 @@ public class ObstaclePush : MonoBehaviour
     void Update(){
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDistance);
         if(grabCheck.collider != null && grabCheck.collider.tag!="Enemy"){//collided game object is not an enemy
-            if(grabCheck.collider != null && grabCheck.collider.gameObject.GetComponent<Rigidbody2D>()!= null && grabCheck.collider.tag != "Pushable" ){ 4
+            if(grabCheck.collider != null && grabCheck.collider.gameObject.GetComponent<Rigidbody2D>()!= null && grabCheck.collider.tag != "Pushable" ){
                 //freeze it's position if it's not pushable
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             }
