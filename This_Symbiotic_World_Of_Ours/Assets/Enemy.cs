@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private int movementIndex = 1;
     private int numberOfCalls;
     private bool counterUp = true; // position = position +1 if true, -1 if false   
-    
+
     private void Start(){
         //get the enemies starting position as the "main" position the enemy moves from
         XPosition = transform.position.x;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     private void enemyMovement(){
         //move the enemy a set distance from the starting point and then back(e.g. +/-5)
-        //TODO: add player detection
+        //TODO: add player detection, meaning as soon as ememy "sees" player it walks towards him
         float newXPosition = 0f;
         if(counterUp){
             XPosition = XPosition+0.01f;
