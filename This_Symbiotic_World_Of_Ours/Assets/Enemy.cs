@@ -10,12 +10,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damage; //how much damage does the enemy do
     [SerializeField] private PlayerHealth playerHealth; //Player Health script with the takeDamage function
     [SerializeField] private SpriteRenderer _enemySprite; 
+    [SerializeField] private Rigidbody2D _enemyRB; 
     private const int distance = 500; //how far does the enemy walk when player is not in range
     private float XPosition; //current position of the enemy
     private int movementIndex = 1; //measures the distance that the enemy has walked so far
     private bool counterUp = true; // position = position +1 if true, -1 if false
     
 	private bool m_FacingRight = true;  // For determining which way the enemy is currently facing.
+
+    private bool isBouncing = false;
 
     private void Start(){
         //get the enemies starting position as the starting position the enemy moves from
@@ -68,10 +71,10 @@ public class Enemy : MonoBehaviour
 
     private void Flip()
 	{
-		// Switch the way the player is labelled as facing.
+		// Switch the way the enemy is labelled as facing.
 		m_FacingRight = !m_FacingRight;
 
-		// Multiply the player's x local scale by -1.
+		// Multiply the enemy's x local scale by -1.
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
@@ -81,8 +84,16 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag=="Player"){
             playerHealth.takeDamage(damage); //enemy damages player when the player is hit
             Debug.Log("Damage taken");
-            //either have enemy "bounce back" after hit or how else do we want them to attack?
+            //enemy "bounces" back when it hits the player
+            float bounceForce = 200f; //amount of force to apply
+            _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
+            isBouncing = true;
+            Invoke("StopBouncing", 0.3f);
         }
+    }
+    private void StopBouncing()
+    {
+        isBouncing = false;
     }
 
 }

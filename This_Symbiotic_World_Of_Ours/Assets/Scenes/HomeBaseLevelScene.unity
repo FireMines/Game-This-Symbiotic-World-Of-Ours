@@ -7807,6 +7807,7 @@ MonoBehaviour:
   damage: 1
   playerHealth: {fileID: 10582571}
   _enemySprite: {fileID: 416674359}
+  _enemyRB: {fileID: 697168395}
 --- !u!50 &697168395
 Rigidbody2D:
   serializedVersion: 4
