@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: -comment all my code!!
+//      -flip enemy when it turns around  
+
 public class Enemy : MonoBehaviour
 {
+    public Transform target;
+    public float targetRange;
+    public float speed;
     [SerializeField] private int damage;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private SpriteRenderer _enemySprite;
     private const int distance = 500;
     private float XPosition;
     private int movementIndex = 1;
-    private int numberOfCalls;
     private bool counterUp = true; // position = position +1 if true, -1 if false   
 
     private void Start(){
         //get the enemies starting position as the "main" position the enemy moves from
         XPosition = transform.position.x;
-        numberOfCalls = distance*100;
     }
     private void Update(){
         enemyMovement();
@@ -24,7 +28,12 @@ public class Enemy : MonoBehaviour
 
     private void enemyMovement(){
         //move the enemy a set distance from the starting point and then back(e.g. +/-5)
-        //TODO: add player detection, meaning as soon as ememy "sees" player it walks towards him
+        //player detection, meaning as soon as ememy "sees" player it walks towards him
+        float playerDistance = Vector3.Distance(target.position, transform.position);
+        if(playerDistance <= targetRange){
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);      
+        }else{
+
         float newXPosition = 0f;
         if(counterUp){
             XPosition = XPosition+0.01f;
@@ -42,6 +51,7 @@ public class Enemy : MonoBehaviour
             case distance:
                 counterUp=false;
                 break;
+        }
         }
     }
 
