@@ -9,6 +9,7 @@ TagManager:
   - Water
   - SceneLoader
   - Enemy
+  - Pushable
   layers:
   - Default
   - TransparentFX
