@@ -388,6 +388,7 @@ public class CharacterController2D : MonoBehaviour
 
 
 
+
 			//Abilities tied to the second orb
 			if (OrbsCollected[OrbController.Element.Water] > 1)
 			{
