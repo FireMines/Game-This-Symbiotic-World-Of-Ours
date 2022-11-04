@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform target; //enemies target -> probably player
+    //[SerializeField] private Transform target; //enemies target -> probably player
     [SerializeField] private float targetRange; //how close must player get to be detected
     [SerializeField] private float speed; //how fast does the enemy move towards the player
     [SerializeField] private int damage; //how much damage does the enemy do
-    [SerializeField] private PlayerHealth playerHealth; //Player Health script with the takeDamage function
+    private PlayerHealth playerHealth; //Player Health script with the takeDamage function
     [SerializeField] private SpriteRenderer _enemySprite; 
     [SerializeField] private Rigidbody2D _enemyRB; 
     private const int distance = 500; //how far does the enemy walk when player is not in range
@@ -20,27 +20,32 @@ public class Enemy : MonoBehaviour
 
     private bool isBouncing = false;
 
+    private Transform target;
+
     private void Start(){
         //get the enemies starting position as the starting position the enemy moves from
         XPosition = transform.position.x;
+        target=GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void Update(){
         enemyMovement();
     }
 
     private void enemyMovement(){
-        //player detection, meaning as soon as ememy "sees" player (player is within range distance) it walks towards him
-        float playerDistance = Vector3.Distance(target.position, transform.position);
 
+        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        //player detection, meaning as soon as ememy "sees" player (player is within range distance) it walks towards him
+        float playerDistance = Vector2.Distance(playerGameObject.transform.position, transform.position);
+  
         if(playerDistance <= targetRange){
             //if player pos>enemy pos and enemy is facing left -> flip
-            if(target.transform.position.x>transform.position.x&&m_FacingRight){
+            if(playerGameObject.transform.position.x>transform.position.x&&m_FacingRight){
                 Flip();
-            } else if(target.transform.position.x<transform.position.x&&!m_FacingRight){
+            } else if(playerGameObject.transform.position.x<transform.position.x&&!m_FacingRight){
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);      
+            transform.position = Vector3.MoveTowards(transform.position, playerGameObject.transform.position, speed);      
         }else{
             //move the enemy a set distance from the starting point and then back
             if(counterUp){
@@ -81,6 +86,7 @@ public class Enemy : MonoBehaviour
 	}
 
     private void OnCollisionEnter2D(Collision2D collision){
+        playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
         if(collision.gameObject.tag=="Player"){
             playerHealth.takeDamage(damage); //enemy damages player when the player is hit
             Debug.Log("Damage taken");
