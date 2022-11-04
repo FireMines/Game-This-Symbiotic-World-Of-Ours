@@ -34,18 +34,20 @@ public class Enemy : MonoBehaviour
     private void enemyMovement(){
 
         GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        Vector3 playerPos = playerGameObject.transform.position;
         //player detection, meaning as soon as ememy "sees" player (player is within range distance) it walks towards him
-        float playerDistance = Vector2.Distance(playerGameObject.transform.position, transform.position);
+        float playerDistance = Vector2.Distance(playerPos, transform.position);
   
         if(playerDistance <= targetRange){
             //if player pos>enemy pos and enemy is facing left -> flip
-            if(playerGameObject.transform.position.x>transform.position.x&&m_FacingRight){
+            if(playerPos.x>transform.position.x&&m_FacingRight){
                 Flip();
-            } else if(playerGameObject.transform.position.x<transform.position.x&&!m_FacingRight){
+            } else if(playerPos.x<transform.position.x&&!m_FacingRight){
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
-            transform.position = Vector3.MoveTowards(transform.position, playerGameObject.transform.position, speed);      
+
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, speed * Time.deltaTime);      
         }else{
             //move the enemy a set distance from the starting point and then back
             if(counterUp){
