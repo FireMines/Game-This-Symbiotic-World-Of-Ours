@@ -40,27 +40,29 @@ public class Enemy : MonoBehaviour
   
         if(playerDistance <= targetRange){
             //if player pos>enemy pos and enemy is facing left -> flip
-            if(playerPos.x>transform.position.x&&m_FacingRight){
+            if(playerPos.x > XPosition && m_FacingRight){
                 Flip();
-            } else if(playerPos.x<transform.position.x&&!m_FacingRight){
+            } else if(playerPos.x < transform.position.x  &&! m_FacingRight){
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
-           float move = speed * Time.fixedDeltaTime;///4000f;
-           print(move);
+            float move = speed * Time.fixedDeltaTime;///4000f;
+            print(move);
             transform.position = Vector2.MoveTowards(transform.position, playerPos, move / 80f);      //* Time.deltaTime makes the enemy not move
+            XPosition = transform.position.x;
         }else{
             //move the enemy a set distance from the starting point and then back
             if(counterUp){
                 //counterUp is true when the enemy is moving right(position=position+0.01), and false if the enemy is moving left(position=position-0.01)
-                XPosition = XPosition+0.01f;
+                XPosition = XPosition + 0.01f;
                 movementIndex++;
             }else{
-                XPosition = XPosition-0.01f;
+                XPosition = XPosition - 0.01f;
                 movementIndex--;
             }
 
             transform.position = new Vector3(XPosition, transform.position.y, transform.position.z); //move player
+            //Vector3 playerPos = playerGameObject.transform.position;
             
             switch(movementIndex){
                 //set counter up true if the enemy is at its starting position and has to turn around
