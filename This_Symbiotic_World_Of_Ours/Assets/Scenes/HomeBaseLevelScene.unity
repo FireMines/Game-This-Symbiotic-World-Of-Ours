@@ -5178,7 +5178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRange: 10
-  speed: 0.01
+  speed: 30
   damage: 1
   _enemySprite: {fileID: 416674359}
   _enemyRB: {fileID: 416674358}
@@ -20852,7 +20852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRange: 10
-  speed: 0.01
+  speed: 30
   damage: 1
   _enemySprite: {fileID: 1563126243}
   _enemyRB: {fileID: 1563126242}

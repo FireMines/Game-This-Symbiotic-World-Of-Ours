@@ -95,7 +95,7 @@ public class CharacterController2D : MonoBehaviour
 		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 		isSwimming = !isSwimming;
 
-		//makes character stop moving when it hits the water but it looks kinda weird
+		//makes character stop moving when it hits the water but it looks kinda weird:
 		//m_Rigidbody2D.velocity = new Vector2(0f, 0f);
 		//m_Rigidbody2D.angularVelocity = 0f;
 		if(isSwimming){

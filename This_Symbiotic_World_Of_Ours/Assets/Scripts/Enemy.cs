@@ -46,8 +46,9 @@ public class Enemy : MonoBehaviour
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
-
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, speed * Time.deltaTime);      
+           float move = speed * Time.fixedDeltaTime;///4000f;
+           print(move);
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, move / 80f);      //* Time.deltaTime makes the enemy not move
         }else{
             //move the enemy a set distance from the starting point and then back
             if(counterUp){
@@ -96,7 +97,7 @@ public class Enemy : MonoBehaviour
             float bounceForce = 200f; //amount of force to apply
             _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
             isBouncing = true;
-            Invoke("StopBouncing", 0.3f);
+            Invoke("StopBouncing", 0.2f);
         }
     }
     private void StopBouncing()
