@@ -50,11 +50,11 @@ TagManager:
   - name: House and rocks
     uniqueID: 1465800601
     locked: 0
-  - name: Main ground
-    uniqueID: 3651463169
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Main ground
+    uniqueID: 3651463169
     locked: 0
   - name: Above shit
     uniqueID: 16022355

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3dac8f6cbf0fd8244b018eba7db67e96
+guid: 66cfac33956e9b74ca26213896ecc4fd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,169 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run-sheet_0
+      name: enemy_walk-sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1569
-        width: 1190
-        height: 931
+        y: 780
+        width: 770
+        height: 770
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c51005e5fd9e142a6a5fd6363e09d7
-      internalID: -36563088
+      spriteID: 3b1c3ba9d47204340b596adfdb541313
+      internalID: 525618311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run-sheet_1
+      name: enemy_walk-sheet_1
       rect:
         serializedVersion: 2
-        x: 1190
-        y: 1569
-        width: 1190
-        height: 931
+        x: 770
+        y: 780
+        width: 770
+        height: 770
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01e7da21dfe570640a1a55570c9f9da9
-      internalID: -987566315
+      spriteID: 52fa68d85b8ee3c42ae8cdf8a7e8c652
+      internalID: 1052202580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run-sheet_2
+      name: enemy_walk-sheet_2
       rect:
         serializedVersion: 2
-        x: 2380
-        y: 1569
-        width: 1190
-        height: 931
+        x: 0
+        y: 10
+        width: 770
+        height: 770
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a7d95f52bda5414daaeb4c7df93b6b8
-      internalID: -1037879462
+      spriteID: 5549e7a94c03c054a93e0f3576884a49
+      internalID: -958959256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run-sheet_3
+      name: enemy_walk-sheet_3
       rect:
         serializedVersion: 2
-        x: 3579
-        y: 1569
-        width: 1190
-        height: 931
+        x: 770
+        y: 10
+        width: 770
+        height: 770
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4fc6facb324a8043899f9c11fc004ed
-      internalID: 1219309459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run-sheet_4
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 339
-        width: 1190
-        height: 931
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d820f8de2dfec624786b666ec6b9d6d3
-      internalID: -1651990860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run-sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1190
-        y: 339
-        width: 1190
-        height: 961
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2a730aa775942242b833487a7d337d0
-      internalID: -1020100924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run-sheet_6
-      rect:
-        serializedVersion: 2
-        x: 2371
-        y: 339
-        width: 1190
-        height: 961
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0a9ef0326aac3941b9435e0c008242c
-      internalID: -1430926575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run-sheet_7
-      rect:
-        serializedVersion: 2
-        x: 3570
-        y: 339
-        width: 1190
-        height: 961
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d571261505154af4cba7f233ea6b4348
-      internalID: -1280786821
+      spriteID: 3b62ade693a1b6942afa17928e37e984
+      internalID: -847642868
       vertices: []
       indices: 
       edges: []
@@ -283,14 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      run-sheet_4: -1651990860
-      run-sheet_5: -1020100924
-      run-sheet_0: -36563088
-      run-sheet_3: 1219309459
-      run-sheet_6: -1430926575
-      run-sheet_1: -987566315
-      run-sheet_7: -1280786821
-      run-sheet_2: -1037879462
+      enemy_walk-sheet_2: -958959256
+      enemy_walk-sheet_0: 525618311
+      enemy_walk-sheet_3: -847642868
+      enemy_walk-sheet_1: 1052202580
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

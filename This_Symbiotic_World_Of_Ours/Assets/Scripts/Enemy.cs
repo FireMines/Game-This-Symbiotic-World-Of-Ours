@@ -40,9 +40,9 @@ public class Enemy : MonoBehaviour
   
         if(playerDistance <= targetRange){
             //if player pos>enemy pos and enemy is facing left -> flip
-            if(playerPos.x > XPosition && m_FacingRight){
+            if(playerPos.x < XPosition && m_FacingRight){
                 Flip();
-            } else if(playerPos.x < transform.position.x  &&! m_FacingRight){
+            } else if(playerPos.x > transform.position.x  &&! m_FacingRight){
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
