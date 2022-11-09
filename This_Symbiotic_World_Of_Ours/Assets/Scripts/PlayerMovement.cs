@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 50f;
 
+    float swimmingGravityForce = 3;
+
     float horizontalMove = 0f;
     float verticalMove = 0f;
     bool jump = false;
@@ -24,19 +26,20 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump") || Input.GetKey(KeyCode.W))
         {
             jump = true;
-            verticalMove = 40f;
+            verticalMove = swimmingGravityForce;
         }
+
 
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
+            verticalMove = swimmingGravityForce;
         } else if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
-            verticalMove=-40f;
         }
 
         print(verticalMove);

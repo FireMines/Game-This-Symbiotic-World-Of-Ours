@@ -53,9 +53,9 @@ public class CharacterController2D : MonoBehaviour
 
 	[Header("Swimming")]
 	private bool  isSwimming			= false;
-	private float swimmingGravity		= 0.5f;
+	private float swimmingGravity		= 0.2f;
 	private float defaultGravity		= 3f;
-	private float swimmingAngularDrag	= 1f;
+	private float swimmingAngularDrag	= 2f;
 	private float defaultAngularDrag	= 0.05f;
 
 	[Header("Attack visualizing and attack unit")]
@@ -232,7 +232,7 @@ public class CharacterController2D : MonoBehaviour
 	{
 		
 		//add downward and upward movement instead of crouch and jump when is swimming
-		if(isSwimming&&jump){//|| isSwimming&&Input.GetKeyDown(KeyCode.W)){
+		if(isSwimming&&jump){
 			// Move the character by finding the target velocity
 				Vector3 targetVelocity = new Vector2(m_Rigidbody2D.velocity.x, verticalMove);
 				// And then smoothing it out and applying it to the character
