@@ -17,6 +17,8 @@ public class RangedAttack : MonoBehaviour
 
     private bool        launched = false;
 
+    public AudioClip AttackImpactNoise;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +83,7 @@ public class RangedAttack : MonoBehaviour
 
     void HitTarget()
     {
+        SoundManager.Instance.Play(AttackImpactNoise);
         CinemachineCameraShaker.Instance.ShakeCamera(_CameraShakeDuration);
         Destroy(gameObject);
     }
