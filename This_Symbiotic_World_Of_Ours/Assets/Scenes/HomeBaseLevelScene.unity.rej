@@ -1,0 +1,32 @@
+diff a/This_Symbiotic_World_Of_Ours/Assets/Scenes/HomeBaseLevelScene.unity b/This_Symbiotic_World_Of_Ours/Assets/Scenes/HomeBaseLevelScene.unity	(rejected hunks)
+@@ -292,6 +292,30 @@
+   m_WasSpriteAssigned: 1
+   m_MaskInteraction: 0
+   m_SpriteSortPoint: 0
++=======
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: a120f0d93b117a14198e67b15be9121f, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  grabDetect: {fileID: 2032910528}
++  boxHolder: {fileID: 848299641}
++  rayDistance: 0
++  objectMass: 10
++--- !u!114 &10582571
++MonoBehaviour:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 10582553}
++  m_Enabled: 1
++  m_EditorHideFlags: 0
++  m_Script: {fileID: 11500000, guid: da521a481a37c494cbb954e3a508f9f7, type: 3}
++  m_Name: 
++  m_EditorClassIdentifier: 
++  maxHealth: 10
++  health: 0
++>>>>>>> main
+ --- !u!1 &19436793
+ GameObject:
+   m_ObjectHideFlags: 0
