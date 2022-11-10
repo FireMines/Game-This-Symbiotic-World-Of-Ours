@@ -10,10 +10,20 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         //enemy health is set to max when the game starts
-        health=maxHealth;   
+        health=maxHealth;
+        UpdateHealth();
     }
 
-    public void takeDamage(int damage){
+    public void UpdateHealth()
+    {
+        if (health <= 0)
+        {
+            Debug.Log("Blobb");
+
+        }
+    }
+
+        public void takeDamage(int damage){
         //damage is deducted from enemy's current health
         health-=damage;
         if(health<=0){

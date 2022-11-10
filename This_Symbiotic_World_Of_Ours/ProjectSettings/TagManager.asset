@@ -10,6 +10,7 @@ TagManager:
   - SceneLoader
   - Enemy
   - Pushable
+  - Health
   layers:
   - Default
   - TransparentFX

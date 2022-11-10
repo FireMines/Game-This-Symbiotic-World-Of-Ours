@@ -7,13 +7,17 @@ public class RangedAttack : MonoBehaviour
     [Header("Set by scripts")]
     public GameObject   _Player;
     public GameObject   _Target;
-    public float _ProjectileAcceleration,    // How fast the projectile accelerates towards the enemy.
+    public float _ProjectileAcceleration,           // How fast the projectile accelerates towards the enemy.
                         _OrbitAcceleration = 25f,   // How fast the projectile accelerates around the player, while in orbit.
                         _OrbitDeceleration = 0.07f, // How much the projectile decelerates, while in orbit.
                         _OrbitBeginRadius = 1.4f,   // How far away from the player the projectile must be, before starting to orbit.
                         _CameraShakeDuration = 0.1f;
     public Vector2      _Vel;
     private GameObject  cam;
+
+    [SerializeField] private int damage;            //how much damage does the enemy do
+
+    private EnemyHealth enemyHealth;                      //Player Health script with the takeDamage function
 
     private bool        launched = false;
 
@@ -85,6 +89,20 @@ public class RangedAttack : MonoBehaviour
     {
         SoundManager.Instance.Play(AttackImpactNoise);
         CinemachineCameraShaker.Instance.ShakeCamera(_CameraShakeDuration);
+        //enemyHealth.takeDamage(damage);
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+        if (collision.gameObject.tag == "Player")
+        {
+            enemyHealth.takeDamage(damage); //enemy damages player when the player is hit
+            Debug.Log("Damage " + damage + " taken" + " Health left: " + enemyHealth);
+
+        }
+    }
+
 }
+

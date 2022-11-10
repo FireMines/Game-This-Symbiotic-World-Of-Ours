@@ -5045,6 +5045,7 @@ GameObject:
   - component: {fileID: 416674361}
   - component: {fileID: 416674362}
   - component: {fileID: 416674363}
+  - component: {fileID: 416674364}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -5180,7 +5181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRange: 10
   speed: 50
-  damage: 1
+  damage: 25
+  enemyHealth: 0
   _enemySprite: {fileID: 416674359}
   _enemyRB: {fileID: 416674358}
 --- !u!95 &416674363
@@ -5203,6 +5205,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &416674364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416674355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10edf482b9f2d9d429a3495af749367d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  _healthController: {fileID: 0}
 --- !u!1 &427172327
 GameObject:
   m_ObjectHideFlags: 0
@@ -10198,12 +10214,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8904829
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.01163
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1830807
+      value: 10.3178
       objectReference: {fileID: 0}
     - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.54182255
+      value: 0.4567
       objectReference: {fileID: 0}
     - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20876,6 +20900,7 @@ MonoBehaviour:
   targetRange: 10
   speed: 50
   damage: 1
+  enemyHealth: 0
   _enemySprite: {fileID: 1563126243}
   _enemyRB: {fileID: 1563126242}
 --- !u!50 &1563126242
