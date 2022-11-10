@@ -63,6 +63,7 @@ public class CharacterController2D : MonoBehaviour
 	public GameObject	selectedUnit;
 
 	[Header("Stats")]
+	public float playerHealth			= 100f;
 	public float AttackRange			= 20f;
 	public float ProjectileAcceleration = 15f,
 				 AttackTimer			= 0f,
@@ -146,7 +147,7 @@ public class CharacterController2D : MonoBehaviour
 
 		}
 
-		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps+1;
+		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps;
 
 
 		// Attack
@@ -293,13 +294,13 @@ public class CharacterController2D : MonoBehaviour
 				if (Mathf.Abs(move) <= 0.01f)
                 {
 					m_Rigidbody2D.sharedMaterial = NotSlipperyMaterial;
-					GetComponent<BoxCollider2D>().sharedMaterial = NotSlipperyMaterial;
+					GetComponent<CapsuleCollider2D>().sharedMaterial = NotSlipperyMaterial;
 
 				}
 				else
                 {
 					m_Rigidbody2D.sharedMaterial = SlipperyMaterial;
-					GetComponent<BoxCollider2D>().sharedMaterial = SlipperyMaterial;
+					GetComponent<CapsuleCollider2D>().sharedMaterial = SlipperyMaterial;
 				}
 
 				// If the input is moving the player right and the player is facing left...
@@ -430,5 +431,17 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		//enable abilities based on the amount of orbs collected
+	}
+
+	public void takeDamage(int damage)
+	{
+		//damage is deducted from player's current health
+		playerHealth -= damage;
+		if (playerHealth <= 0)
+		{
+			//player dies at health=0
+			Debug.Log("Player is dead");
+			//now what?
+		}
 	}
 }

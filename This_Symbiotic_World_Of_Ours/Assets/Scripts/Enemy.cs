@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //[SerializeField] private Transform target; //enemies target -> probably player
-    [SerializeField] private float targetRange; //how close must player get to be detected
-    [SerializeField] private float speed; //how fast does the enemy move towards the player
-    [SerializeField] private int damage; //how much damage does the enemy do
-    private PlayerHealth playerHealth; //Player Health script with the takeDamage function
-    [SerializeField] private SpriteRenderer _enemySprite; 
-    [SerializeField] private Rigidbody2D _enemyRB; 
-    private const int distance = 500; //how far does the enemy walk when player is not in range
-    private float XPosition; //current position of the enemy
-    private int movementIndex = 1; //measures the distance that the enemy has walked so far
-    private bool counterUp = true; // position = position +1 if true, -1 if false
+    //[SerializeField] private Transform target;                //enemies target -> probably player
+    [SerializeField] private float          targetRange;        //how close must player get to be detected
+    [SerializeField] private float          speed;              //how fast does the enemy move towards the player
+    [SerializeField] private int            damage;             //how much damage does the enemy do
     
-	private bool m_FacingRight = true;  // For determining which way the enemy is currently facing.
+    private PlayerHealth                    playerHealth;       //Player Health script with the takeDamage function
+    [SerializeField] float                  enemyHealth;
+
+    [SerializeField] private SpriteRenderer _enemySprite; 
+    [SerializeField] private Rigidbody2D    _enemyRB; 
+    private const int                       distance = 500;     //how far does the enemy walk when player is not in range
+    private float                           XPosition;          //current position of the enemy
+    private int                             movementIndex = 1;  //measures the distance that the enemy has walked so far
+    private bool                            counterUp = true;   // position = position +1 if true, -1 if false
+    
+	private bool m_FacingRight = true;              // For determining which way the enemy is currently facing.
 
     private bool isBouncing = false;
 
@@ -93,7 +96,8 @@ public class Enemy : MonoBehaviour
         playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
         if(collision.gameObject.tag=="Player"){
             playerHealth.takeDamage(damage); //enemy damages player when the player is hit
-            Debug.Log("Damage taken");
+            Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealth);
+
             //enemy "bounces" back when it hits the player
             float bounceForce = 200f; //amount of force to apply
             _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
@@ -101,9 +105,22 @@ public class Enemy : MonoBehaviour
             Invoke("StopBouncing", 0.2f);
         }
     }
+
     private void StopBouncing()
     {
         isBouncing = false;
+    }
+
+    public void takeDamage(int damage)
+    {
+        //damage is deducted from enemy's current health
+        enemyHealth -= damage;
+        if (enemyHealth <= 0)
+        {
+            //enemy dies and the game object gets destroyed if its health=0
+            Debug.Log("Mother");
+            Destroy(gameObject);
+        }
     }
 
 }
