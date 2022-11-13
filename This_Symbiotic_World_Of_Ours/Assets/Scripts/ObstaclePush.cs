@@ -13,14 +13,13 @@ public class ObstaclePush : MonoBehaviour
     void Update(){
         
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDistance);
-        Rigidbody2D objectRB = grabCheck.collider.gameObject.GetComponent<Rigidbody2D>();
         if(grabCheck.collider != null && grabCheck.collider.tag!="Enemy"){//collided game object is not an enemy
-            if(grabCheck.collider != null && objectRB != null && grabCheck.collider.tag != "Pushable" ){
+            if(grabCheck.collider != null && grabCheck.collider.gameObject.GetComponent<Rigidbody2D>() != null && grabCheck.collider.tag != "Pushable" ){
                 //freeze it's position if it's not pushable
-                objectRB.constraints = RigidbodyConstraints2D.FreezePosition;
+                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             }
             if(grabCheck.collider != null && grabCheck.collider.tag == "Pushable" ){
-                 objectRB.constraints = RigidbodyConstraints2D.None;
+                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                 if(Input.GetKey(KeyCode.E)){
                     //if e is pressed, grab the object
                     //literally none of this will work with the way the scenes are set up now -> redo all of it
