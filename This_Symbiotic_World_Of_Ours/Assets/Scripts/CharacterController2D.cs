@@ -97,9 +97,6 @@ public class CharacterController2D : MonoBehaviour
 		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 		isSwimming = !isSwimming;
 
-		//makes character stop moving when it hits the water but it looks kinda weird:
-		m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-		m_Rigidbody2D.angularVelocity = 0f;
 		if(isSwimming){
 			print("swimming");
 			//set player gravity to swimmingGravity if the player starts swimming
@@ -229,14 +226,14 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown)
 	{
 		//add downward and upward movement instead of crouch and jump when is swimming
-		if(isSwimming&&jump||isSwimming&&Input.GetKeyDown(KeyCode.W)){
-			m_Rigidbody2D.AddForce(new Vector2(0f, 100f));
+		if(swimUp && isSwimming){
+			m_Rigidbody2D.AddForce(new Vector2(0f, 20f));  // add a vertical force to the rb
 		}
-		else if(isSwimming&&crouch){
-			m_Rigidbody2D.AddForce(new Vector2(0f, -50f));
+		if(swimDown && isSwimming){
+			m_Rigidbody2D.AddForce(new Vector2(0f, -10f));  // add a vertical force to the rb
 		}
 		else
 
