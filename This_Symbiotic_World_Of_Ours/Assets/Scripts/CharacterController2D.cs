@@ -53,11 +53,9 @@ public class CharacterController2D : MonoBehaviour
 
 	[Header("Swimming")]
 	private bool  isSwimming			= false;
-	private float swimmingGravity		= 0.5f;
+	private float swimmingGravity		= 0.2f;
 	private float defaultGravity		= 3f;
-	private float swimmingLinearDrag	= 1f;
-	private float defaultLinearDrag		= 0f;
-	private float swimmingAngularDrag	= 1f;
+	private float swimmingAngularDrag	= 2f;
 	private float defaultAngularDrag	= 0.05f;
 
 	[Header("Attack visualizing and attack unit")]
@@ -100,9 +98,10 @@ public class CharacterController2D : MonoBehaviour
 		isSwimming = !isSwimming;
 
 		//makes character stop moving when it hits the water but it looks kinda weird:
-		//m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-		//m_Rigidbody2D.angularVelocity = 0f;
+		m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+		m_Rigidbody2D.angularVelocity = 0f;
 		if(isSwimming){
+			print("swimming");
 			//set player gravity to swimmingGravity if the player starts swimming
 			m_Rigidbody2D.gravityScale=swimmingGravity;
 			m_Rigidbody2D.angularDrag=swimmingAngularDrag;
@@ -117,6 +116,8 @@ public class CharacterController2D : MonoBehaviour
 		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 		isSwimming = !isSwimming;
 		if(!isSwimming){
+			
+			print("not swimming");
 			m_Rigidbody2D.gravityScale=defaultGravity;
 			m_Rigidbody2D.angularDrag=defaultAngularDrag;
 		}
@@ -227,15 +228,15 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, float verticalMove, bool crouch, bool jump)
 	{
 		
 		//add downward and upward movement instead of crouch and jump when is swimming
-		if(isSwimming&&jump||isSwimming&&Input.GetKeyDown(KeyCode.W)){
-			m_Rigidbody2D.AddForce(new Vector2(0f, 100f));
-		}
-		else if(isSwimming&&crouch){
-			m_Rigidbody2D.AddForce(new Vector2(0f, -50f));
+		if(isSwimming&&jump){
+			// Move the character by finding the target velocity
+				Vector3 targetVelocity = new Vector2(m_Rigidbody2D.velocity.x, verticalMove);
+				// And then smoothing it out and applying it to the character
+				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 		}
 		else
 		{
@@ -304,14 +305,12 @@ public class CharacterController2D : MonoBehaviour
 				// If the input is moving the player right and the player is facing left...
 				if (move > 0 && !m_FacingRight)
 				{
-					print("Flip");
 					// ... flip the player.
 					Flip();
 				}
 				// Otherwise if the input is moving the player left and the player is facing right...
 				else if (move < 0 && m_FacingRight)
 				{
-					print("Flip");
 					// ... flip the player.
 					Flip();
 				}
@@ -322,7 +321,7 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if ((m_Grounded || jumpsLeft > 0) && jump && !isSwimming)
 		{
-			// Add a vertical force to the player.
+			if(!isSwimming){// Add a vertical force to the player.
 			m_Grounded = false;
 
 			// SETS the player's y velocity to be our jumpvelocity
@@ -345,6 +344,7 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.velocity = (velSet*(1f-lerpFactor) + (velAdd)*(lerpFactor)) * Time.deltaTime;
 
 			jumpsLeft--;
+			}
 		}
 	}
 
