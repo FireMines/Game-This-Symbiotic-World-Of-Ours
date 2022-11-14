@@ -64,7 +64,6 @@ public class Enemy : MonoBehaviour
             }
 
             transform.position = new Vector3(XPosition, transform.position.y, transform.position.z); //move player
-            //Vector3 playerPos = playerGameObject.transform.position;
             
             switch(movementIndex){
                 //set counter up true if the enemy is at its starting position and has to turn around

@@ -14,30 +14,24 @@ public class ObstaclePush : MonoBehaviour
         pushObject = col.gameObject;
     }
 
-    void OnCollisionExit2D(Collision2D col){
-        pushObject = null;
-    }
-
     void Update(){
         
         if(pushObject != null && pushObject.tag!="Enemy"){//check that collided game object is not an enemy!! player should not be able to pull and push them
-            if(pushObject != null && pushObject.gameObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
+            if(pushObject != null && pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
                 //freeze it's position if it's not pushable
-                pushObject.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             }
             if(pushObject != null && pushObject.tag == "Pushable" ){
                 if(Input.GetKey(KeyCode.E)){
                     //if e is pressed, push or pull the object
-                    pushObject.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                    //add dragging here, drag with AddForce maybe?
-                    //get direction by which key is pressed, then -> object.AddForce(+/- speed of player, 0f) -> no, doesn't look good
-                    //make it follow the player instead
-                    // not quite: grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().transform.position = Vector2.MoveTowards(grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().transform.position, gameObject.transform.position, playerSpeed/10);
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     
-                }else{
-                    pushObject.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                    pushObject.GetComponent<Rigidbody2D>().transform.position = Vector2.MoveTowards(pushObject.GetComponent<Rigidbody2D>().transform.position, gameObject.transform.position, playerSpeed/10);
 
-                    }
+                }else{
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                    pushObject = null;
+                }
             }
         }
     }
