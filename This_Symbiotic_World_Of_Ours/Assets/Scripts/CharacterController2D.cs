@@ -143,7 +143,7 @@ public class CharacterController2D : MonoBehaviour
 
 		}
 
-		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps; print("jumpsleft: " + jumpsLeft);
+		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps;
 
 
 		// Attack
@@ -373,59 +373,6 @@ public class CharacterController2D : MonoBehaviour
 		catch (KeyNotFoundException) {
 			OrbsCollected.Add(orbType, amount);
 		}
-		updatePowers();
-	}
-
-	private void updatePowers()
-    {
-		//EARTH ABILITIES
-		//Abilities tied to the first orb
-		if (OrbsCollected[OrbController.Element.Earth] > 0)
-        {
-			//Double jump
-			extraJumps = 1;
-
-			//Abilities tied to the second orb
-			if (OrbsCollected[OrbController.Element.Earth] > 1) 
-			{
-				//Heavy ranged attack (throw a boulder or smth)
-
-				//Abilities tied to the third orb
-				if (OrbsCollected[OrbController.Element.Earth] > 2)
-                {
-
-					//Glide
-                }
-
-			}
-		}
-
-		//WATER ABILITIES
-		//Abilities tied to the first orb
-		if (OrbsCollected[OrbController.Element.Water] > 0)
-		{
-			//light attack Ranged attack / projectile (water drops)
-
-
-
-
-			//Abilities tied to the second orb
-			if (OrbsCollected[OrbController.Element.Water] > 1)
-			{
-
-				//Illuminate player (see in the dark)
-
-
-				//Abilities tied to the third orb
-				if (OrbsCollected[OrbController.Element.Water] > 2)
-				{
-					//Dash / Blink (double tap direction)
-				}
-
-			}
-		}
-
-		//enable abilities based on the amount of orbs collected
 	}
 
 	public void takeDamage(int damage)

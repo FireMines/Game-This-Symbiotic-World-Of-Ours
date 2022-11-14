@@ -25,7 +25,9 @@ public class OrbController : MonoBehaviour
     private CharacterController2D controller;
 
     SpriteRenderer sprite;
-    
+
+    private Light CharacterLight;
+
 
 
     void Start() {
@@ -34,16 +36,19 @@ public class OrbController : MonoBehaviour
         GameObject player = playerTaggedObjects[0];
         controller = player.GetComponent<CharacterController2D>();
         if (controller == null) Debug.Log("Error fordi det ikke finnes en playercontroller??? dette skal egt ikke skje");
+
         sprite = GetComponentInChildren<SpriteRenderer>();
-        
+        //CharacterLight = player.GetComponentInChildren<Light>(); CharacterLight.enabled = false;
+
         switch (OrbElement)
         {
             case Element.Water:
-                sprite.color = new Color(0, 1, 0.69f);
+                sprite.color = new Color(0f, 1f, 0.69f);
                 break;
 
             case Element.Earth:
-                sprite.color = new Color(1, 0.5f, 0);
+                print("test");
+                sprite.color = new Color(1f, 0.5f, 0f);
                 break;
         }
     }
@@ -54,7 +59,6 @@ public class OrbController : MonoBehaviour
 
         if (hit.gameObject.tag == "Player")
         {
-            print("before orb" + controller.extraJumps);
             //Update the amount of orbs collected by 1
 
             //controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
@@ -66,11 +70,22 @@ public class OrbController : MonoBehaviour
                     break;
 
                 case Powerup.CharacterGlowing:
-                    sprite.color = new Color(1, 0.5f, 0);
+                    CharacterLight.enabled = true;
+                    break;
+
+                case Powerup.RangedAttack:
+                    CharacterLight.enabled = true;
+                    break;
+
+                case Powerup.Glide:
+                    CharacterLight.enabled = true;
+                    break;
+
+                case Powerup.Dash:
                     break;
             }
 
-            print("after orb"+controller.extraJumps);
+            
             // Delete the Orb
             Destroy(gameObject);
         }
