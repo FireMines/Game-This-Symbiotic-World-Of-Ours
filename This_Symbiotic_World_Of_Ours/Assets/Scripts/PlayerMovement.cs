@@ -18,6 +18,19 @@ public class PlayerMovement : MonoBehaviour
     bool swimUp = false;
     bool swimDown = false;
 
+    private bool dashPowerup = false;
+    //Dash controls
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 24f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 3f;
+
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private TrailRenderer tr;
+
+    
+
     private void OnTriggerEnter2D(Collider2D hit){
 		// If we are entering something else than water, return
 		if (hit.gameObject.tag != "Water") return;
@@ -42,7 +55,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        dashPowerup = controller.DashPowerup;
+        //Cant do anything else when dashing
+        if (isDashing)
+        {
+            return;
+        }
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -75,12 +94,40 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && dashPowerup)
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     void FixedUpdate ()
     {
+        //Cant do anything else when dashing
+        if (isDashing)
+        {
+            return;
+        }
+
         // Move our character
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, swimUp, swimDown);
         jump = false;
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        print("CanDash " + canDash + ", cooldown "+dashingCooldown);
+        canDash = true;
     }
 }

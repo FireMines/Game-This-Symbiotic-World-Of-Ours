@@ -26,6 +26,8 @@ public class OrbController : MonoBehaviour
 
     private CharacterController2D controller;
 
+    private PlayerMovement movement;
+
     SpriteRenderer sprite;
 
     ParticleSystem orbLight;
@@ -90,6 +92,8 @@ public class OrbController : MonoBehaviour
                     break;
 
                 case Powerup.Dash:
+                    controller.DashPowerup = true;
+                    print("dash collision");
                     break;
             }
 
