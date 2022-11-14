@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
+using UnityEngine.Rendering.Universal;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -24,8 +25,11 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	public int extraJumps = 0;
-	private int jumpsLeft = 0;
+	private bool doubleJump = true; // Cant he player double jump? Default, False
+	private int extraJumps = 0,
+				jumpsLeft = 0;
+
+	public Light2D lumination;
 
 	[Header("Events")]
 	[Space]
@@ -48,6 +52,8 @@ public class CharacterController2D : MonoBehaviour
         {
 			OrbsCollected.Add(orbType, 0);
 		}
+
+		lumination.enabled = false;
     }
 
 	[Header("Swimming")]
@@ -373,6 +379,60 @@ public class CharacterController2D : MonoBehaviour
 		catch (KeyNotFoundException) {
 			OrbsCollected.Add(orbType, amount);
 		}
+		updatePowers();
+	}
+
+	private void updatePowers()
+    {
+		//EARTH ABILITIES
+		//Abilities tied to the first orb
+		if (OrbsCollected[OrbController.Element.Earth] > 0)
+        {
+			//Double jump
+			extraJumps = 1;
+			
+
+			//Abilities tied to the second orb
+			if (OrbsCollected[OrbController.Element.Earth] > 1) 
+			{
+				//Heavy ranged attack (throw a boulder or smth)
+
+				//Abilities tied to the third orb
+				if (OrbsCollected[OrbController.Element.Earth] > 2)
+                {
+
+					//Glide
+                }
+
+			}
+		}
+
+		//WATER ABILITIES
+		//Abilities tied to the first orb
+		if (OrbsCollected[OrbController.Element.Water] > 0)
+		{
+            //light attack Ranged attack / projectile (water drops)
+
+            lumination.enabled = true;
+
+
+            //Abilities tied to the second orb
+            if (OrbsCollected[OrbController.Element.Water] > 1)
+			{
+
+				//Illuminate player (see in the dark)
+
+
+				//Abilities tied to the third orb
+				if (OrbsCollected[OrbController.Element.Water] > 2)
+				{
+					//Dash / Blink (double tap direction)
+				}
+
+			}
+		}
+
+		//enable abilities based on the amount of orbs collected
 	}
 
 	public void takeDamage(int damage)
