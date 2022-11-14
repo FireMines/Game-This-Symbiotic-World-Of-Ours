@@ -172,6 +172,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 945005621}
   m_CeilingCheck: {fileID: 1661994770}
   m_CrouchDisableCollider: {fileID: 0}
+  lumination: {fileID: 1736200564}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -817,7 +818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8299997, y: 1.7299997, z: -8.385748}
+  m_LocalPosition: {x: 2.8299994, y: 1.7299997, z: -8.385748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1665,6 +1666,17 @@ MonoBehaviour:
   m_AmplitudeGain: 0
   m_FrequencyGain: 0
   mNoiseOffsets: {x: 463.9282, y: 719.2623, z: 798.0509}
+--- !u!114 &1736200564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8280699403196511266, guid: d767c0aecc02f024db388ff51fa068e8, type: 3}
+  m_PrefabInstance: {fileID: 8280699402697777369}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2032910527
 GameObject:
   m_ObjectHideFlags: 0

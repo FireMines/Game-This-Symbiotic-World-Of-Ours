@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
+using UnityEngine.Rendering.Universal;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class CharacterController2D : MonoBehaviour
 	private int extraJumps = 0,
 				jumpsLeft = 0;
 
+	public Light2D lumination;
+
 	[Header("Events")]
 	[Space]
 
@@ -49,6 +52,8 @@ public class CharacterController2D : MonoBehaviour
         {
 			OrbsCollected.Add(orbType, 0);
 		}
+
+		lumination.enabled = false;
     }
 
 	[Header("Swimming")]
@@ -385,6 +390,7 @@ public class CharacterController2D : MonoBehaviour
         {
 			//Double jump
 			extraJumps = 1;
+			
 
 			//Abilities tied to the second orb
 			if (OrbsCollected[OrbController.Element.Earth] > 1) 
@@ -405,13 +411,13 @@ public class CharacterController2D : MonoBehaviour
 		//Abilities tied to the first orb
 		if (OrbsCollected[OrbController.Element.Water] > 0)
 		{
-			//light attack Ranged attack / projectile (water drops)
+            //light attack Ranged attack / projectile (water drops)
+
+            lumination.enabled = true;
 
 
-
-
-			//Abilities tied to the second orb
-			if (OrbsCollected[OrbController.Element.Water] > 1)
+            //Abilities tied to the second orb
+            if (OrbsCollected[OrbController.Element.Water] > 1)
 			{
 
 				//Illuminate player (see in the dark)
