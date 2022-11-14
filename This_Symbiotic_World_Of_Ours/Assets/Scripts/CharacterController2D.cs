@@ -25,9 +25,13 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	private bool doubleJump = true; // Cant he player double jump? Default, False
-	private int extraJumps = 0,
-				jumpsLeft = 0;
+	
+	private int jumpsLeft = 0;
+
+	[Header("Abilities")]
+	public int extraJumps = 0;
+	public bool AttackPowerup = false;
+	public bool ChargeAttackPowerup = false;
 
 	public Light2D lumination;
 
@@ -55,6 +59,9 @@ public class CharacterController2D : MonoBehaviour
 
 		lumination.enabled = false;
     }
+
+	
+
 
 	[Header("Swimming")]
 	private bool  isSwimming			= false;
@@ -103,7 +110,6 @@ public class CharacterController2D : MonoBehaviour
 		isSwimming = !isSwimming;
 
 		if(isSwimming){
-			print("swimming");
 			//set player gravity to swimmingGravity if the player starts swimming
 			m_Rigidbody2D.gravityScale=swimmingGravity;
 			m_Rigidbody2D.angularDrag=swimmingAngularDrag;
@@ -118,8 +124,6 @@ public class CharacterController2D : MonoBehaviour
 		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 		isSwimming = !isSwimming;
 		if(!isSwimming){
-			
-			print("not swimming");
 			m_Rigidbody2D.gravityScale=defaultGravity;
 			m_Rigidbody2D.angularDrag=defaultAngularDrag;
 		}
@@ -151,9 +155,8 @@ public class CharacterController2D : MonoBehaviour
 
 		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps;
 
-
 		// Attack
-		if(Input.GetMouseButton(0) && AttackTimer <= 0f)
+		if(Input.GetMouseButton(0) && AttackTimer <= 0f && AttackPowerup)
         {
 			AttackTimer = AttackCooldown;
 			SelectTarget();
@@ -214,6 +217,10 @@ public class CharacterController2D : MonoBehaviour
 		// Spawn the projectile
 		GameObject clone = Instantiate(RangedSpellPrefab, SpawnSpellLoc, Quaternion.Euler(0,90,0));
 		RangedAttack cloneProjectileScript = clone.transform.GetComponent<RangedAttack>();
+
+		//If the ChargeAttackPowerup has not been collected, the Launched variable will be set to true, disabling the "orbit" functionality of the attacks.
+		if (!ChargeAttackPowerup) cloneProjectileScript.launched = true;
+
 		cloneProjectileScript._Target					= selectedUnit;
 		cloneProjectileScript._ProjectileAcceleration	= ProjectileAcceleration;
 		cloneProjectileScript._OrbitAcceleration		= OrbitAcceleration;
@@ -379,61 +386,8 @@ public class CharacterController2D : MonoBehaviour
 		catch (KeyNotFoundException) {
 			OrbsCollected.Add(orbType, amount);
 		}
-		updatePowers();
 	}
 
-	private void updatePowers()
-    {
-		//EARTH ABILITIES
-		//Abilities tied to the first orb
-		if (OrbsCollected[OrbController.Element.Earth] > 0)
-        {
-			//Double jump
-			extraJumps = 1;
-			
-
-			//Abilities tied to the second orb
-			if (OrbsCollected[OrbController.Element.Earth] > 1) 
-			{
-				//Heavy ranged attack (throw a boulder or smth)
-
-				//Abilities tied to the third orb
-				if (OrbsCollected[OrbController.Element.Earth] > 2)
-                {
-
-					//Glide
-                }
-
-			}
-		}
-
-		//WATER ABILITIES
-		//Abilities tied to the first orb
-		if (OrbsCollected[OrbController.Element.Water] > 0)
-		{
-            //light attack Ranged attack / projectile (water drops)
-
-            lumination.enabled = true;
-
-
-            //Abilities tied to the second orb
-            if (OrbsCollected[OrbController.Element.Water] > 1)
-			{
-
-				//Illuminate player (see in the dark)
-
-
-				//Abilities tied to the third orb
-				if (OrbsCollected[OrbController.Element.Water] > 2)
-				{
-					//Dash / Blink (double tap direction)
-				}
-
-			}
-		}
-
-		//enable abilities based on the amount of orbs collected
-	}
 
 	public void takeDamage(int damage)
 	{

@@ -19,7 +19,7 @@ public class RangedAttack : MonoBehaviour
 
     private EnemyHealth enemyHealth;                      //Player Health script with the takeDamage function
 
-    private bool        launched = false;
+    public bool        launched = false;
 
     public AudioClip AttackImpactNoise;
 

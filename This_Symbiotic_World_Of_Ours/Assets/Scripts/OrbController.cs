@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class OrbController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class OrbController : MonoBehaviour
     {
         DoubleJump,
         RangedAttack,
+        ChargedRangedAttack,
         Glide,
         CharacterGlowing,
         Dash
@@ -26,7 +28,6 @@ public class OrbController : MonoBehaviour
 
     SpriteRenderer sprite;
 
-    private Light CharacterLight; 
     ParticleSystem orbLight;
 
 
@@ -42,13 +43,11 @@ public class OrbController : MonoBehaviour
 
         orbLight = GetComponentInChildren<ParticleSystem>();
 
-        //CharacterLight = player.GetComponentInChildren<Light>(); CharacterLight.enabled = false;
-
         switch (OrbElement)
         {
             case Element.Water:
-                sprite.color = new Color(0f, 1f, 0.69f);
-                orbLight.startColor = new Color(0f, 1f, 0.69f);
+                sprite.color = new Color(0f, 0.69f, 1f);
+                orbLight.startColor = new Color(0f,0.69f,1f);
                 break;
 
             case Element.Earth:
@@ -75,15 +74,19 @@ public class OrbController : MonoBehaviour
                     break;
 
                 case Powerup.CharacterGlowing:
-                    CharacterLight.enabled = true;
+                    controller.lumination.enabled = true;
                     break;
 
                 case Powerup.RangedAttack:
-                    CharacterLight.enabled = true;
+                    controller.AttackPowerup = true;
+                    break;
+
+                case Powerup.ChargedRangedAttack:
+                    controller.ChargeAttackPowerup = true;
                     break;
 
                 case Powerup.Glide:
-                    CharacterLight.enabled = true;
+                    
                     break;
 
                 case Powerup.Dash:
