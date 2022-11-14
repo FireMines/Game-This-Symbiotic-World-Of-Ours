@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObstaclePush : MonoBehaviour
 {
     [SerializeField] private Transform grabDetect; //game object to detect if something is close enough to grab
-    [SerializeField] private Transform boxHolder; //game object to determine where grabbed object is held
     [SerializeField] private float rayDistance; 
     [SerializeField] private float objectMass; 
     
@@ -19,14 +18,15 @@ public class ObstaclePush : MonoBehaviour
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             }
             if(grabCheck.collider != null && grabCheck.collider.tag == "Pushable" ){
-                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                 if(Input.GetKey(KeyCode.E)){
                     //if e is pressed, grab the object
                     //literally none of this will work with the way the scenes are set up now -> redo all of it
+                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     /*grabCheck.collider.gameObject.transform.parent = boxHolder;
                     grabCheck.collider.gameObject.transform.position = boxHolder.position;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=0.00001F;*/
                 }else{
+                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
                     //if e is released, set object down and set mass back to default
                     /*grabCheck.collider.gameObject.transform.parent = null;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=objectMass;*/
