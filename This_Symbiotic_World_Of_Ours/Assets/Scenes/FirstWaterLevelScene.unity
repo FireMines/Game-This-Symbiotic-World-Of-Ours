@@ -6943,6 +6943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterOrb
       objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: powerup
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
       value: 2
