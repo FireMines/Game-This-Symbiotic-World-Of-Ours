@@ -53,7 +53,7 @@ public class CharacterController2D : MonoBehaviour
 			OrbsCollected.Add(orbType, 0);
 		}
 
-		lumination.enabled = false;
+		lumination.enabled = true;
     }
 
 	[Header("Swimming")]
@@ -390,10 +390,11 @@ public class CharacterController2D : MonoBehaviour
         {
 			//Double jump
 			extraJumps = 1;
-			
+            lumination.enabled = true;
 
-			//Abilities tied to the second orb
-			if (OrbsCollected[OrbController.Element.Earth] > 1) 
+
+            //Abilities tied to the second orb
+            if (OrbsCollected[OrbController.Element.Earth] > 1) 
 			{
 				//Heavy ranged attack (throw a boulder or smth)
 
@@ -413,7 +414,7 @@ public class CharacterController2D : MonoBehaviour
 		{
             //light attack Ranged attack / projectile (water drops)
 
-            lumination.enabled = true;
+            
 
 
             //Abilities tied to the second orb
