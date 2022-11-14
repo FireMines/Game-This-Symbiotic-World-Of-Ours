@@ -26,7 +26,8 @@ public class OrbController : MonoBehaviour
 
     SpriteRenderer sprite;
 
-    private Light CharacterLight;
+    private Light CharacterLight; 
+    ParticleSystem orbLight;
 
 
 
@@ -38,17 +39,21 @@ public class OrbController : MonoBehaviour
         if (controller == null) Debug.Log("Error fordi det ikke finnes en playercontroller??? dette skal egt ikke skje");
 
         sprite = GetComponentInChildren<SpriteRenderer>();
+
+        orbLight = GetComponentInChildren<ParticleSystem>();
+
         //CharacterLight = player.GetComponentInChildren<Light>(); CharacterLight.enabled = false;
 
         switch (OrbElement)
         {
             case Element.Water:
                 sprite.color = new Color(0f, 1f, 0.69f);
+                orbLight.startColor = new Color(0f, 1f, 0.69f);
                 break;
 
             case Element.Earth:
-                print("test");
                 sprite.color = new Color(1f, 0.5f, 0f);
+                orbLight.startColor = new Color(1f, 0.5f, 0f);
                 break;
         }
     }
