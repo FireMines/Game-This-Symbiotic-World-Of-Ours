@@ -133,6 +133,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{
+
 		// Count down attack timer
 		AttackTimer -= Time.deltaTime;
 
