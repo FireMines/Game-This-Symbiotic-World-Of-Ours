@@ -41,8 +41,6 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
-
-        print(verticalMove);
     }
 
     void FixedUpdate ()

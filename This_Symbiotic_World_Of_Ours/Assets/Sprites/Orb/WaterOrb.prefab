@@ -4907,6 +4907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrbElement: 0
+  powerup: 3
 --- !u!50 &7989845656390548363
 Rigidbody2D:
   serializedVersion: 4

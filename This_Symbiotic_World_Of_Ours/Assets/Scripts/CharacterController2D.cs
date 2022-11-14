@@ -24,9 +24,8 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	private bool doubleJump = true; // Cant he player double jump? Default, False
-	private int extraJumps = 0,
-				jumpsLeft = 0;
+	public int extraJumps = 0;
+	private int jumpsLeft = 0;
 
 	[Header("Events")]
 	[Space]
@@ -147,7 +146,7 @@ public class CharacterController2D : MonoBehaviour
 
 		}
 
-		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps;
+		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps; print("jumpsleft: " + jumpsLeft);
 
 
 		// Attack
