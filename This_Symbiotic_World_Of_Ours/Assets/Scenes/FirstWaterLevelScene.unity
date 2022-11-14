@@ -10148,7 +10148,7 @@ MonoBehaviour:
   - Can you help fix it please? Luckily my house has grown to the extent that you
     can get out of here if you feel bouncy
   continueButton: {fileID: 569475334}
-  wordSpeed: 0
+  wordSpeed: 0.02
   playerIsClose: 0
 --- !u!70 &1623294660
 CapsuleCollider2D:
