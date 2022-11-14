@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstWaterLevelScene.unity
     guid: 907027c319619ef4a9d617cdee08873f
+  - enabled: 1
+    path: Assets/Scenes/FirstEarthLevelScene.unity
+    guid: 7976102c21e6adc469e63cc9658690c7
   m_configObjects: {}

@@ -5166,7 +5166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416674355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.96, y: -0.23, z: -4.622707}
+  m_LocalPosition: {x: -36.94, y: 2.13, z: -4.622707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5213,7 +5213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRange: 10
   speed: 50
-  damage: 25
+  damage: 20
   enemyHealth: 50
   _enemySprite: {fileID: 416674359}
   _enemyRB: {fileID: 416674358}
@@ -10139,11 +10139,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.83
+      value: 48.24
       objectReference: {fileID: 0}
     - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42
+      value: 17.58
       objectReference: {fileID: 0}
     - target: {fileID: 1052751710114277934, guid: 33350355abf376148a7b5ac4a881b06a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12558,6 +12558,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 939251827}
   m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &995776464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995776467}
+  - component: {fileID: 995776466}
+  - component: {fileID: 995776465}
+  m_Layer: 6
+  m_Name: FirstEarthLevelSceneTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &995776465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995776464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59832a6f7c3a7348b488d7979eb004e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: FirstEarthLevelScene
+  BelongsToScene: HomeBaseLevelScene
+  TriggerFilter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 8
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+--- !u!61 &995776466
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995776464}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -35.230553, y: -12.669388}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 88.93718, y: 65.20132}
+  m_EdgeRadius: 0
+--- !u!4 &995776467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995776464}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 140.4, y: 70.9, z: -8.385748}
+  m_LocalScale: {x: 0.13140626, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &996613100
 GameObject:
@@ -20835,7 +20922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563126238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.27, y: 2.63, z: -4.622707}
+  m_LocalPosition: {x: 46.11, y: 9.22, z: -4.622707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

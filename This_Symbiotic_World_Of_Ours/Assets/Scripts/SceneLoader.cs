@@ -63,6 +63,7 @@ public class SceneLoader : MonoBehaviour
             // Skips unloading if its in the DoNotUnload Scene
             if (SceneManager.GetSceneAt(i).name == "DoNotUnload") continue;
 
+
             // Unloads all scenes passed through
             SceneManager.UnloadScene(SceneManager.GetSceneAt(i));
         }

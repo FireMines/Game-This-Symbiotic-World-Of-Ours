@@ -154,7 +154,6 @@ public class CharacterController2D : MonoBehaviour
 			SelectTarget();
 			if (selectedUnit != null) RangedAttack();
 		}
-
 	}
 
 	bool GameObjectIsInLineOfSight(GameObject obj)
