@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    public int playerHealth;
+    public int      health;                 // Health of the mob
+    public bool     displayHP = false;      // Show health if mob is player character
 
-    [SerializeField] private Image[] LifeCells;
+    // All Life Cells
+    [SerializeField] private List<Image> LifeCells = new List<Image>();
 
     private void Start()
     {
@@ -16,28 +18,42 @@ public class HealthController : MonoBehaviour
 
     public void UpdateHealth()
     {
-        if(playerHealth <= 0)
+        if(health <= 0)
         {
             Debug.Log("Ori iskibena");
 
-            Die();
+            //Die();
         }
+        if (!displayHP) return;
 
-        for (int i = 0; i < LifeCells.Length; i++)
+        for (int i = 0; i < LifeCells.Count; i++)
         {
-            if (i < playerHealth)
+            if (i < health)
             {
+                LifeCells[i].enabled = true;
                 LifeCells[i].color = Color.green;
             } else
             {
+                LifeCells[i].enabled = false;
                 LifeCells[i].color = Color.black;
             }
         }
     }
 
+
+    public void createHealthImageBasedOnHP ()
+    {
+
+    }
+
     public void Die()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        if (gameObject.CompareTag("Player"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+            return;
+        }
 
+        Destroy(gameObject);
     }
 }
