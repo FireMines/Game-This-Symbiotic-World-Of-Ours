@@ -6628,6 +6628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterOrb
       objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: powerup
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -10252,7 +10256,7 @@ MonoBehaviour:
   - Can you help fix it please? Luckily my house has grown to the extent that you
     can get out of here if you feel bouncy
   continueButton: {fileID: 569475334}
-  wordSpeed: 0
+  wordSpeed: 0.02
   playerIsClose: 0
 --- !u!70 &1623294660
 CapsuleCollider2D:
