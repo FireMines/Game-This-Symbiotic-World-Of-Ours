@@ -20,7 +20,6 @@ public class HealthController : MonoBehaviour
     {
         if(health <= 0)
         {
-            Debug.Log("Ori iskibena");
 
             //Die();
         }
