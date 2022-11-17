@@ -40,7 +40,8 @@ public class ObstaclePush : MonoBehaviour
                         //if player pos > rock pos:
                         print("right");
                         if(gameObject.transform.position.x>pushObject.transform.position.x){
-                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, gameObject.transform.position , playerSpeed / 350f);
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x-1.5f, gameObject.transform.position.y);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , playerSpeed / 350f);
                         }
                         //else nothing, rock gets pushed normally
                     }
@@ -48,7 +49,8 @@ public class ObstaclePush : MonoBehaviour
                         print("left");
                         //if player pos < rock pos:
                         if(gameObject.transform.position.x<pushObject.transform.position.x){
-                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, gameObject.transform.position , playerSpeed / 350f);
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x+1.5f, gameObject.transform.position.y);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , playerSpeed / 350f);
                         }
                     }
                     
