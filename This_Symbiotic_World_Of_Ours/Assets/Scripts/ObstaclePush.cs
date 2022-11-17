@@ -32,13 +32,15 @@ public class ObstaclePush : MonoBehaviour
                     pushObject.GetComponent<Rigidbody2D>().mass=0f;
                     //if e is pressed, push or pull the object
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                    
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     //for it to work properly, now: if player is walking towards rock -> push
                     //if player is walking away from rock -> pull
                     if(Input.GetKey("right") || Input.GetKey(KeyCode.D)){
                         //if player pos > rock pos:
                         print("right");
                         if(gameObject.transform.position.x>pushObject.transform.position.x){
-                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, gameObject.transform.position , playerSpeed / 400f);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, gameObject.transform.position , playerSpeed / 350f);
                         }
                         //else nothing, rock gets pushed normally
                     }
@@ -46,13 +48,13 @@ public class ObstaclePush : MonoBehaviour
                         print("left");
                         //if player pos < rock pos:
                         if(gameObject.transform.position.x<pushObject.transform.position.x){
-                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, gameObject.transform.position , playerSpeed / 400f);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, gameObject.transform.position , playerSpeed / 350f);
                         }
                     }
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                     pushObject = null;
                 }
             }else{pushObject = null;}
