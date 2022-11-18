@@ -14,19 +14,19 @@ public class CharacterController2D : MonoBehaviour
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
-	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
-	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;            // Whether or not the player is grounded.
+	[SerializeField] private Transform m_GroundCheck_c1;                           // A position marking where to check if the player is grounded.
+	[SerializeField] private Transform m_GroundCheck_c2;                           // A position marking where to check if the player is grounded.
+
+	public bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	public Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	
-	private int jumpsLeft = 0;
+	public int jumpsLeft = 0;
 
 	[Header("Abilities")]
 	public int extraJumps = 0;
@@ -47,17 +47,9 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
-	//"Library" that stores the orbTypes and the amount we collected (Modular, could be expanded for other collectibles)
-	public Dictionary<OrbController.Element, int> OrbsCollected = new Dictionary<OrbController.Element, int> ();
-
+	
     private void Start()
     {
-		//Initialize the enum Dictionary (OrbsCollected)
-		foreach (OrbController.Element orbType in Enum.GetValues(typeof(OrbController.Element)))
-        {
-			OrbsCollected.Add(orbType, 0);
-		}
-
 		lumination.enabled = false;
     }
 
@@ -133,16 +125,20 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{
-
 		// Count down attack timer
 		AttackTimer -= Time.deltaTime;
 
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
+		//m_GroundCheck.gameObject.GetComponent<BoxCollider2D>;
+
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		Collider2D[] colliders = Physics2D.OverlapAreaAll(m_GroundCheck_c1.position, m_GroundCheck_c2.position, m_WhatIsGround);
+
+		//RaycastHit2D raycastHit = Physics2D.BoxCast(BoxCollider2D.bounds.center, body.bounds.size - new Vector3(0.1f, 0f, 0f), 0f, Vector2.down, extraHeightTest, platformLayerMask);
+
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			// If current collider belongs to player (this), skip to next
@@ -330,7 +326,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		// If the player should jump...
-		if ((m_Grounded || jumpsLeft > 0) && jump)
+		if ((m_Grounded || jumpsLeft >= 0) && jump)
 		{
 			if(!isSwimming){// Add a vertical force to the player.
 			m_Grounded = false;
@@ -354,7 +350,7 @@ public class CharacterController2D : MonoBehaviour
 
 			m_Rigidbody2D.velocity = (velSet*(1f-lerpFactor) + (velAdd)*(lerpFactor)) * Time.deltaTime;
 
-			jumpsLeft--;
+			jumpsLeft -= 1;
 			}
 		}
 	}
@@ -369,25 +365,6 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
-	}
-
-	public int GetOrbAmount(OrbController.Element orbType) {
-		try {
-			return OrbsCollected[orbType];
-		} 
-		catch (KeyNotFoundException) {
-			OrbsCollected.Add(orbType, 0);
-			return OrbsCollected[orbType];
-		}
-	}
-
-	public void UpdateOrbAmount(int amount,OrbController.Element orbType) {
-		try {
-			OrbsCollected[orbType] = amount;
-		} 
-		catch (KeyNotFoundException) {
-			OrbsCollected.Add(orbType, amount);
-		}
 	}
 
 

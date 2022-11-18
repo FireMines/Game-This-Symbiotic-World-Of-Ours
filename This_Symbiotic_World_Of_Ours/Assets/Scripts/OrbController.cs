@@ -67,12 +67,11 @@ public class OrbController : MonoBehaviour
         {
             //Update the amount of orbs collected by 1
 
-            //controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
-
             switch (powerup)
             {
                 case Powerup.DoubleJump:
                     controller.extraJumps = 1;
+                    controller.jumpsLeft = 1;
                     break;
 
                 case Powerup.CharacterGlowing:

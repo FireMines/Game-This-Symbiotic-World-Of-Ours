@@ -709,7 +709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8299997, y: 1.7299997, z: -8.385748}
+  m_LocalPosition: {x: 2.8299994, y: 1.7299997, z: -8.385748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1474,11 +1474,6 @@ MonoBehaviour:
   m_AmplitudeGain: 0
   m_FrequencyGain: 0
   mNoiseOffsets: {x: 463.9282, y: 719.2623, z: 798.0509}
---- !u!4 &2032910528 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4921926098586837028, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
-  m_PrefabInstance: {fileID: 6187201502358351844}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6187201502358351844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1526,14 +1521,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1951024503896244538, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4369106659634243730, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 10582556}
+    - target: {fileID: 4550384260200319664, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Time
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5883631939954624356, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: grabDetect
       value: 
-      objectReference: {fileID: 2032910528}
+      objectReference: {fileID: 0}
     - target: {fileID: 6187201502352004605, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
