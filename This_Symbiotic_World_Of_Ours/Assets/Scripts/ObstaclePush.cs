@@ -27,10 +27,10 @@ public class ObstaclePush : MonoBehaviour
     }
 
     void Update(){
+        //todo: mass slow player down while pulling, get player speed from player, not jump while pulling
             if(pushObject != null && pushObject.tag == "Pushable" ){
-
                 if(Input.GetKey(KeyCode.E)){
-                    pushObject.GetComponent<Rigidbody2D>().mass=0f;
+                    //pushObject.GetComponent<Rigidbody2D>().mass=0f;
                     //if e is pressed, push or pull the object
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     
