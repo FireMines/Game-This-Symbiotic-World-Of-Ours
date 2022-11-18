@@ -14,7 +14,8 @@ public class CharacterController2D : MonoBehaviour
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
-	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
+	[SerializeField] private Transform m_GroundCheck_c1;                         // A position marking where to check if the player is grounded.
+	[SerializeField] private Transform m_GroundCheck_c2;                         // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 
@@ -27,7 +28,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool shouldFlip = true;
 
 	
-	private int jumpsLeft = 0;
+	public int jumpsLeft = 0;
 
 	[Header("Abilities")]
 	public int extraJumps = 0;
@@ -143,7 +144,7 @@ public class CharacterController2D : MonoBehaviour
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		Collider2D[] colliders = Physics2D.OverlapAreaAll(m_GroundCheck_c1.position, m_GroundCheck_c2.position, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			// If current collider belongs to player (this), skip to next
@@ -330,8 +331,11 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		// If the player should jump...
+
+		//shouldnt' jump if pulling
 		if(!isPulling){
-			if ((m_Grounded || jumpsLeft > 0) && jump)
+			
+			if ((m_Grounded || jumpsLeft >= 0) && jump)
 			{
 				if(!isSwimming){// Add a vertical force to the player.
 				m_Grounded = false;
