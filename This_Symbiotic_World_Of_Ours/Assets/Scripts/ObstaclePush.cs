@@ -10,10 +10,10 @@ public class ObstaclePush : MonoBehaviour
     
     //if i get collision and its object in OnCollision, no need for grabCheck?
     void OnCollisionEnter2D(Collision2D col){
+        
+
         //get collision object
-        if(pushObject==null){
-            pushObject = col.gameObject;
-        }
+        pushObject = col.gameObject;
         
         if(pushObject != null && pushObject.tag!="Enemy"){//check that collided game object is not an enemy!! player should not be able to pull and push them
             if(pushObject != null && pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
@@ -28,6 +28,7 @@ public class ObstaclePush : MonoBehaviour
 
     void Update(){
             if(pushObject != null && pushObject.tag == "Pushable" ){
+
                 if(Input.GetKey(KeyCode.E)){
                     pushObject.GetComponent<Rigidbody2D>().mass=0f;
                     //if e is pressed, push or pull the object
@@ -59,6 +60,8 @@ public class ObstaclePush : MonoBehaviour
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                     pushObject = null;
                 }
-            }else{pushObject = null;}
+            }else{
+                pushObject = null;
+                }
     }
 }
