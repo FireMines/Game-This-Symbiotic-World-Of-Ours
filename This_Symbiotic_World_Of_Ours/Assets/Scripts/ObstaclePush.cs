@@ -36,7 +36,9 @@ public class ObstaclePush : MonoBehaviour
     void Update(){
         //todo: not jump while pulling
             if(pushObject != null && pushObject.tag == "Pushable" ){
+
                 if(Input.GetKey(KeyCode.E)){
+                    playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
                     float newSpeed = playerSpeed-10;
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
@@ -67,6 +69,7 @@ public class ObstaclePush : MonoBehaviour
                     //if you want object to stop when e is not pressed anymore: else just comment it out
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     playerMovement.setSpeed(playerSpeed);
+                    playerMovement.setIsPulling(false);
                     pushObject = null;
                 }
             }else{

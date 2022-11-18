@@ -24,6 +24,7 @@ public class CharacterController2D : MonoBehaviour
 	public Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	private bool shouldFlip = true;
 
 	
 	private int jumpsLeft = 0;
@@ -239,8 +240,9 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown)
+	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown, bool isPulling)
 	{
+		
 		//add downward and upward movement instead of crouch and jump when is swimming
 		if(swimUp && isSwimming){
 			m_Rigidbody2D.AddForce(new Vector2(0f, 20f));  // add a vertical force to the rb
@@ -314,13 +316,13 @@ public class CharacterController2D : MonoBehaviour
 				}
 
 				// If the input is moving the player right and the player is facing left...
-				if (move > 0 && !m_FacingRight)
+				if (move > 0 && !m_FacingRight && !isPulling)
 				{
 					// ... flip the player.
 					Flip();
 				}
 				// Otherwise if the input is moving the player left and the player is facing right...
-				else if (move < 0 && m_FacingRight)
+				else if (move < 0 && m_FacingRight && !isPulling)
 				{
 					// ... flip the player.
 					Flip();
@@ -330,31 +332,33 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		// If the player should jump...
-		if ((m_Grounded || jumpsLeft > 0) && jump)
-		{
-			if(!isSwimming){// Add a vertical force to the player.
-			m_Grounded = false;
+		if(!isPulling){
+			if ((m_Grounded || jumpsLeft > 0) && jump)
+			{
+				if(!isSwimming){// Add a vertical force to the player.
+				m_Grounded = false;
 
-			// SETS the player's y velocity to be our jumpvelocity
-			Vector2 velSet = m_Rigidbody2D.velocity;
-			velSet.y = m_JumpForce / m_Rigidbody2D.mass;
-			velSet.x /= Time.deltaTime;
+				// SETS the player's y velocity to be our jumpvelocity
+				Vector2 velSet = m_Rigidbody2D.velocity;
+				velSet.y = m_JumpForce / m_Rigidbody2D.mass;
+				velSet.x /= Time.deltaTime;
 
-			Vector2 velAdd = m_Rigidbody2D.velocity;
-			velAdd.x /= Time.deltaTime; //keeps the current vel, prevents "chopping"
-			velAdd.y /= Time.deltaTime;
-			velAdd.y += m_JumpForce / m_Rigidbody2D.mass;
+				Vector2 velAdd = m_Rigidbody2D.velocity;
+				velAdd.x /= Time.deltaTime; //keeps the current vel, prevents "chopping"
+				velAdd.y /= Time.deltaTime;
+				velAdd.y += m_JumpForce / m_Rigidbody2D.mass;
 
-			float lerpFactor = 0.5f; //0: SET the velocity 1: ADD the velocity
+				float lerpFactor = 0.5f; //0: SET the velocity 1: ADD the velocity
 
-			//m_Rigidbody2D.velocity = vel * Time.deltaTime;
+				//m_Rigidbody2D.velocity = vel * Time.deltaTime;
 
-			// ADDS the player's jumpvelocity to their current velocity
-			//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+				// ADDS the player's jumpvelocity to their current velocity
+				//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 
-			m_Rigidbody2D.velocity = (velSet*(1f-lerpFactor) + (velAdd)*(lerpFactor)) * Time.deltaTime;
+				m_Rigidbody2D.velocity = (velSet*(1f-lerpFactor) + (velAdd)*(lerpFactor)) * Time.deltaTime;
 
-			jumpsLeft--;
+				jumpsLeft--;
+				}
 			}
 		}
 	}

@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingPower = 44f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 3f;
+    private bool isPulling = false;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
@@ -110,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, swimUp, swimDown);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, swimUp, swimDown, isPulling);
         jump = false;
     }
 
@@ -129,6 +130,10 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         print("CanDash " + canDash + ", cooldown "+dashingCooldown);
         canDash = true;
+    }
+
+    public void setIsPulling (bool pull) {
+        isPulling = pull;
     }
 
     public void setSpeed(float speed){
