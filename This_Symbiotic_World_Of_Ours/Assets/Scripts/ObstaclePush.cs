@@ -4,34 +4,74 @@ using UnityEngine;
 
 public class ObstaclePush : MonoBehaviour
 {
-    [SerializeField] private Transform grabDetect; //game object to detect if something is close enough to grab
-    [SerializeField] private float rayDistance; 
-    [SerializeField] private float objectMass; 
+    private float playerSpeed = 40f;
+    GameObject pushObject;
+    PlayerMovement playerMovement;
+
+    void Start(){
+        //set playerSpeed to PlayerMovement.runSpeed
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        Debug.Log(playerMovement);
+        playerSpeed = playerMovement.runSpeed;
+    }
     
+    //if i get collision and its object in OnCollision, no need for grabCheck?
+    void OnCollisionEnter2D(Collision2D col){
+
+
+        if(pushObject==null){
+            //get collision object
+            pushObject = col.gameObject;
+        }
+        else if(pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
+            if(pushObject.tag!="Enemy"){//check that collided game object is not an enemy!! player should not be able to pull and push them
+            
+                //freeze it's position if it's not pushable
+                pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            }
+            pushObject=null;
+        }
+    }
 
     void Update(){
-        
-        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDistance);
-        if(grabCheck.collider != null && grabCheck.collider.tag!="Enemy"){//collided game object is not an enemy
-            if(grabCheck.collider != null && grabCheck.collider.gameObject.GetComponent<Rigidbody2D>() != null && grabCheck.collider.tag != "Pushable" ){
-                //freeze it's position if it's not pushable
-                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-            }
-            if(grabCheck.collider != null && grabCheck.collider.tag == "Pushable" ){
+        //todo: not jump while pulling
+            if(pushObject != null && pushObject.tag == "Pushable" ){
+
                 if(Input.GetKey(KeyCode.E)){
-                    //if e is pressed, grab the object
-                    //literally none of this will work with the way the scenes are set up now -> redo all of it
-                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                    /*grabCheck.collider.gameObject.transform.parent = boxHolder;
-                    grabCheck.collider.gameObject.transform.position = boxHolder.position;
-                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=0.00001F;*/
-                }else{
-                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-                    //if e is released, set object down and set mass back to default
-                    /*grabCheck.collider.gameObject.transform.parent = null;
-                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().mass=objectMass;*/
+                    playerMovement.setIsPulling(true);
+                    //if e is pressed, push or pull the object
+                    float newSpeed = playerSpeed-10;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                    
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                    //if player is walking towards rock -> push
+                    //if player is walking away from rock -> pull
+                    if(Input.GetKey("right") || Input.GetKey(KeyCode.D)){
+                        //if player pos > rock pos:
+                        if(gameObject.transform.position.x>pushObject.transform.position.x){
+                            playerMovement.setSpeed(newSpeed); //slow player down while moving object
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x-1.5f, gameObject.transform.position.y);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed / 350f);
+                        }
                     }
-            }
-        }
+                    if(Input.GetKey("left") || Input.GetKey(KeyCode.A)){
+                        //if player pos < rock pos:
+                        if(gameObject.transform.position.x<pushObject.transform.position.x){
+                            playerMovement.setSpeed(newSpeed);//slow player down while moving object
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x+1.5f, gameObject.transform.position.y);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed / 350f);
+                        }
+                    }
+                    
+                }else{
+                    //if you want object to stop when e is not pressed anymore: else just comment it out
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                    playerMovement.setSpeed(playerSpeed);
+                    playerMovement.setIsPulling(false);
+                    pushObject = null;
+                }
+            }else{
+                pushObject = null;
+                }
     }
 }
