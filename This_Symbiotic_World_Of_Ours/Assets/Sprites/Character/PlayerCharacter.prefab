@@ -386,11 +386,10 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 55
-  m_GroundCheck: {fileID: 7663603829345115489}
-  m_CeilingCheck: {fileID: 0}
+  m_CeilingCheck: {fileID: 3705063384840344071}
   m_CrouchDisableCollider: {fileID: 0}
-  m_GroundCheck_c1: {fileID: 0}
-  m_GroundCheck_c2: {fileID: 0}
+  m_GroundCheck_c1: {fileID: 7888012177400625691}
+  m_GroundCheck_c2: {fileID: 9050173255569208521}
   m_Grounded: 0
   m_Rigidbody2D: {fileID: 0}
   jumpsLeft: 0
