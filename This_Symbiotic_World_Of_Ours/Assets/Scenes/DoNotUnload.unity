@@ -1621,6 +1621,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8607878998005827926, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99998784
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607878998005827926, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0049339
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607878998005827927, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_LightOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607878998005827927, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 6.89204
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
