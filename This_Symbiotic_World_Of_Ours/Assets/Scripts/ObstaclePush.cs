@@ -12,16 +12,16 @@ public class ObstaclePush : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col){
         
 
-        //get collision object
-        pushObject = col.gameObject;
-        
-        if(pushObject != null && pushObject.tag!="Enemy"){//check that collided game object is not an enemy!! player should not be able to pull and push them
-            if(pushObject != null && pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
+        if(pushObject==null){
+            //get collision object
+            pushObject = col.gameObject;
+        }
+        else if(pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
+            if(pushObject.tag!="Enemy"){//check that collided game object is not an enemy!! player should not be able to pull and push them
+            
                 //freeze it's position if it's not pushable
                 pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-                pushObject=null;
             }
-        }else{
             pushObject=null;
         }
     }
@@ -57,7 +57,7 @@ public class ObstaclePush : MonoBehaviour
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     pushObject = null;
                 }
             }else{
