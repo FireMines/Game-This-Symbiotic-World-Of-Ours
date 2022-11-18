@@ -242,7 +242,6 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown, bool isPulling)
 	{
-		
 		//add downward and upward movement instead of crouch and jump when is swimming
 		if(swimUp && isSwimming){
 			m_Rigidbody2D.AddForce(new Vector2(0f, 20f));  // add a vertical force to the rb
@@ -251,7 +250,6 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, -10f));  // add a vertical force to the rb
 		}
 		else
-
 		{
 			// If crouching, check to see if the character can stand up
 			if (!crouch)

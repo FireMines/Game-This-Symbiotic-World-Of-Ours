@@ -48,7 +48,6 @@ public class ObstaclePush : MonoBehaviour
                     //if player is walking away from rock -> pull
                     if(Input.GetKey("right") || Input.GetKey(KeyCode.D)){
                         //if player pos > rock pos:
-                        print("right");
                         if(gameObject.transform.position.x>pushObject.transform.position.x){
                             playerMovement.setSpeed(newSpeed); //slow player down while moving object
                             Vector2 newPos = new Vector2(gameObject.transform.position.x-1.5f, gameObject.transform.position.y);
@@ -56,7 +55,6 @@ public class ObstaclePush : MonoBehaviour
                         }
                     }
                     if(Input.GetKey("left") || Input.GetKey(KeyCode.A)){
-                        print("left");
                         //if player pos < rock pos:
                         if(gameObject.transform.position.x<pushObject.transform.position.x){
                             playerMovement.setSpeed(newSpeed);//slow player down while moving object
