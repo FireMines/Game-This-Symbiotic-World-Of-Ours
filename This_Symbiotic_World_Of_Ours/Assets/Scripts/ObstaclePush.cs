@@ -11,7 +11,6 @@ public class ObstaclePush : MonoBehaviour
     void Start(){
         //set playerSpeed to PlayerMovement.runSpeed
         playerMovement = gameObject.GetComponent<PlayerMovement>();
-        Debug.Log(playerMovement);
         playerSpeed = playerMovement.runSpeed;
     }
     
