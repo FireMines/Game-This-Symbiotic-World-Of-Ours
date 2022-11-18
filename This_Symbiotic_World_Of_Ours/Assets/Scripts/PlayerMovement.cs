@@ -130,4 +130,8 @@ public class PlayerMovement : MonoBehaviour
         print("CanDash " + canDash + ", cooldown "+dashingCooldown);
         canDash = true;
     }
+
+    public void setSpeed(float speed){
+        runSpeed = speed;
+    }
 }
