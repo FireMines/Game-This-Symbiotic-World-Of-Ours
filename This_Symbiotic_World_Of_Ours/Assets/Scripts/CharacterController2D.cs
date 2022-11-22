@@ -212,6 +212,9 @@ public class CharacterController2D : MonoBehaviour
 
 		// Set target, if found, to the nearest valid enemy
 		if (nearestenemy != null) selectedUnit = nearestenemy;
+
+		// If target it out of sight, unselect selectedUnit variable
+		if (!GameObjectIsInLineOfSight(selectedUnit)) selectedUnit = null;
 	}
 
 	void RangedAttack()
@@ -387,6 +390,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+
 	public void UpdateOrbAmount(int amount,OrbController.Element orbType) {
 		try {
 			OrbsCollected[orbType] = amount;
@@ -395,6 +399,21 @@ public class CharacterController2D : MonoBehaviour
 			OrbsCollected.Add(orbType, amount);
 		}
 	}
+
+	/// <summary>
+	/// Gets the number of total orbs collected
+	/// </summary>
+	/// 
+	/// <returns>Total number of all orb types collected combined</returns>	
+	public int GetTotalOrbAmount()
+    {
+		int orbAmount = 0;
+		foreach (int orbs in OrbsCollected.Values)
+        {
+			orbAmount += orbs;
+        }
+		return orbAmount;
+    }
 
 
 	public void takeDamage(int damage)
