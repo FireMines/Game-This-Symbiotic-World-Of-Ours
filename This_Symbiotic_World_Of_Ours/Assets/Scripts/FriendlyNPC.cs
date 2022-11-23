@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class FriendlyNPC : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class FriendlyNPC : MonoBehaviour
     public GameObject continueButton;
     public float wordSpeed;
     public bool playerIsClose;
+    public bool isWorldSpirit = false;
 
     // Update is called once per frame
     void Update()
@@ -65,6 +68,10 @@ public class FriendlyNPC : MonoBehaviour
         } else
         {
             zeroText();
+            if(isWorldSpirit)
+            {
+                SceneManager.LoadScene(5);
+            }
         }
     }
 
