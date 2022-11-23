@@ -5094,6 +5094,7 @@ MonoBehaviour:
   continueButton: {fileID: 569475334}
   wordSpeed: 0
   playerIsClose: 0
+  isWorldSpirit: 0
 --- !u!61 &522512737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15034,6 +15035,7 @@ MonoBehaviour:
   continueButton: {fileID: 569475334}
   wordSpeed: 0.02
   playerIsClose: 0
+  isWorldSpirit: 0
 --- !u!70 &1623294660
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
