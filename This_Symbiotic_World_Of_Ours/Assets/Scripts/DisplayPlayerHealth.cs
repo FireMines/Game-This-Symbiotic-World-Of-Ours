@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class DisplayPlayerHealth : MonoBehaviour
 {
-    public Image LifeCell;
-    public Image deathScreen;
-    public Sprite test;
+    public Sprite healthSprite;
     public Canvas healthCanvas;
+    public Image deathScreen;
+
 
     private HealthController characterInfo;    // Character info
 
@@ -58,7 +58,7 @@ public class DisplayPlayerHealth : MonoBehaviour
             LifeCell.name = "Lifecell_" + i;
             LifeCell.transform.SetParent(healthCanvas.transform);
             lifecellPos.x += 50;
-            LifeCell.sprite = test;
+            LifeCell.sprite = healthSprite;
             LifeCells.Add(LifeCell);
         }
     }
