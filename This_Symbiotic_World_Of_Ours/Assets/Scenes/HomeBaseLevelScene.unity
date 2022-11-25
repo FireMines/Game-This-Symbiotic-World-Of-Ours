@@ -3915,9 +3915,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   displayHP: 0
-  LifeCell: {fileID: 0}
-  deathScreen: {fileID: 0}
-  LifeCells: []
 --- !u!114 &362365555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14337,7 +14334,6 @@ GameObject:
   - component: {fileID: 1277975678}
   - component: {fileID: 1277975677}
   - component: {fileID: 1277975676}
-  - component: {fileID: 1277975675}
   m_Layer: 5
   m_Name: Crossfade
   m_TagString: Crossfade
@@ -14345,18 +14341,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1277975675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277975674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8389a77cbe5f7c641b4d2a767f0cf592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1277975676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17471,9 +17455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   displayHP: 0
-  LifeCell: {fileID: 0}
-  deathScreen: {fileID: 0}
-  LifeCells: []
 --- !u!1 &1580717817
 GameObject:
   m_ObjectHideFlags: 0
