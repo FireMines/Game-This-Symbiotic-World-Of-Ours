@@ -4862,7 +4862,8 @@ MonoBehaviour:
   _OrbitBeginRadius: 1.4
   _CameraShakeDuration: 0.1
   _Vel: {x: 0, y: 0}
-  damage: 25
+  damage: 1
+  launched: 0
   AttackImpactNoise: {fileID: 8300000, guid: aee341403686a534395baea7c21b9982, type: 3}
 --- !u!212 &3772768593285835798
 SpriteRenderer:

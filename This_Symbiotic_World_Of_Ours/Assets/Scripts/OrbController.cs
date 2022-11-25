@@ -87,7 +87,7 @@ public class OrbController : MonoBehaviour
                     break;
 
                 case Powerup.Glide:
-                    
+                    controller.GlidePowerup = true;
                     break;
 
                 case Powerup.Dash:
@@ -96,6 +96,8 @@ public class OrbController : MonoBehaviour
                     break;
             }
 
+            // Update the amount of orbs collected for each orb type
+            controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
             
             // Delete the Orb
             Destroy(gameObject);

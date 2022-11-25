@@ -24,7 +24,7 @@ public class CharacterController2D : MonoBehaviour
 	public Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
-	private bool shouldFlip = true;
+
 	
 	public int jumpsLeft = 0;
 
@@ -33,6 +33,7 @@ public class CharacterController2D : MonoBehaviour
 	public bool AttackPowerup = false;
 	public bool ChargeAttackPowerup = false;
 	public bool DashPowerup = false;
+	public bool GlidePowerup = false;
 
 	public Light2D lumination;
 
@@ -166,6 +167,11 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Checks if gameobject is in line of sight of player
+	/// </summary>
+	/// <param name="obj"></param>
+	/// <returns>True if in LOS or false if not in LOS</returns>
 	bool GameObjectIsInLineOfSight(GameObject obj)
     {
 		if (obj == null) return false;
@@ -186,6 +192,9 @@ public class CharacterController2D : MonoBehaviour
 		return false;
 	}
 
+	/// <summary>
+	/// Selects a target the player is focused on
+	/// </summary>
 	void SelectTarget()
     {
 		// Find gameobjects tagged "enemy" and return if there aren't any
@@ -210,8 +219,14 @@ public class CharacterController2D : MonoBehaviour
 
 		// Set target, if found, to the nearest valid enemy
 		if (nearestenemy != null) selectedUnit = nearestenemy;
+
+		// If target it out of sight, unselect selectedUnit variable
+		if (!GameObjectIsInLineOfSight(selectedUnit)) selectedUnit = null;
 	}
 
+	/// <summary>
+	/// Spawns ranged attack projectile animates how it looks
+	/// </summary>
 	void RangedAttack()
     {
 		Vector2 SpawnSpellLoc = new Vector2(this.transform.position.x, this.transform.position.y);
@@ -238,7 +253,15 @@ public class CharacterController2D : MonoBehaviour
 		cloneProjectileScript._Vel = dir_orth2D * Curving - new Vector2(dir.x, dir.y) * Backdraft;
 	}
 
-
+	/// <summary>
+	/// Player move controlls for movement, crouch, jump, swimming and pulling
+	/// </summary>
+	/// <param name="move"></param>
+	/// <param name="crouch"></param>
+	/// <param name="jump"></param>
+	/// <param name="swimUp"></param>
+	/// <param name="swimDown"></param>
+	/// <param name="isPulling"></param>
 	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown, bool isPulling)
 	{
 		//add downward and upward movement instead of crouch and jump when is swimming
@@ -364,6 +387,9 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
+	/// <summary>
+	/// Flips the players facing direction
+	/// </summary>
 	private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
@@ -375,6 +401,12 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
+
+	/// <summary>
+	/// Gets how many orbs are collected by a specific orb type
+	/// </summary>
+	/// <param name="orbType"></param>
+	/// <returns>Number of orbs collected of said type</returns>
 	public int GetOrbAmount(OrbController.Element orbType) {
 		try {
 			return OrbsCollected[orbType];
@@ -385,6 +417,12 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+
+	/// <summary>
+	/// Updates dictonary for how many orbs there are
+	/// </summary>
+	/// <param name="amount"></param>
+	/// <param name="orbType"></param>
 	public void UpdateOrbAmount(int amount,OrbController.Element orbType) {
 		try {
 			OrbsCollected[orbType] = amount;
@@ -394,16 +432,18 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-
-	public void takeDamage(int damage)
-	{
-		//damage is deducted from player's current health
-		playerHealth -= damage;
-		if (playerHealth <= 0)
-		{
-			//player dies at health=0
-			Debug.Log("Player is dead");
-			//now what?
-		}
-	}
+	/// <summary>
+	/// Gets the number of total orbs collected
+	/// </summary>
+	/// 
+	/// <returns>Total number of all orb types collected combined</returns>	
+	public int GetTotalOrbAmount()
+    {
+		int orbAmount = 0;
+		foreach (int orbs in OrbsCollected.Values)
+        {
+			orbAmount += orbs;
+        }
+		return orbAmount;
+    }
 }

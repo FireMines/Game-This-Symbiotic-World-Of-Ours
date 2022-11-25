@@ -8,10 +8,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float          targetRange;        //how close must player get to be detected
     [SerializeField] private float          speed;              //how fast does the enemy move towards the player
     [SerializeField] private int            damage;             //how much damage does the enemy do
-    
-    private PlayerHealth                    playerHealth;       //Player Health script with the takeDamage function
-    [SerializeField] float                  enemyHealth;
-
     [SerializeField] private SpriteRenderer _enemySprite; 
     [SerializeField] private Rigidbody2D    _enemyRB; 
     private const int                       distance = 500;     //how far does the enemy walk when player is not in range
@@ -25,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     private Transform target;
 
+
     private void Start(){
         //get the enemies starting position as the starting position the enemy moves from
         XPosition = transform.position.x;
@@ -33,6 +30,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate(){
         enemyMovement();
     }
+
 
     private void enemyMovement(){
 
@@ -80,6 +78,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private void Flip()
 	{
 		// Switch the way the enemy is labelled as facing.
@@ -90,36 +89,28 @@ public class Enemy : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+    
 
     private void OnCollisionEnter2D(Collision2D collision){
-        playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-        if(collision.gameObject.tag=="Player"){
-            playerHealth.takeDamage(damage); //enemy damages player when the player is hit
-            Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealth);
+        if (collision.gameObject.tag != "Player") return;
 
-            //enemy "bounces" back when it hits the player
-            float bounceForce = 200f; //amount of force to apply
-            _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
-            isBouncing = true;
-            Invoke("StopBouncing", 0.2f);
-        }
+
+        HealthController playerHealthController = collision.gameObject.GetComponent<HealthController>();
+
+        playerHealthController.takeDamage(damage);
+        Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealthController.health);
+
+        //enemy "bounces" back when it hits the player
+        float bounceForce = 200f; //amount of force to apply
+        _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
+        isBouncing = true;
+        Invoke("StopBouncing", 0.2f);
+        
     }
+    
 
     private void StopBouncing()
     {
         isBouncing = false;
     }
-
-    public void takeDamage(int damage)
-    {
-        //damage is deducted from enemy's current health
-        enemyHealth -= damage;
-        if (enemyHealth <= 0)
-        {
-            //enemy dies and the game object gets destroyed if its health=0
-            Debug.Log("Mother");
-            Destroy(gameObject);
-        }
-    }
-
 }

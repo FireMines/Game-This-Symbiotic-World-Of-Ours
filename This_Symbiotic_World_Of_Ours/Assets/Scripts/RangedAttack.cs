@@ -5,10 +5,13 @@ using UnityEngine;
 public class RangedAttack : MonoBehaviour
 {
     [Header("Set by scripts")]
-    public GameObject   _Player;
-    public GameObject   _Target;
-    public float _ProjectileAcceleration,           // How fast the projectile accelerates towards the enemy.
-                        _OrbitAcceleration = 25f,   // How fast the projectile accelerates around the player, while in orbit.
+
+    [HideInInspector] public GameObject   _Player;
+    [HideInInspector] public GameObject   _Target;
+
+    [Header("Animations")]
+    public float        _ProjectileAcceleration;    // How fast the projectile accelerates towards the enemy.
+    public float        _OrbitAcceleration = 25f,   // How fast the projectile accelerates around the player, while in orbit.
                         _OrbitDeceleration = 0.07f, // How much the projectile decelerates, while in orbit.
                         _OrbitBeginRadius = 1.4f,   // How far away from the player the projectile must be, before starting to orbit.
                         _CameraShakeDuration = 0.1f;
@@ -17,16 +20,16 @@ public class RangedAttack : MonoBehaviour
 
     [SerializeField] private int damage;            //how much damage does the enemy do
 
-    private EnemyHealth enemyHealth;                      //Player Health script with the takeDamage function
-
-    public bool        launched = false;
+    [HideInInspector] public bool        launched = false;
 
     public AudioClip AttackImpactNoise;
+
 
     // Start is called before the first frame update
     void Start()
     {
     }
+
 
     private void Update()
     {
@@ -34,6 +37,7 @@ public class RangedAttack : MonoBehaviour
         if (!Input.GetMouseButton(0) && !launched)
             launched = true;
     }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -85,24 +89,22 @@ public class RangedAttack : MonoBehaviour
         if (distance2 <= .5f) HitTarget();
     }
 
+
+    /// <summary>
+    /// Plays sound and makes camera shake on impact and deals damage to target hits and then destroys attack projectile
+    /// </summary>
     void HitTarget()
     {
+        HealthController targetHealthController = _Target.gameObject.GetComponent<HealthController>();
+
+        if (targetHealthController == null) return;
+
         SoundManager.Instance.Play(AttackImpactNoise);
         CinemachineCameraShaker.Instance.ShakeCamera(_CameraShakeDuration);
-        //enemyHealth.takeDamage(damage);
+        targetHealthController.takeDamage(damage);
+
+        // Destroy attack projectile
         Destroy(gameObject);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-        if (collision.gameObject.tag == "Player")
-        {
-            enemyHealth.takeDamage(damage); //enemy damages player when the player is hit
-            Debug.Log("Damage " + damage + " taken" + " Health left: " + enemyHealth);
-
-        }
-    }
-
 }
 
