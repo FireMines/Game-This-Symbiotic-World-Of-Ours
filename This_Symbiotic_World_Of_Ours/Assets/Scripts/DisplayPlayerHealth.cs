@@ -46,17 +46,17 @@ public class DisplayPlayerHealth : MonoBehaviour
     public void createHealthImageBasedOnHP()
     {
         Vector2 lifecellPos;
-        lifecellPos.x = Screen.width/3;
+        lifecellPos.x = Screen.width/2.5f;
         lifecellPos.y = 50;
         for (int i = 0; i < characterInfo.health; i++)
         {
             GameObject NewObj = new GameObject();
             Image LifeCell = NewObj.AddComponent<Image>();
             print("Kebab " + LifeCell.gameObject.GetComponent<RectTransform>().position);
-            LifeCell.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(20, 20);
+            LifeCell.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(40, 40);
             LifeCell.gameObject.GetComponent<RectTransform>().position = lifecellPos;
             LifeCell.name = "Lifecell_" + i;
-            LifeCell.transform.parent = healthCanvas.transform;
+            LifeCell.transform.SetParent(healthCanvas.transform);
             lifecellPos.x += 50;
             LifeCell.sprite = test;
             LifeCells.Add(LifeCell);
