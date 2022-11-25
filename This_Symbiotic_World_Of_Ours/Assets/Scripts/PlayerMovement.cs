@@ -30,7 +30,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
 
-    
+    //Gliding fields
+    [SerializeField] private float GlidingFallingSpeed;
+    private float _InitialGravity;
+
+    private void Start()
+    {
+        _InitialGravity = rb.gravityScale;
+    }
 
     private void OnTriggerEnter2D(Collider2D hit){
 		// If we are entering something else than water, return
@@ -61,6 +68,22 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
         {
             return;
+        }
+
+        print(_InitialGravity);
+
+        var GlidingInput = Input.GetButton("Jump");
+
+        //If the player wants to glide, is falling and has the powerup, the player will glide
+        if (GlidingInput && rb.velocity.y <= 0 && controller.GlidePowerup)
+        {
+            print("Gliding");
+            rb.gravityScale = 0;
+            rb.velocity = new Vector2(rb.velocity.x, -GlidingFallingSpeed);
+        }
+        else
+        {
+            rb.gravityScale = _InitialGravity;
         }
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;

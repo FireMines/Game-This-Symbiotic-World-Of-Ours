@@ -87,7 +87,7 @@ public class OrbController : MonoBehaviour
                     break;
 
                 case Powerup.Glide:
-                    
+                    controller.GlidePowerup = true;
                     break;
 
                 case Powerup.Dash:
