@@ -46,7 +46,6 @@ public class StopRain : MonoBehaviour
             part.Stop();
 
         int earthOrbsCollected = player.GetOrbAmount(OrbController.Element.Earth);
-        print(earthOrbsCollected);
         if (earthOrbsCollected >= 3)
             part.Play();
     }
