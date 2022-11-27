@@ -2371,6 +2371,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 544964835}
+    - target: {fileID: 5035311290379405186, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: SceneToLoadOnDeath
+      value: HomeBaseLevelScene
+      objectReference: {fileID: 0}
     - target: {fileID: 5883631939954624356, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: grabDetect
       value: 

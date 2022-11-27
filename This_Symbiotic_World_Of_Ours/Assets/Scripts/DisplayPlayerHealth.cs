@@ -36,7 +36,6 @@ public class DisplayPlayerHealth : MonoBehaviour
     void Update()
     {
         UpdateHealthbar();
-        //createHealthImageBasedOnHP();
     }
 
 
@@ -68,19 +67,6 @@ public class DisplayPlayerHealth : MonoBehaviour
     /// </summary>
     public void UpdateHealthbar()
     {
-        //print("yoyoyo");
-        /*
-        if (characterInfo.health <= 0)
-        {
-            //Vector4 screenColor;
-            //screenColor.Set(0, 0, 0, 255);
-            //screenColor.
-            // Attempts to fade screen to black when dead
-            deathScreen.color = new Color(0f, 0f, 0f, Mathf.PingPong(Time.time, 1));
-        }*/
-
-        //if (!displayHP) return;
-
         for (int i = 0; i < LifeCells.Count; i++)
         {
             if (i < characterInfo.health)

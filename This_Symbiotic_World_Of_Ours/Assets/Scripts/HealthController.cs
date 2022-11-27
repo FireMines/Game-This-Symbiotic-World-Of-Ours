@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
@@ -8,9 +9,22 @@ public class HealthController : MonoBehaviour
     public bool     displayHP = false;      // Show health if mob is player character
     private Color   colour;
 
+    public string SceneToLoadOnDeath;
+
+
     private void Start()
     {
 
+    }
+
+
+    IEnumerator DelayedDeath()
+    {
+        Destroy(gameObject);
+        Die();
+        Time.timeScale = 0f;
+        yield return new WaitForSeconds(5f);
+        Time.timeScale = 1f;
     }
 
 
@@ -19,7 +33,12 @@ public class HealthController : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        /*if (gameObject.CompareTag("Player"))
+        //StartCoroutine("DelayedDeath");
+        Destroy(gameObject);
+
+
+
+        if (gameObject.CompareTag("Player"))
         {
             Application.LoadLevel(Application.loadedLevel);
             return;
@@ -30,18 +49,17 @@ public class HealthController : MonoBehaviour
         {
             // Skips unloading if its in the DoNotUnload Scene
             if (SceneManager.GetSceneAt(i).name == "DoNotUnload") continue;
-
-            SceneManager.GetActiveScene();
+            SceneManager.UnloadScene(SceneManager.GetSceneAt(i));
+            //SceneManager.GetActiveScene();
             //SceneManager.LoadScene(i);
             // Unloads all scenes passed through
-            Application.LoadLevel(Application.loadedLevel);
+            //Application.LoadLevel(Application.loadedLevel);
         }
 
         // Load scene
-        //SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Additive);
-*/
+        SceneManager.LoadScene(SceneToLoadOnDeath, LoadSceneMode.Additive);
 
-        Destroy(gameObject);
+        Debug.Log("Papa is that you?");
     }
 
 
@@ -51,11 +69,9 @@ public class HealthController : MonoBehaviour
     /// <param name="damage"></param>
     public void takeDamage(int damage)
     {
-        Debug.Log(damage);
-        Debug.Log(health);
         health -= damage;
 
-        if (health <= 0) Die();
+        if (health <= 0) Die();//StartCoroutine("DelayedDeath");
 
         //UpdateHealth();
         //gameObject.SetActive(false);

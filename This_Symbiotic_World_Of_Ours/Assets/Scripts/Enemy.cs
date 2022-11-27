@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
         HealthController playerHealthController = collision.gameObject.GetComponent<HealthController>();
 
         playerHealthController.takeDamage(damage);
-        Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealthController.health);
+        //Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealthController.health);
 
         //enemy "bounces" back when it hits the player
         float bounceForce = 200f; //amount of force to apply
