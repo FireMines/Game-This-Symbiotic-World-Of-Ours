@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class ObstaclePush : MonoBehaviour
 {
+    
     private float playerSpeed = 40f;
     GameObject pushObject;
-    PlayerMovement playerMovement;
+    [SerializeField] PlayerMovement playerMovement;
 
     void Start(){
-        //set playerSpeed to PlayerMovement.runSpeed
-        playerMovement = gameObject.GetComponent<PlayerMovement>();
-        Debug.Log(playerMovement);
+        //get the player speed from the player movement script
         playerSpeed = playerMovement.runSpeed;
     }
     
     //if i get collision and its object in OnCollision, no need for grabCheck?
-    void OnCollisionEnter2D(Collision2D col){
+    void OnTriggerEnter2D(Collider2D col){
 
-
+        Debug.Log("Collision detected");
         if(pushObject==null){
             //get collision object
             pushObject = col.gameObject;
@@ -38,6 +37,7 @@ public class ObstaclePush : MonoBehaviour
             if(pushObject != null && pushObject.tag == "Pushable" ){
 
                 if(Input.GetKey(KeyCode.E)){
+                    Debug.Log("key detected");
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
                     float newSpeed = playerSpeed-10;
