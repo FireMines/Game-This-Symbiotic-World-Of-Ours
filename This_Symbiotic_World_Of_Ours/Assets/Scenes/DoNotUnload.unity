@@ -1301,6 +1301,22 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 544964835}
+    - target: {fileID: 5498743981762700887, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.54415554
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498743981762700887, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6949408
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498743981762700887, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.022077749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498743981762700887, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.09733016
+      objectReference: {fileID: 0}
     - target: {fileID: 5883631939954624356, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: grabDetect
       value: 

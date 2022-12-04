@@ -40,7 +40,7 @@ public class ObstaclePush : MonoBehaviour
                     Debug.Log("key detected");
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
-                    float newSpeed = playerSpeed-20;
+                    float newSpeed = playerSpeed-35;
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
