@@ -40,7 +40,7 @@ public class ObstaclePush : MonoBehaviour
                     Debug.Log("key detected");
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
-                    float newSpeed = playerSpeed-35;
+                    float newSpeed = playerSpeed-20;
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -50,22 +50,22 @@ public class ObstaclePush : MonoBehaviour
                         //if player pos > rock pos:
                         if(gameObject.transform.position.x>pushObject.transform.position.x){
                             playerMovement.setSpeed(newSpeed); //slow player down while moving object
-                            Vector2 newPos = new Vector2(gameObject.transform.position.x-0.5f, gameObject.transform.position.y);
-                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed / 355f);
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x-0.5f, pushObject.transform.position.y);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed/10f);
                         }
                     }
                     if(Input.GetKey("left") || Input.GetKey(KeyCode.A)){
                         //if player pos < rock pos:
                         if(gameObject.transform.position.x<pushObject.transform.position.x){
                             playerMovement.setSpeed(newSpeed);//slow player down while moving object
-                            Vector2 newPos = new Vector2(gameObject.transform.position.x+0.5f, gameObject.transform.position.y);
-                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed / 355f);
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x+0.5f, pushObject.transform.position.y);
+                            pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed/10f);
                         }
                     }
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                    //pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
                     pushObject = null;
