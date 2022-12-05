@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        print(_InitialGravity);
+        //print(_InitialGravity);
 
         var GlidingInput = Input.GetButton("Jump");
 

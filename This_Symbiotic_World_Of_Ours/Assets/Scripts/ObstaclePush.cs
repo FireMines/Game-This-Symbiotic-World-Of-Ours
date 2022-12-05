@@ -65,7 +65,7 @@ public class ObstaclePush : MonoBehaviour
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
-                    //pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
                     pushObject = null;
