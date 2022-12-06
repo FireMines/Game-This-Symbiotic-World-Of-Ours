@@ -148,6 +148,8 @@ public class CharacterController2D : MonoBehaviour
 		{
 			// If current collider belongs to player (this), skip to next
 			if (colliders[i].gameObject == gameObject) continue;
+			if (colliders[i].gameObject.tag == "PushDetector") continue;
+
 			if (colliders[i].isTrigger) continue;
 
 			// Otherwise, ground player call OnLandEvent if player wasnt grounded
@@ -266,7 +268,6 @@ public class CharacterController2D : MonoBehaviour
 	/// <param name="swim"></param>
 	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown, bool pull, bool swim)
 	{
-		print(swim);
 		//add downward and upward movement instead of crouch and jump when is swimming
 		if(swimUp && swim){
 			print("Swim up");
