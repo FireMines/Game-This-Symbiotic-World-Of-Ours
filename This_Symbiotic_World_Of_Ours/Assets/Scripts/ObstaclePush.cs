@@ -16,25 +16,12 @@ public class ObstaclePush : MonoBehaviour
         playerSpeed = playerMovement.runSpeed;
     }
     
-    //if i get collision and its object in OnCollision, no need for grabCheck?
-    /*void OnTriggerEnter2D(Collider2D col){
-
-        Debug.Log("Collision detected");
-        if(pushObject==null){
-            //get collision object
-            pushObject = col.gameObject;
-        }
-        else if(pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
-            pushObject=null;
-        }
-    }*/
 
     void Update(){
         //todo: not jump while pulling
         Collider2D[] colliders = Physics2D.OverlapAreaAll(m_pushCheck_c1.position, m_pushCheck_c2.position);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			 Debug.Log("Collision detected");
             if(pushObject==null){
                 //get collision object
                 pushObject = colliders[i].gameObject;
