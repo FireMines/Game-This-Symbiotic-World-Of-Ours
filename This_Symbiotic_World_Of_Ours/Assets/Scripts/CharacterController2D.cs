@@ -262,14 +262,18 @@ public class CharacterController2D : MonoBehaviour
 	/// <param name="jump"></param>
 	/// <param name="swimUp"></param>
 	/// <param name="swimDown"></param>
-	/// <param name="isPulling"></param>
-	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown, bool isPulling)
+	/// <param name="pull"></param>
+	/// <param name="swim"></param>
+	public void Move(float move, bool crouch, bool jump, bool swimUp, bool swimDown, bool pull, bool swim)
 	{
+		print(swim);
 		//add downward and upward movement instead of crouch and jump when is swimming
-		if(swimUp && isSwimming){
+		if(swimUp && swim){
+			print("Swim up");
 			m_Rigidbody2D.AddForce(new Vector2(0f, 20f));  // add a vertical force to the rb
 		}
-		if(swimDown && isSwimming){
+		if(swimDown && swim){
+			print("swim down");
 			m_Rigidbody2D.AddForce(new Vector2(0f, -10f));  // add a vertical force to the rb
 		}
 		else
@@ -339,13 +343,13 @@ public class CharacterController2D : MonoBehaviour
 				}
 
 				// If the input is moving the player right and the player is facing left...
-				if (move > 0 && !m_FacingRight && !isPulling)
+				if (move > 0 && !m_FacingRight && !pull)
 				{
 					// ... flip the player.
 					Flip();
 				}
 				// Otherwise if the input is moving the player left and the player is facing right...
-				else if (move < 0 && m_FacingRight && !isPulling)
+				else if (move < 0 && m_FacingRight && !pull)
 				{
 					// ... flip the player.
 					Flip();
@@ -357,7 +361,7 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 
 		//shouldnt' jump if pulling
-		if(!isPulling){
+		if(!pull){
 			
 			if ((m_Grounded || jumpsLeft >= 0) && jump)
 			{

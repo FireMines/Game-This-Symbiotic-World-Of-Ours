@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
 		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 		isSwimming = true;
-        print(isSwimming);
 		
 	}
 
@@ -57,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         isSwimming = false;
 		swimUp = false;
         swimDown=false;
-		print(isSwimming);
 	}
 
     // Update is called once per frame
@@ -79,11 +77,11 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = 0;
             rb.velocity = new Vector2(rb.velocity.x, -GlidingFallingSpeed);
         }
-        else
+        else if (!isSwimming)
         {
             rb.gravityScale = _InitialGravity;
         }
-
+        
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -96,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isSwimming)
         {
             swimUp = true;
+            
         } else if (Input.GetButtonUp("Jump") && isSwimming)
         {
             swimUp = false;
@@ -132,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, swimUp, swimDown, isPulling);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, swimUp, swimDown, isPulling, isSwimming);
         jump = false;
     }
 
