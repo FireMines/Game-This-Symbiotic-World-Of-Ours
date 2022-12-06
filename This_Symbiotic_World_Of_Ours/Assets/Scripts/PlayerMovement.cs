@@ -70,8 +70,6 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        //print(_InitialGravity);
-
         var GlidingInput = Input.GetButton("Jump");
 
         //If the player wants to glide, is falling and has the powerup, the player will glide

@@ -52,7 +52,6 @@ public class DisplayPlayerHealth : MonoBehaviour
         {
             GameObject NewObj = new GameObject();
             Image LifeCell = NewObj.AddComponent<Image>();
-            print("Kebab " + LifeCell.gameObject.GetComponent<RectTransform>().position);
             LifeCell.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(40, 40);
             LifeCell.gameObject.GetComponent<RectTransform>().position = lifecellPos;
             LifeCell.name = "Lifecell_" + i;

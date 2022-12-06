@@ -148,6 +148,7 @@ public class CharacterController2D : MonoBehaviour
 		{
 			// If current collider belongs to player (this), skip to next
 			if (colliders[i].gameObject == gameObject) continue;
+			if (colliders[i].isTrigger) continue;
 
 			// Otherwise, ground player call OnLandEvent if player wasnt grounded
 			m_Grounded = true;
@@ -276,10 +277,12 @@ public class CharacterController2D : MonoBehaviour
 			// If crouching, check to see if the character can stand up
 			if (!crouch)
 			{
-				// If the character has a ceiling preventing them from standing up, keep them crouching
-				if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-				{
+				Collider2D[] colliders = Physics2D.OverlapCircleAll(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround);
+				for (int i = 0; i < colliders.Length; i++)
+                {
+					if (colliders[i].isTrigger) continue;
 					crouch = true;
+					break;
 				}
 			}
 
