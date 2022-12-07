@@ -6,6 +6,8 @@ public class ObstaclePush : MonoBehaviour
 {
     
     private float playerSpeed = 40f;
+    private float distanceToPlayer = 0f;
+    private float colliderWidth = 0f;
     GameObject pushObject;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] private Transform m_pushCheck_c1;
@@ -20,11 +22,14 @@ public class ObstaclePush : MonoBehaviour
     void Update(){
         //todo: not jump while pulling
         Collider2D[] colliders = Physics2D.OverlapAreaAll(m_pushCheck_c1.position, m_pushCheck_c2.position);
+
 		for (int i = 0; i < colliders.Length; i++)
 		{
             if(pushObject==null){
                 //get collision object
                 pushObject = colliders[i].gameObject;
+                colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
+                distanceToPlayer = colliderWidth/2f;
             }
             else if(pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
                 pushObject=null;
@@ -46,7 +51,7 @@ public class ObstaclePush : MonoBehaviour
                         //if player pos > rock pos:
                         if(gameObject.transform.position.x>pushObject.transform.position.x){
                             playerMovement.setSpeed(newSpeed); //slow player down while moving object
-                            Vector2 newPos = new Vector2(gameObject.transform.position.x-1f, pushObject.transform.position.y);
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x-distanceToPlayer, pushObject.transform.position.y);
                             pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed/10f);
                         }
                     }
@@ -54,7 +59,7 @@ public class ObstaclePush : MonoBehaviour
                         //if player pos < rock pos:
                         if(gameObject.transform.position.x<pushObject.transform.position.x){
                             playerMovement.setSpeed(newSpeed);//slow player down while moving object
-                            Vector2 newPos = new Vector2(gameObject.transform.position.x+1f, pushObject.transform.position.y);
+                            Vector2 newPos = new Vector2(gameObject.transform.position.x+distanceToPlayer, pushObject.transform.position.y);
                             pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed/10f);
                         }
                     }
