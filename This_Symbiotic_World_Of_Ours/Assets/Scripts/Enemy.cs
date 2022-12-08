@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
-            float move = speed * Time.fixedDeltaTime;///4000f;
+            float move = speed/40f;
             transform.position = Vector2.MoveTowards(transform.position, playerPos, move / 80f);      //* Time.deltaTime makes the enemy not move
             XPosition = transform.position.x;
         }else{
