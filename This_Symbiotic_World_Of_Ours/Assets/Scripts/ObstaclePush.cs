@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObstaclePush : MonoBehaviour
 {
     
-    private float playerSpeed = 40f;
-    private float distanceToPlayer = 0f;
-    private float colliderWidth = 0f;
-    GameObject pushObject;
+    private float playerSpeed = 40f; //player speed
+    private float distanceToPlayer; //distance of the middle of the game object to the player when pushing
+    private float colliderWidth; //width of the collided object
+    GameObject pushObject; //object that should be pushed
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] private Transform m_pushCheck_c1;
     [SerializeField] private Transform m_pushCheck_c2;			
@@ -28,6 +28,7 @@ public class ObstaclePush : MonoBehaviour
             if(pushObject==null){
                 //get collision object
                 pushObject = colliders[i].gameObject;
+                //set the distanceToPlayer to half of the game objects width
                 colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
                 distanceToPlayer = colliderWidth/2f;
             }
@@ -38,7 +39,6 @@ public class ObstaclePush : MonoBehaviour
             if(pushObject != null && pushObject.tag == "Pushable" ){
 
                 if(Input.GetKey(KeyCode.E)){
-                    Debug.Log("key detected");
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
                     float newSpeed = playerSpeed-30;
