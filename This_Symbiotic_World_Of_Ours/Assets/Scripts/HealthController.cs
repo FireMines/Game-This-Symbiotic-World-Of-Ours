@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class HealthController : MonoBehaviour
 {
     public int      health;                 // Health of the mob
@@ -42,6 +44,8 @@ public class HealthController : MonoBehaviour
 */
 
         Destroy(gameObject);
+        SceneManager.LoadScene("Menu"); //easiest way to restart game, player is back when play is clicked and collected abilities are gone
+
     }
 
 
