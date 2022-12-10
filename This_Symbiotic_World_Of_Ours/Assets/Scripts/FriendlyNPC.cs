@@ -19,6 +19,9 @@ public class FriendlyNPC : MonoBehaviour
     public bool playerIsClose;
     public bool isWorldSpirit = false;
 
+    GameObject textObjext;
+    Renderer textRenderer;
+
     // Update is called once per frame
     void Update()
     {
@@ -80,6 +83,12 @@ public class FriendlyNPC : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             playerIsClose = true;
+
+            //textObject is child of this object
+            textObjext = gameObject.transform.GetChild (0).gameObject;
+                 
+            textRenderer = textObjext.GetComponent<Renderer>();
+            textRenderer.enabled = true;
         }
     }
 
@@ -88,6 +97,7 @@ public class FriendlyNPC : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerIsClose = false;
+            textRenderer.enabled = false;
             zeroText();
         }
     }

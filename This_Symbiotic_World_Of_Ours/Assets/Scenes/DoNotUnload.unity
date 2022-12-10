@@ -2485,7 +2485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7240999609629394272, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7439605657110653244, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: lumination

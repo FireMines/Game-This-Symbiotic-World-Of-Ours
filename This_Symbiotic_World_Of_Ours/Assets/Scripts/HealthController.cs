@@ -44,7 +44,9 @@ public class HealthController : MonoBehaviour
 */
 
         Destroy(gameObject);
-        SceneManager.LoadScene("Menu"); //easiest way to restart game, player is back when play is clicked and collected abilities are gone
+        if (gameObject.CompareTag("Player")){
+            SceneManager.LoadScene("Menu"); //easiest way to restart game, player is back when play is clicked and collected abilities are gone
+        }
 
     }
 
