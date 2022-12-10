@@ -103,14 +103,20 @@ public class ObstaclePush : MonoBehaviour
 
                 if(Input.GetKey(KeyCode.E)){
 
-                    textRenderer.enabled = false;
-
-                    //pushable tree only rotate, not move more
+                    
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                    //push element over
+                    
+                    pushObject.transform.Rotate(0.0f, 0.0f, -1.0f);
 
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
                     textRenderer.enabled = true;
+
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
@@ -119,6 +125,8 @@ public class ObstaclePush : MonoBehaviour
            
             }else {
 
+
+                playerMovement.setIsPulling(false);
                 if(textRenderer!=null){
                     textRenderer.enabled = false;
                     textObject = null;
