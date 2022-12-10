@@ -49,7 +49,7 @@ public class ObstaclePush : MonoBehaviour
                 //set position and rotation of child to make it look less weird
                 textObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, textObject.transform.parent.rotation.z * -1.0f);
 
-                Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderWidth/2);
+                Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderWidth/2+0.5f);
                 textObject.transform.position = childPos;
 
                 if(Input.GetKey(KeyCode.E)){
