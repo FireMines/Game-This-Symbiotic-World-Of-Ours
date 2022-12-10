@@ -9,7 +9,7 @@ public class ObstaclePush : MonoBehaviour
     private float distanceToPlayer; //distance of the middle of the game object to the player when pushing
     private float colliderWidth; //width of the collided object
     GameObject pushObject; //object that should be pushed
-    GameObject textObjext;
+    GameObject textObject;
     Renderer textRenderer;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] private Transform m_pushCheck_c1;
@@ -37,17 +37,25 @@ public class ObstaclePush : MonoBehaviour
             }
 		}
             if(pushObject != null && pushObject.tag == "Pushable" ){
-                textObjext = pushObject.transform.GetChild (0).gameObject;
+
+                colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
+                distanceToPlayer = colliderWidth/2f;
+
+                textObject = pushObject.transform.GetChild (0).gameObject;
                  
-                textRenderer = textObjext.GetComponent<Renderer>();
+                textRenderer = textObject.GetComponent<Renderer>();
                 textRenderer.enabled = true;
+
+                textObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, textObject.transform.parent.rotation.z * -1.0f);
+                //set position of child to position of parent + 1f
+                Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderWidth/2);
+                textObject.transform.position = childPos;
 
                 if(Input.GetKey(KeyCode.E)){
 
-                    textRenderer.enabled=false;
+                    textRenderer.enabled = false;
 
-                    colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
-                    distanceToPlayer = colliderWidth/2f;
+                    
 
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
@@ -76,6 +84,7 @@ public class ObstaclePush : MonoBehaviour
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
+                    textRenderer.enabled = true;
 
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
@@ -85,7 +94,7 @@ public class ObstaclePush : MonoBehaviour
 
                 if(textRenderer!=null){
                     textRenderer.enabled = false;
-                    textObjext = null;
+                    textObject = null;
                     textRenderer = null;
                 
                 }
