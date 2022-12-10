@@ -72,3 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 This_Symbiotic_World_Of_Ours/.plastic/plastic.wktree
 This_Symbiotic_World_Of_Ours/.plastic/plastic.changes
+This_Symbiotic_World_Of_Ours/Assets/platforms.png.meta
+This_Symbiotic_World_Of_Ours/Assets/suspension-bridge-icon-13.png.meta
+This_Symbiotic_World_Of_Ours/Assets/Scripts/EnemyHealth.cs.meta
+This_Symbiotic_World_Of_Ours/Assets/Scripts/PlayerHealth.cs.meta
