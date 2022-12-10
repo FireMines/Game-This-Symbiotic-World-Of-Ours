@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         XPosition = transform.position.x;
         target=GameObject.FindGameObjectWithTag("Player").transform;
     }
-    
+
     private void FixedUpdate(){
         enemyMovement();
     }
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
-            float move = speed/40f;
+            float move = speed/30f;
             transform.position = Vector2.MoveTowards(transform.position, playerPos, move / 80f);      //* Time.deltaTime makes the enemy not move
             XPosition = transform.position.x;
         }else{
@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
         //Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealthController.health);
 
         //enemy "bounces" back when it hits the player
-        float bounceForce = 250f; //amount of force to apply
+        float bounceForce = 225f; //amount of force to apply
         _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
         isBouncing = true;
         Invoke("StopBouncing", 0.2f);

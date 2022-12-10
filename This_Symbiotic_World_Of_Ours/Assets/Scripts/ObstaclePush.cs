@@ -44,6 +44,8 @@ public class ObstaclePush : MonoBehaviour
 
                 if(Input.GetKey(KeyCode.E)){
 
+                    textRenderer.enabled=false;
+
                     colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
                     distanceToPlayer = colliderWidth/2f;
 
@@ -52,7 +54,6 @@ public class ObstaclePush : MonoBehaviour
                     float newSpeed = playerSpeed-30;
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     //if player is walking towards rock -> push
                     //if player is walking away from rock -> pull
                     if(Input.GetKey("right") || Input.GetKey(KeyCode.D)){
@@ -76,7 +77,6 @@ public class ObstaclePush : MonoBehaviour
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
 
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
                     pushObject = null;

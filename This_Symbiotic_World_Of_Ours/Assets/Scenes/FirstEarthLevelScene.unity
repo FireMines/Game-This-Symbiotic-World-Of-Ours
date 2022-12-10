@@ -3683,12 +3683,11 @@ MonoBehaviour:
   dialoguePanel: {fileID: 106923319}
   dialogueText: {fileID: 935566041}
   dialogue:
-  - Well met!
-  - Do you know what happened here?
-  - There used to be a rich body of water here, but now it seems this lovely water
-    hole has been dried up!
-  - Can you help fix it please? Luckily my house has grown to the extent that you
-    can get out of here if you feel bouncy
+  - Oh I'm glad to see you!
+  - I wanted to go to the mountain to meet a friend but the water from the rain has
+    filled up our beautiful valley.
+  - If only there was a way to stop the rain.
+  - Can you help me?
   continueButton: {fileID: 637428281}
   wordSpeed: 0.02
   playerIsClose: 0
@@ -11365,9 +11364,9 @@ MonoBehaviour:
   dialogueText: {fileID: 935566041}
   dialogue:
   - Oh the misery!
-  - Tirips, this lushous forest has been the subject of a big flood!
-  - All this rain from the CLOUDS (hint hint) just wont stop!
-  - If its not soon fixed then im afraid this whole forest will drown and die! Could
+  - Tirips, this luscious forest has been the subject of a big flood!
+  - All this rain from the clouds just wont stop!
+  - If its not soon fixed then I'm afraid this whole forest will drown and die! Could
     you see if you could help us out here?
   continueButton: {fileID: 637428281}
   wordSpeed: 0.02
