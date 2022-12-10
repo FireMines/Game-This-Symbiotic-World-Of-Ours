@@ -34,6 +34,7 @@ public class CharacterController2D : MonoBehaviour
 	public bool ChargeAttackPowerup = false;
 	public bool DashPowerup = false;
 	public bool GlidePowerup = false;
+	public bool LightPowerup = false;
 
 	public Light2D lumination;
 

@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 3f;
     private bool isPulling = false;
+    private bool isLight = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
@@ -119,6 +120,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && dashPowerup)
         {
             StartCoroutine(Dash());
+        }
+
+        if(Input.GetKeyDown(KeyCode.F) && controller.LightPowerup)
+        {
+            controller.lumination.enabled = isLight;
+            isLight = !isLight;
         }
     }
 

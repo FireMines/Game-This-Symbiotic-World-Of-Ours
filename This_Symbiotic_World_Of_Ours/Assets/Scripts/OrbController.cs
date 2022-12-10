@@ -75,7 +75,7 @@ public class OrbController : MonoBehaviour
                     break;
 
                 case Powerup.CharacterGlowing:
-                    controller.lumination.enabled = true;
+                    controller.LightPowerup = true;
                     break;
 
                 case Powerup.RangedAttack:
