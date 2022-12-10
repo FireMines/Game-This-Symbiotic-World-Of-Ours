@@ -24717,7 +24717,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895711827}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -26805,8 +26805,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048839158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.8966, y: -160.2974, z: -1.0136336}
-  m_LocalScale: {x: 3.5779214, y: 5.749957, z: 1.3712}
+  m_LocalPosition: {x: 38.888, y: -160.341, z: -1.0136336}
+  m_LocalScale: {x: 3.5779214, y: 3.9787815, z: 1.3712}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1895711828}
