@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 212619335}
   - component: {fileID: 212619334}
   - component: {fileID: 212619333}
+  - component: {fileID: 212619337}
   m_Layer: 0
   m_Name: Sprite4_4 (2)
   m_TagString: Pushable
@@ -645,6 +646,27 @@ Transform:
   m_Father: {fileID: 2000842652}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &212619337
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212619332}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &234747524
 GameObject:
   m_ObjectHideFlags: 0
@@ -9653,6 +9675,7 @@ GameObject:
   - component: {fileID: 937500108}
   - component: {fileID: 937500107}
   - component: {fileID: 937500106}
+  - component: {fileID: 937500110}
   m_Layer: 0
   m_Name: Sprite4_4
   m_TagString: Pushable
@@ -9769,6 +9792,27 @@ Transform:
   m_Father: {fileID: 2000842652}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &937500110
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937500105}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &948297275
 GameObject:
   m_ObjectHideFlags: 0
@@ -11949,6 +11993,7 @@ GameObject:
   - component: {fileID: 1340316226}
   - component: {fileID: 1340316225}
   - component: {fileID: 1340316224}
+  - component: {fileID: 1340316228}
   m_Layer: 0
   m_Name: Sprite4_4 (1)
   m_TagString: Pushable
@@ -12065,6 +12110,27 @@ Transform:
   m_Father: {fileID: 2000842652}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1340316228
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340316223}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1439811761
 GameObject:
   m_ObjectHideFlags: 0
