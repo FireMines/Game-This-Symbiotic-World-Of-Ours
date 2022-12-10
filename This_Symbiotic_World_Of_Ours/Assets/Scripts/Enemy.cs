@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
 	private bool m_FacingRight = true;              // For determining which way the enemy is currently facing.
 
     private bool isBouncing = false;
+    private bool canDamage = true;
+    private float damageCooldown = 1f;
 
     private Transform target;
 
@@ -93,19 +95,28 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.tag != "Player") return;
+        
+        if(canDamage){
+            StartCoroutine(Damage(collision));    
+        }    
+        
+    }
 
-
+    private IEnumerator Damage(Collision2D collision)
+    {
+        canDamage = false;
         HealthController playerHealthController = collision.gameObject.GetComponent<HealthController>();
 
         playerHealthController.takeDamage(damage);
         Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealthController.health);
 
         //enemy "bounces" back when it hits the player
-        float bounceForce = 200f; //amount of force to apply
+        float bounceForce = 250f; //amount of force to apply
         _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
         isBouncing = true;
         Invoke("StopBouncing", 0.2f);
-        
+        yield return new WaitForSeconds(damageCooldown);
+        canDamage = true;
     }
     
 
