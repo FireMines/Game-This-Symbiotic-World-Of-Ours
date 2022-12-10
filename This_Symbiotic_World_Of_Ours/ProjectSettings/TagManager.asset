@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Pushable
   - Health
+  - NotYetAttackableRock
+  - PushDetector
   layers:
   - Default
   - TransparentFX

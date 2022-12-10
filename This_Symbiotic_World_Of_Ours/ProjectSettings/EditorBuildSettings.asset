@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstEarthLevelScene.unity
     guid: 7976102c21e6adc469e63cc9658690c7
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: aa38050ce3e05b14581a0e670dd459e9
   m_configObjects: {}

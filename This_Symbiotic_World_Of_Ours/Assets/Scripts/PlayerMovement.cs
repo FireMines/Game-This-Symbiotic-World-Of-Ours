@@ -26,11 +26,19 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 3f;
     private bool isPulling = false;
+    private bool isLight = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
 
-    
+    //Gliding fields
+    [SerializeField] private float GlidingFallingSpeed;
+    private float _InitialGravity;
+
+    private void Start()
+    {
+        _InitialGravity = rb.gravityScale;
+    }
 
     private void OnTriggerEnter2D(Collider2D hit){
 		// If we are entering something else than water, return
@@ -38,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
 		//if player hits the edge of the water, either he goes from swim->!swim or from !swim->swim
 		isSwimming = true;
-        print(isSwimming);
 		
 	}
 
@@ -50,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
         isSwimming = false;
 		swimUp = false;
         swimDown=false;
-		print(isSwimming);
 	}
 
     // Update is called once per frame
@@ -63,6 +69,20 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        var GlidingInput = Input.GetButton("Jump");
+
+        //If the player wants to glide, is falling and has the powerup, the player will glide
+        if (GlidingInput && rb.velocity.y <= 0 && controller.GlidePowerup)
+        {
+            print("Gliding");
+            rb.gravityScale = 0;
+            rb.velocity = new Vector2(rb.velocity.x, -GlidingFallingSpeed);
+        }
+        else if (!isSwimming)
+        {
+            rb.gravityScale = _InitialGravity;
+        }
+        
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -75,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isSwimming)
         {
             swimUp = true;
+            
         } else if (Input.GetButtonUp("Jump") && isSwimming)
         {
             swimUp = false;
@@ -100,6 +121,12 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
+
+        if(Input.GetKeyDown(KeyCode.F) && controller.LightPowerup)
+        {
+            controller.lumination.enabled = isLight;
+            isLight = !isLight;
+        }
     }
 
     void FixedUpdate ()
@@ -111,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, swimUp, swimDown, isPulling);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, swimUp, swimDown, isPulling, isSwimming);
         jump = false;
     }
 
