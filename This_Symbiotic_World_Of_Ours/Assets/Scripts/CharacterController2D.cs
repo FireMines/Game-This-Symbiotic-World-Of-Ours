@@ -3,6 +3,9 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Rendering.Universal;
+using static UnityEngine.UI.Image;
+using System.Drawing;
+using Unity.VisualScripting;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -184,13 +187,16 @@ public class CharacterController2D : MonoBehaviour
 		Vector2 direction = obj.transform.position - this.transform.position;
 		RaycastHit2D[] hits = Physics2D.RaycastAll(this.transform.position, direction.normalized, AttackRange);
 
+		//bool enemyfound = false;
+
 		// Iterate everything the raycast hit from start to end,
 		foreach (RaycastHit2D hit in hits)
         {
-			// ...breaking the loop if it hit something "bad" (i.e. NOT the player).
-			if (hit.collider.gameObject == obj) return true;
-			if (hit.collider.gameObject.tag != "Player") break;
-        }
+            // ...breaking the loop if it hit something "bad" (i.e. NOT the player).
+            if (hit.collider.gameObject == obj) return true;
+            else if (hit.collider.gameObject.tag != "Water" &&
+				hit.collider.gameObject.tag != "Player") return false;
+		}
 
 		// Return
 		return false;
