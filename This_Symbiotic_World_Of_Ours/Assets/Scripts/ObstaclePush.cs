@@ -46,8 +46,9 @@ public class ObstaclePush : MonoBehaviour
                 textRenderer = textObject.GetComponent<Renderer>();
                 textRenderer.enabled = true;
 
+                //set position and rotation of child to make it look less weird
                 textObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, textObject.transform.parent.rotation.z * -1.0f);
-                //set position of child to position of parent + 1f
+
                 Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderWidth/2);
                 textObject.transform.position = childPos;
 
@@ -55,12 +56,11 @@ public class ObstaclePush : MonoBehaviour
 
                     textRenderer.enabled = false;
 
-                    
-
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
                     float newSpeed = playerSpeed-30;
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     
                     //if player is walking towards rock -> push
                     //if player is walking away from rock -> pull
@@ -90,7 +90,34 @@ public class ObstaclePush : MonoBehaviour
                     playerMovement.setIsPulling(false);
                     pushObject = null;
                 }
-            }else{
+            }else if(pushObject != null && pushObject.tag == "PushableTree" ){
+
+
+                textObject = pushObject.transform.GetChild (0).gameObject;
+                 
+                textRenderer = textObject.GetComponent<Renderer>();
+                textRenderer.enabled = true;
+
+                //set position and rotation of child to make it look less weird
+                textObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, textObject.transform.parent.rotation.z * -1.0f);
+
+                if(Input.GetKey(KeyCode.E)){
+
+                    textRenderer.enabled = false;
+
+                    //pushable tree only rotate, not move more
+
+                    
+                }else{
+                    //if you want object to stop when e is not pressed anymore: else just comment it out
+                    textRenderer.enabled = true;
+
+                    playerMovement.setSpeed(playerSpeed);
+                    playerMovement.setIsPulling(false);
+                    pushObject = null;
+                }
+           
+            }else {
 
                 if(textRenderer!=null){
                     textRenderer.enabled = false;
