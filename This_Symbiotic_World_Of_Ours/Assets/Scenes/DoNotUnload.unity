@@ -2359,6 +2359,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 10582556}
+    - target: {fileID: 4369106659634243730, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
+      propertyPath: GlidingFallingSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4550384260200319664, guid: 980bda5f3fc86524a976ffa6abead54d, type: 3}
       propertyPath: m_Time
       value: 1
