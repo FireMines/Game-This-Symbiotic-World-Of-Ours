@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
         XPosition = transform.position.x;
         target=GameObject.FindGameObjectWithTag("Player").transform;
     }
+    
     private void FixedUpdate(){
         enemyMovement();
     }

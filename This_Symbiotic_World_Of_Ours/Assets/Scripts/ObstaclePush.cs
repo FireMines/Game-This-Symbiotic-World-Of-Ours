@@ -9,6 +9,8 @@ public class ObstaclePush : MonoBehaviour
     private float distanceToPlayer; //distance of the middle of the game object to the player when pushing
     private float colliderWidth; //width of the collided object
     GameObject pushObject; //object that should be pushed
+    GameObject textObjext;
+    Renderer textRenderer;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] private Transform m_pushCheck_c1;
     [SerializeField] private Transform m_pushCheck_c2;			
@@ -29,16 +31,22 @@ public class ObstaclePush : MonoBehaviour
                 //get collision object
                 pushObject = colliders[i].gameObject;
                 //set the distanceToPlayer to half of the game objects width
-                colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
-                distanceToPlayer = colliderWidth/2f;
             }
             else if(pushObject.GetComponent<Rigidbody2D>() != null && pushObject.tag != "Pushable" ){
                 pushObject=null;
             }
 		}
             if(pushObject != null && pushObject.tag == "Pushable" ){
+                textObjext = pushObject.transform.GetChild (0).gameObject;
+                 
+                textRenderer = textObjext.GetComponent<Renderer>();
+                textRenderer.enabled = true;
 
                 if(Input.GetKey(KeyCode.E)){
+
+                    colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
+                    distanceToPlayer = colliderWidth/2f;
+
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
                     float newSpeed = playerSpeed-30;
@@ -63,15 +71,24 @@ public class ObstaclePush : MonoBehaviour
                             pushObject.transform.position = Vector2.MoveTowards(pushObject.transform.position, newPos , newSpeed/10f);
                         }
                     }
+
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
+
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
                     pushObject = null;
                 }
             }else{
+
+                if(textRenderer!=null){
+                    textRenderer.enabled = false;
+                    textObjext = null;
+                    textRenderer = null;
+                
+                }
                 pushObject = null;
                 }
     }
