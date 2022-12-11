@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     // Public variables
+    [Header("Scenes and filter")]
     public string           SceneToLoad,
                             BelongsToScene;
     public ContactFilter2D  TriggerFilter;
@@ -43,6 +44,7 @@ public class SceneLoader : MonoBehaviour
             ChangeScene();
         }
     }
+
 
     /// <summary>
     /// Changes the scene to the next scene.

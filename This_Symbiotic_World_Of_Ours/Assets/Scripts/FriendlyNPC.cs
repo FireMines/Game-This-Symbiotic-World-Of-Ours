@@ -10,8 +10,11 @@ public class FriendlyNPC : MonoBehaviour
 {
     private Dialogue dialogueManager;
 
+    [Header("Dialogue Window settings")]
     public Sprite image;
     public string NPCName;
+
+    [Header("Misc")]
     public bool playerIsClose;
     public bool isWorldSpirit = false;
     [SerializeField] private string[] dialogue;
@@ -39,6 +42,8 @@ public class FriendlyNPC : MonoBehaviour
                     SceneManager.LoadScene(5);
                 } 
             });
+
+            // Sets the values for the dialogue window
             dialogueManager.setImage(image);
             dialogueManager.setNameOfTalker(NPCName);
             dialogueManager.setDialogue(dialogue);

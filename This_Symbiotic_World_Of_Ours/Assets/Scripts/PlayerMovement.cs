@@ -142,6 +142,11 @@ public class PlayerMovement : MonoBehaviour
         jump = false;
     }
 
+
+    /// <summary>
+    /// Dash ability
+    /// </summary>
+    /// <returns>Cooldown for the dash ability</returns>
     private IEnumerator Dash()
     {
         canDash = false;
@@ -159,10 +164,20 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
+
+    /// <summary>
+    /// Sets the value isPulling
+    /// </summary>
+    /// <param name="pull">If character is pulling object or not</param>
     public void setIsPulling (bool pull) {
         isPulling = pull;
     }
 
+
+    /// <summary>
+    /// Sets the movement speed
+    /// </summary>
+    /// <param name="speed">Movement speed</param>
     public void setSpeed(float speed){
         runSpeed = speed;
     }

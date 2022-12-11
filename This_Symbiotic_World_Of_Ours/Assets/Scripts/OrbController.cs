@@ -7,9 +7,11 @@ using TMPro;
 
 public class OrbController : MonoBehaviour
 {
+    [Header("Dialogue Window")]
     [SerializeField] private string[] dialogue;
-    private Dialogue dialogueManager;
     public Sprite image;
+
+    private Dialogue dialogueManager;
 
     public enum Element{
     Water,
@@ -26,20 +28,20 @@ public class OrbController : MonoBehaviour
         Dash
     }
 
+    [Header("Orb spesifications")]
     public Element OrbElement;
-
     public Powerup powerup;
 
     private CharacterController2D controller;
-
     private PlayerMovement movement;
 
     SpriteRenderer sprite;
-
     ParticleSystem orbLight;
 
 
-    void Start() {
+    void Start() 
+    {
+        // Finds the dialogue window the orbs want to interact with
         dialogueManager = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Dialogue>();
 
 
@@ -105,6 +107,7 @@ public class OrbController : MonoBehaviour
             {
             });
 
+            // Sets all the values for the dialogue window for the orbs
             dialogueManager.setImage(image);
             dialogueManager.setNameOfTalker(OrbElement.ToString() + " Fragment");
             dialogueManager.setDialogue(dialogue);
@@ -115,6 +118,7 @@ public class OrbController : MonoBehaviour
         // Update the amount of orbs collected for each orb type
         controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
 
+        // Destroys the orb after being picked up
         Destroy(gameObject);
     }
 }

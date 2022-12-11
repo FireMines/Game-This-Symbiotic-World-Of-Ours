@@ -10222,8 +10222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 106923319}
-  dialogueText: {fileID: 935566041}
+  image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  NPCName: Timmothy
+  playerIsClose: 0
+  isWorldSpirit: 0
   dialogue:
   - Well met!
   - Do you know what happened here?
@@ -10231,10 +10233,6 @@ MonoBehaviour:
     hole has been dried up!
   - Can you help fix it please? Luckily my house has grown to the extent that you
     can get out of here if you feel bouncy
-  continueButton: {fileID: 637428281}
-  wordSpeed: 0.02
-  playerIsClose: 0
-  isWorldSpirit: 0
 --- !u!61 &493809014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11959,7 +11957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548362, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Name
-      value: WaterOrb (3)
+      value: WaterOrbGlow
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548363, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_BodyType
@@ -11968,6 +11966,18 @@ PrefabInstance:
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You have gained the illumination ability!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Press F to toggle the ability.
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
@@ -12020,6 +12030,22 @@ PrefabInstance:
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
@@ -14576,11 +14602,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548362, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Name
-      value: WaterOrb (1)
+      value: WaterOrbAttack
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You have gained the single attack ability!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Press LEFT MOUSE CLICK near an enemy to use the ability.
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
@@ -14633,6 +14671,22 @@ PrefabInstance:
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
@@ -24010,18 +24064,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 106923319}
-  dialogueText: {fileID: 935566041}
+  image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  NPCName: Bob
+  playerIsClose: 0
+  isWorldSpirit: 0
   dialogue:
   - Oh the misery!
   - Tirips, this lushous forest has been the subject of a big flood!
   - All this rain from the CLOUDS (hint hint) just wont stop!
   - If its not soon fixed then im afraid this whole forest will drown and die! Could
     you see if you could help us out here?
-  continueButton: {fileID: 637428281}
-  wordSpeed: 0.02
-  playerIsClose: 0
-  isWorldSpirit: 0
 --- !u!61 &1046467424
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30811,11 +30863,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548362, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Name
-      value: WaterOrb (2)
+      value: WaterOrbChargedAttack
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You have gained the charged attack ability!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Hold LEFT MOUSE BUTTON near an enemy to charge an attack.
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
@@ -30868,6 +30932,22 @@ PrefabInstance:
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}

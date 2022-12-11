@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+	[Header("Sound settings")]
 	// Audio players components.
 	public AudioSource EffectsSource;
 	public AudioSource MusicSource;
@@ -30,19 +31,34 @@ public class SoundManager : MonoBehaviour
 		//Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
 		DontDestroyOnLoad(gameObject);
 	}
-	// Play a single clip through the sound effects source.
+
+
+	/// <summary>
+	/// Play a single clip through the sound effects source.
+	/// </summary>
+	/// <param name="clip">Sound effect clip to be played</param>
 	public void Play(AudioClip clip)
 	{
 		EffectsSource.clip = clip;
 		EffectsSource.Play();
 	}
-	// Play a single clip through the music source.
+
+
+	/// <summary>
+	/// Play a single clip through the music source.
+	/// </summary>
+	/// <param name="clip">Music clip to be played</param>
 	public void PlayMusic(AudioClip clip)
 	{
 		MusicSource.clip = clip;
 		MusicSource.Play();
 	}
-	// Play a random clip from an array, and randomize the pitch slightly.
+
+
+	/// <summary>
+	/// Play a random clip from an array, and randomize the pitch slightly.
+	/// </summary>
+	/// <param name="clips">Array of audio clips to be randomly played</param>
 	public void RandomSoundEffect(params AudioClip[] clips)
 	{
 		int randomIndex = Random.Range(0, clips.Length);

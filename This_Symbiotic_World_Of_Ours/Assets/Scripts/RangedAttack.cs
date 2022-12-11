@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RangedAttack : MonoBehaviour
 {
-    [Header("Set by scripts")]
-
     [HideInInspector] public GameObject   _Player;
     [HideInInspector] public GameObject   _Target;
 
@@ -18,17 +16,13 @@ public class RangedAttack : MonoBehaviour
     public Vector2      _Vel;
     private GameObject  cam;
 
-    [SerializeField] private int damage;            //how much damage does the enemy do
+    [Header("Stats for attack")]
+    [SerializeField] private int damage;            // how much damage does the enemy do
 
     [HideInInspector] public bool        launched = false;
 
+    [Header("Audio of attack")]
     public AudioClip AttackImpactNoise;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
 
     private void Update()

@@ -5157,7 +5157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
-  NPCName: 
+  NPCName: Bruce
   playerIsClose: 0
   isWorldSpirit: 0
   dialogue:
@@ -20401,7 +20401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
-  NPCName: 
+  NPCName: Georg
   playerIsClose: 0
   isWorldSpirit: 0
   dialogue:
