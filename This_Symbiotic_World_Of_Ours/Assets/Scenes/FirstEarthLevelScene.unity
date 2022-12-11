@@ -11964,6 +11964,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 21300000, guid: b4365db2a057db54e922defb4b16ae62, type: 3}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 4
       objectReference: {fileID: 0}
@@ -12042,7 +12046,19 @@ PrefabInstance:
     - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+      objectReference: {fileID: 21300000, guid: b4365db2a057db54e922defb4b16ae62, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.43529412
+      objectReference: {fileID: 0}
     - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -13860,7 +13876,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  displayHP: 0
 --- !u!60 &652857646
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14605,6 +14620,10 @@ PrefabInstance:
       value: WaterOrbAttack
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 21300000, guid: b4365db2a057db54e922defb4b16ae62, type: 3}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 1
       objectReference: {fileID: 0}
@@ -14683,7 +14702,19 @@ PrefabInstance:
     - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+      objectReference: {fileID: 21300000, guid: b4365db2a057db54e922defb4b16ae62, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6240904
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.43559986
+      objectReference: {fileID: 0}
     - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -30866,6 +30897,10 @@ PrefabInstance:
       value: WaterOrbChargedAttack
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 21300000, guid: b4365db2a057db54e922defb4b16ae62, type: 3}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 2
       objectReference: {fileID: 0}
@@ -30944,7 +30979,19 @@ PrefabInstance:
     - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+      objectReference: {fileID: 21300000, guid: b4365db2a057db54e922defb4b16ae62, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.43529412
+      objectReference: {fileID: 0}
     - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
