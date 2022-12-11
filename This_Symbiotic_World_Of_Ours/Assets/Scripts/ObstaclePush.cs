@@ -103,13 +103,18 @@ public class ObstaclePush : MonoBehaviour
 
                 if(Input.GetKey(KeyCode.E)){
 
-                    
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
-                    //push element over
-                    
-                    pushObject.transform.Rotate(0.0f, 0.0f, -1.0f);
+                        pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                        pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                        //push element over
+                        
+                        pushObject.transform.Rotate(0.0f, 0.0f, -1.0f);
+                        //Vector2 newPos = 
+                        //pushObject.transform.position = new Vector2(pushObject.transform.position.x, pushObject.transform.position.y);
+                        print(pushObject.transform.rotation);
+                        if(pushObject.transform.rotation == new Quaternion(0.00000f, 0.00000f, -0.64683f, 0.76263f)){
+                            print("STOP PUSHING");
+                        }
+                        pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
                     
                 }else{

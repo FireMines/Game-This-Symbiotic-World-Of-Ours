@@ -13930,15 +13930,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650079672}
-  m_LocalRotation: {x: -0, y: -0, z: -0.015878584, w: 0.99987394}
-  m_LocalPosition: {x: 285.85, y: 40.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 285.2, y: 30.1, z: 0}
+  m_LocalScale: {x: 1.0584118, y: 1.196225, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1357772825}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.82}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &650079676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13952,10 +13952,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.32716224, y: -0.31085253}
+  m_Offset: {x: -0.32716224, y: 8.641756}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 16, y: 20}
     newSize: {x: 16, y: 20}
     adaptiveTilingThreshold: 0.5
@@ -13963,7 +13963,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65090173, y: 16.136112}
+  m_Size: {x: 0.65090173, y: 17.395073}
   m_EdgeRadius: 0
 --- !u!1 &681468670
 GameObject:
@@ -23967,7 +23967,7 @@ MonoBehaviour:
   dialogueText: {fileID: 935566041}
   dialogue:
   - Oh the misery!
-  - Tirips, this lushous forest has been the subject of a big flood!
+  - Tirips, this luscious forest has been the subject of a big flood!
   - All this rain from the CLOUDS (hint hint) just wont stop!
   - If its not soon fixed then im afraid this whole forest will drown and die! Could
     you see if you could help us out here?
@@ -28678,7 +28678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357772824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.51, y: -4.18, z: 5.655981}
+  m_LocalPosition: {x: -2.39, y: 5.84, z: 5.655981}
   m_LocalScale: {x: 0.6747195, y: 0.6286958, z: 0.8812409}
   m_ConstrainProportionsScale: 0
   m_Children: []
