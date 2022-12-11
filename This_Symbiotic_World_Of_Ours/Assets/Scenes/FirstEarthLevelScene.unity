@@ -10417,8 +10417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 106923319}
-  dialogueText: {fileID: 935566041}
+  image: {fileID: 0}
+  NPCName: 
+  playerIsClose: 0
+  isWorldSpirit: 0
   dialogue:
   - Well met!
   - Do you know what happened here?
@@ -10426,10 +10428,6 @@ MonoBehaviour:
     hole has been dried up!
   - Can you help fix it please? Luckily my house has grown to the extent that you
     can get out of here if you feel bouncy
-  continueButton: {fileID: 637428281}
-  wordSpeed: 0.02
-  playerIsClose: 0
-  isWorldSpirit: 0
 --- !u!61 &493809014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13949,7 +13947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650079672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.2, y: 30.1, z: 0}
+  m_LocalPosition: {x: 284.22, y: 30.97, z: 0}
   m_LocalScale: {x: 1.0584118, y: 1.196225, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24207,18 +24205,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 106923319}
-  dialogueText: {fileID: 935566041}
+  image: {fileID: 0}
+  NPCName: 
+  playerIsClose: 0
+  isWorldSpirit: 0
   dialogue:
   - Oh the misery!
   - Tirips, this luscious forest has been the subject of a big flood!
   - All this rain from the CLOUDS (hint hint) just wont stop!
   - If its not soon fixed then im afraid this whole forest will drown and die! Could
     you see if you could help us out here?
-  continueButton: {fileID: 637428281}
-  wordSpeed: 0.02
-  playerIsClose: 0
-  isWorldSpirit: 0
 --- !u!61 &1046467424
 BoxCollider2D:
   m_ObjectHideFlags: 0
