@@ -10634,6 +10634,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b5712c72fcbc2584da483348c1cc32fc, type: 3}
     - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.42745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.42745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -21735,7 +21747,7 @@ MonoBehaviour:
   obstacle: {fileID: 1787735781}
   distanceToActivate: 2
   _NewY: -90
-  speed: 0.04
+  speed: 0.06
 --- !u!1 &1707406204
 GameObject:
   m_ObjectHideFlags: 0
