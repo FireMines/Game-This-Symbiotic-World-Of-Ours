@@ -8,6 +8,7 @@ public class ObstaclePush : MonoBehaviour
     private float playerSpeed = 40f; //player speed
     private float distanceToPlayer; //distance of the middle of the game object to the player when pushing
     private float colliderWidth; //width of the collided object
+    private float colliderRadius;
     GameObject pushObject; //object that should be pushed
     GameObject textObject;
     Renderer textRenderer;
@@ -22,7 +23,6 @@ public class ObstaclePush : MonoBehaviour
     
 
     void Update(){
-        //todo: not jump while pulling
         Collider2D[] colliders = Physics2D.OverlapAreaAll(m_pushCheck_c1.position, m_pushCheck_c2.position);
 
 		for (int i = 0; i < colliders.Length; i++)
@@ -40,6 +40,7 @@ public class ObstaclePush : MonoBehaviour
 
                 colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
                 distanceToPlayer = colliderWidth/2f;
+                colliderRadius = pushObject.GetComponent<Renderer>().bounds.size.y/2 + 0.5f;
 
                 textObject = pushObject.transform.GetChild (0).gameObject;
                  
@@ -49,7 +50,7 @@ public class ObstaclePush : MonoBehaviour
                 //set position and rotation of child to make it look less weird
                 textObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, textObject.transform.parent.rotation.z * -1.0f);
 
-                Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderWidth/2+0.5f);
+                Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderRadius);
                 textObject.transform.position = childPos;
 
                 if(Input.GetKey(KeyCode.E)){
@@ -83,7 +84,7 @@ public class ObstaclePush : MonoBehaviour
 
                     
                 }else{
-                    //if you want object to stop when e is not pressed anymore: else just comment it out
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     textRenderer.enabled = true;
 
                     playerMovement.setSpeed(playerSpeed);
@@ -124,7 +125,7 @@ public class ObstaclePush : MonoBehaviour
                     //if you want object to stop when e is not pressed anymore: else just comment it out
                     textRenderer.enabled = true;
 
-                    //pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
