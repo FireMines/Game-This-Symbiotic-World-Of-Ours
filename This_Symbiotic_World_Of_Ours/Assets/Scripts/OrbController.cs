@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
 using TMPro;
+using Unity.VisualScripting;
 
 public class OrbController : MonoBehaviour
 {
@@ -55,18 +56,20 @@ public class OrbController : MonoBehaviour
 
         orbLight = GetComponentInChildren<ParticleSystem>();
 
-        switch (OrbElement)
-        {
-            case Element.Water:
-                sprite.color = new Color(0f, 0.69f, 1f);
-                orbLight.startColor = new Color(0f,0.69f,1f);
-                break;
+        //sprite.sprite = image;
 
-            case Element.Earth:
-                sprite.color = new Color(1f, 0.5f, 0f);
-                orbLight.startColor = new Color(1f, 0.5f, 0f);
-                break;
-        }
+        //switch (OrbElement)
+        //{
+        //    case Element.Water:
+        //        sprite.color = new Color(0f, 0.69f, 1f);
+        //        orbLight.startColor = new Color(0f,0.69f,1f);
+        //        break;
+
+        //    case Element.Earth:
+        //        sprite.color = new Color(1f, 0.5f, 0f);
+        //        orbLight.startColor = new Color(1f, 0.5f, 0f);
+        //        break;
+        //}
     }
 
 
