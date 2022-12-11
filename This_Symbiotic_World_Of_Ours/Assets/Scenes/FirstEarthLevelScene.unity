@@ -10422,12 +10422,11 @@ MonoBehaviour:
   playerIsClose: 0
   isWorldSpirit: 0
   dialogue:
-  - Well met!
-  - Do you know what happened here?
-  - There used to be a rich body of water here, but now it seems this lovely water
-    hole has been dried up!
-  - Can you help fix it please? Luckily my house has grown to the extent that you
-    can get out of here if you feel bouncy
+  - Oh hello. I'm so glad you are here.
+  - I wanted to go on top of the mountain on the other side of the valley but it
+    seems like our beautiful valley is flooded from all the rain.
+  - Something must be blocking the way for the water.
+  - Could you take a look at the flooded valley?
 --- !u!61 &493809014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24299,8 +24298,8 @@ MonoBehaviour:
   dialogue:
   - Oh the misery!
   - Tirips, this lushous forest has been the subject of a big flood!
-  - All this rain from the CLOUDS (hint hint) just wont stop!
-  - If its not soon fixed then im afraid this whole forest will drown and die! Could
+  - All this rain from the clouds just wont stop!
+  - If its not fixed soon then I'm afraid this whole forest will drown and die! Could
     you see if you could help us out here?
 --- !u!61 &1046467424
 BoxCollider2D:
