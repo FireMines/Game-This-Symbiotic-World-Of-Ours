@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
 	public float HighPitchRange = 1.05f;
 	// Singleton instance.
 	public static SoundManager Instance = null;
+	[SerializeField] private SliderJoint2D volumeSlider = null;
 
 	// Initialize the singleton instance.
 	private void Awake()
@@ -68,4 +69,14 @@ public class SoundManager : MonoBehaviour
 		EffectsSource.Play();
 	}
 
+
+	/// <summary>
+	/// Changes the volume of the game based on slider
+	/// </summary>
+	/// <param name="newVolume">Slider volume</param>
+	public void changeVolume(float newVolume)
+	{
+		PlayerPrefs.SetFloat("volume", newVolume);
+		AudioListener.volume = PlayerPrefs.GetFloat("volume");
+	}
 }
