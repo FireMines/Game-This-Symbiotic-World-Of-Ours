@@ -90,6 +90,7 @@ public class ObstaclePush : MonoBehaviour
                     playerMovement.setIsPulling(false);
                     pushObject = null;
                 }
+
             }else if(pushObject != null && pushObject.tag == "PushableTree" ){
 
 
@@ -111,17 +112,19 @@ public class ObstaclePush : MonoBehaviour
                         //Vector2 newPos = 
                         //pushObject.transform.position = new Vector2(pushObject.transform.position.x, pushObject.transform.position.y);
                         print(pushObject.transform.rotation);
-                        if(pushObject.transform.rotation == new Quaternion(0.00000f, 0.00000f, -0.64683f, 0.76263f)){
+
+                        //if(pushObject.transform.rotation == new Quaternion(0.00000f, 0.00000f, -0.64683f, 0.76263f)){
+                        if (pushObject.transform.rotation.z <= -0.64683f && pushObject.transform.rotation.w <= 0.76263f) { 
                             print("STOP PUSHING");
+                            pushObject.gameObject.tag = "Untagged";
                         }
                         pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-
                     
                 }else{
                     //if you want object to stop when e is not pressed anymore: else just comment it out
                     textRenderer.enabled = true;
 
-                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                    //pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
@@ -139,6 +142,6 @@ public class ObstaclePush : MonoBehaviour
                 
                 }
                 pushObject = null;
-                }
+            }
     }
 }
