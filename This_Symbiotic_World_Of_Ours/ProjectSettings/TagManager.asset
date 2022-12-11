@@ -13,7 +13,7 @@ TagManager:
   - Health
   - NotYetAttackableRock
   - PushDetector
-  - PushableTree
+  - DialogueWindow
   layers:
   - Default
   - TransparentFX
