@@ -41,7 +41,6 @@ public class StopRain : MonoBehaviour
         player.GetTotalOrbAmount();
 
         int waterOrbsCollected = player.GetOrbAmount(OrbController.Element.Water);
-
         if (waterOrbsCollected >= 3)
             part.Stop();
 

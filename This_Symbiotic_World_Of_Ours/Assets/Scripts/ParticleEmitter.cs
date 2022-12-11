@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class ParticleEmitter : MonoBehaviour
 {
+    [Header("Particle settings")]
     public GameObject   Particle;
     public Vector3      StartVelocity;
     public  float       timeBetweenSpawns = 1f;
 
     private float       timeSinceLastSpawn = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()

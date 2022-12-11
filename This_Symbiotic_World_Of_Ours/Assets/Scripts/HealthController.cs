@@ -6,14 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
+    [Header("Health settings")]
     public int      health;                 // Health of the mob
-    public bool     displayHP = false;      // Show health if mob is player character
-    private Color   colour;
-
-    private void Start()
-    {
-
-    }
+    //public bool     displayHP = false;      // Show health if mob is player character
 
 
     /// <summary>

@@ -33,6 +33,10 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// If there is no text left, deactivate the dialogue panel
+    /// </summary>
     public void zeroText()
     {
         DialogueText.text = "";
@@ -40,6 +44,11 @@ public class Dialogue : MonoBehaviour
         DialoguePanel.SetActive(false);
     }
 
+
+    /// <summary>
+    /// Writes the text to the dialogue window
+    /// </summary>
+    /// <returns>Single letters typed with a set wordspeed</returns>
     public IEnumerator Typing()
     {
         foreach (char letter in dialogue[index].ToCharArray())
@@ -49,6 +58,10 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Writes the next line to the dialogue window or closes window if no lines left
+    /// </summary>
     public void NextLine()
     {
         ContinueButton.SetActive(false);
@@ -69,6 +82,10 @@ public class Dialogue : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Creates an onLineListener to perform callback functions
+    /// </summary>
+    /// <param name="callback">Callback/ action to be performed</param>
     public void setOnLineListener(Action<string> callback = null)
     {
         onLineListener = callback;

@@ -1846,103 +1846,6 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 16.411177, y: 15.755812, z: 0}
     m_Extent: {x: 41.447994, y: 35.89269, z: 0}
---- !u!1 &127974763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 127974764}
-  - component: {fileID: 127974766}
-  - component: {fileID: 127974765}
-  m_Layer: 0
-  m_Name: FloatingText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &127974764
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127974763}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28, y: 0.96, z: 5.655981}
-  m_LocalScale: {x: 0.6747195, y: 0.6286958, z: 0.8812409}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 212619336}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!102 &127974765
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127974763}
-  m_Text: Press E to push
-  m_OffsetZ: 0
-  m_CharacterSize: 0.021
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 64
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &127974766
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127974763}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &137053026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,7 +2090,7 @@ GameObject:
   - component: {fileID: 212619333}
   - component: {fileID: 212619337}
   m_Layer: 0
-  m_Name: PushableRock
+  m_Name: Sprite4_4 (2)
   m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2298,8 +2201,7 @@ Transform:
   m_LocalPosition: {x: 101.259995, y: -48.046978, z: 0}
   m_LocalScale: {x: 3.5107436, y: 3.6592648, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 127974764}
+  m_Children: []
   m_Father: {fileID: 2000842652}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7552,103 +7454,6 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 27.186161, y: 14.534397, z: 0}
     m_Extent: {x: 52.222977, y: 37.114105, z: 0}
---- !u!1 &445869732
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 445869733}
-  - component: {fileID: 445869735}
-  - component: {fileID: 445869734}
-  m_Layer: 0
-  m_Name: FloatingText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &445869733
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445869732}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.285, y: 0.91, z: 5.655981}
-  m_LocalScale: {x: 0.6747195, y: 0.6286958, z: 0.8812409}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1340316227}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!102 &445869734
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445869732}
-  m_Text: Press E to push
-  m_OffsetZ: 0
-  m_CharacterSize: 0.015
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 64
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &445869735
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445869732}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &448653944
 GameObject:
   m_ObjectHideFlags: 0
@@ -10417,8 +10222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  NPCName: 
+  image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  NPCName: Timmothy
   playerIsClose: 0
   isWorldSpirit: 0
   dialogue:
@@ -12152,7 +11957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548362, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Name
-      value: WaterOrb (3)
+      value: WaterOrbGlow
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548363, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_BodyType
@@ -12161,6 +11966,18 @@ PrefabInstance:
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You have gained the illumination ability!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Press F to toggle the ability.
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
@@ -12213,6 +12030,22 @@ PrefabInstance:
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
@@ -13861,7 +13694,7 @@ GameObject:
   - component: {fileID: 650079676}
   m_Layer: 0
   m_Name: Tree-trunk
-  m_TagString: PushableTree
+  m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13946,15 +13779,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650079672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.74, y: 30.71, z: 0}
-  m_LocalScale: {x: 1.0584118, y: 1.196225, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.015878584, w: 0.99987394}
+  m_LocalPosition: {x: 285.85, y: 40.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1357772825}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.82}
 --- !u!61 &650079676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13968,10 +13800,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.32716224, y: 9.1340475}
+  m_Offset: {x: -0.32716224, y: -0.31085253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 16, y: 20}
     newSize: {x: 16, y: 20}
     adaptiveTilingThreshold: 0.5
@@ -13979,7 +13811,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65090173, y: 16.41049}
+  m_Size: {x: 0.65090173, y: 16.136112}
   m_EdgeRadius: 0
 --- !u!1 &652857642
 GameObject:
@@ -14770,11 +14602,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548362, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Name
-      value: WaterOrb (1)
+      value: WaterOrbAttack
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You have gained the single attack ability!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Press LEFT MOUSE CLICK near an enemy to use the ability.
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
@@ -14827,6 +14671,22 @@ PrefabInstance:
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
@@ -21673,7 +21533,7 @@ GameObject:
   - component: {fileID: 937500106}
   - component: {fileID: 937500110}
   m_Layer: 0
-  m_Name: PushableRock
+  m_Name: Sprite4_4
   m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21784,8 +21644,7 @@ Transform:
   m_LocalPosition: {x: 124.01082, y: -43.147594, z: 0}
   m_LocalScale: {x: 7.354555, y: 9.160086, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1233089082}
+  m_Children: []
   m_Father: {fileID: 2000842652}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24205,13 +24064,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  NPCName: 
+  image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  NPCName: Bob
   playerIsClose: 0
   isWorldSpirit: 0
   dialogue:
   - Oh the misery!
-  - Tirips, this luscious forest has been the subject of a big flood!
+  - Tirips, this lushous forest has been the subject of a big flood!
   - All this rain from the CLOUDS (hint hint) just wont stop!
   - If its not soon fixed then im afraid this whole forest will drown and die! Could
     you see if you could help us out here?
@@ -26139,103 +25998,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1233089081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1233089082}
-  - component: {fileID: 1233089084}
-  - component: {fileID: 1233089083}
-  m_Layer: 0
-  m_Name: FloatingText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1233089082
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233089081}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.157, y: 0.894, z: 5.655981}
-  m_LocalScale: {x: 0.6747195, y: 0.6286958, z: 0.8812409}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 937500109}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!102 &1233089083
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233089081}
-  m_Text: Press E to push
-  m_OffsetZ: 0
-  m_CharacterSize: 0.01
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 64
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &1233089084
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233089081}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1239528370
 GameObject:
   m_ObjectHideFlags: 0
@@ -28755,7 +28517,7 @@ GameObject:
   - component: {fileID: 1340316224}
   - component: {fileID: 1340316228}
   m_Layer: 0
-  m_Name: PushableRock
+  m_Name: Sprite4_4 (1)
   m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28866,8 +28628,7 @@ Transform:
   m_LocalPosition: {x: 112.40001, y: -46.460922, z: 0}
   m_LocalScale: {x: 4.8672447, y: 5.9568043, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 445869733}
+  m_Children: []
   m_Father: {fileID: 2000842652}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28892,103 +28653,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!1 &1357772824
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1357772825}
-  - component: {fileID: 1357772827}
-  - component: {fileID: 1357772826}
-  m_Layer: 0
-  m_Name: FloatingText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1357772825
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357772824}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.39, y: 5.84, z: 5.655981}
-  m_LocalScale: {x: 0.6747195, y: 0.6286958, z: 0.8812409}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 650079675}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!102 &1357772826
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357772824}
-  m_Text: Press E to push
-  m_OffsetZ: 0
-  m_CharacterSize: 0.05
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 64
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &1357772827
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357772824}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1360918978
 GameObject:
   m_ObjectHideFlags: 0
@@ -31199,11 +30863,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548362, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_Name
-      value: WaterOrb (2)
+      value: WaterOrbChargedAttack
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: powerup
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You have gained the charged attack ability!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Hold LEFT MOUSE BUTTON near an enemy to charge an attack.
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
@@ -31256,6 +30932,22 @@ PrefabInstance:
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+    - target: {fileID: 7989845656776006907, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
