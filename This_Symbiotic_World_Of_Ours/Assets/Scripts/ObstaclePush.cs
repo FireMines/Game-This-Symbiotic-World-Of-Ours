@@ -8,6 +8,7 @@ public class ObstaclePush : MonoBehaviour
     private float playerSpeed = 40f; //player speed
     private float distanceToPlayer; //distance of the middle of the game object to the player when pushing
     private float colliderWidth; //width of the collided object
+    private float colliderRadius;
     GameObject pushObject; //object that should be pushed
     GameObject textObject;
     Renderer textRenderer;
@@ -22,7 +23,6 @@ public class ObstaclePush : MonoBehaviour
     
 
     void Update(){
-        //todo: not jump while pulling
         Collider2D[] colliders = Physics2D.OverlapAreaAll(m_pushCheck_c1.position, m_pushCheck_c2.position);
 
 		for (int i = 0; i < colliders.Length; i++)
@@ -40,27 +40,28 @@ public class ObstaclePush : MonoBehaviour
 
                 colliderWidth = pushObject.GetComponent<Renderer>().bounds.size.x;
                 distanceToPlayer = colliderWidth/2f;
+                colliderRadius = pushObject.GetComponent<Renderer>().bounds.size.y/2 + 0.5f;
 
                 textObject = pushObject.transform.GetChild (0).gameObject;
                  
                 textRenderer = textObject.GetComponent<Renderer>();
                 textRenderer.enabled = true;
 
+                //set position and rotation of child to make it look less weird
                 textObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, textObject.transform.parent.rotation.z * -1.0f);
-                //set position of child to position of parent + 1f
-                Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderWidth/2);
+
+                Vector2 childPos = new Vector2(gameObject.transform.position.x, pushObject.transform.position.y+colliderRadius);
                 textObject.transform.position = childPos;
 
                 if(Input.GetKey(KeyCode.E)){
 
                     textRenderer.enabled = false;
 
-                    
-
                     playerMovement.setIsPulling(true);
                     //if e is pressed, push or pull the object
                     float newSpeed = playerSpeed-30;
                     pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                     
                     //if player is walking towards rock -> push
                     //if player is walking away from rock -> pull
@@ -83,15 +84,58 @@ public class ObstaclePush : MonoBehaviour
 
                     
                 }else{
-                    //if you want object to stop when e is not pressed anymore: else just comment it out
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     textRenderer.enabled = true;
 
                     playerMovement.setSpeed(playerSpeed);
                     playerMovement.setIsPulling(false);
                     pushObject = null;
                 }
-            }else{
 
+            }else if(pushObject != null && pushObject.tag == "PushableTree" ){
+
+
+                textObject = pushObject.transform.GetChild (0).gameObject;
+                 
+                textRenderer = textObject.GetComponent<Renderer>();
+                textRenderer.enabled = true;
+
+                //set position and rotation of child to make it look less weird
+                textObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, textObject.transform.parent.rotation.z * -1.0f);
+
+                if(Input.GetKey(KeyCode.E)){
+
+                        pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+                        pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                        //push element over
+                        
+                        pushObject.transform.Rotate(0.0f, 0.0f, -1.0f);
+                        //Vector2 newPos = 
+                        //pushObject.transform.position = new Vector2(pushObject.transform.position.x, pushObject.transform.position.y);
+                        print(pushObject.transform.rotation);
+
+                        //if(pushObject.transform.rotation == new Quaternion(0.00000f, 0.00000f, -0.64683f, 0.76263f)){
+                        if (pushObject.transform.rotation.z <= -0.64683f && pushObject.transform.rotation.w <= 0.76263f) { 
+                            print("STOP PUSHING");
+                            pushObject.gameObject.tag = "Untagged";
+                        }
+                        pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                    
+                }else{
+                    //if you want object to stop when e is not pressed anymore: else just comment it out
+                    textRenderer.enabled = true;
+
+                    pushObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+                    playerMovement.setSpeed(playerSpeed);
+                    playerMovement.setIsPulling(false);
+                    pushObject = null;
+                }
+           
+            }else {
+
+
+                playerMovement.setIsPulling(false);
                 if(textRenderer!=null){
                     textRenderer.enabled = false;
                     textObject = null;
@@ -99,6 +143,6 @@ public class ObstaclePush : MonoBehaviour
                 
                 }
                 pushObject = null;
-                }
+            }
     }
 }

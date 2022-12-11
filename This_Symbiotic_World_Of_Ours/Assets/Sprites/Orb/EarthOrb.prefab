@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &5659743053572819527
@@ -202,6 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e839b31b86d7b884a9f45e449323ea10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue: []
+  image: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
   OrbElement: 1
   powerup: 0
 --- !u!50 &1052751710114277928

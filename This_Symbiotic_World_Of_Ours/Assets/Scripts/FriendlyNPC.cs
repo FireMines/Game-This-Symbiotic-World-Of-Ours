@@ -8,75 +8,50 @@ using UnityEngine.SceneManagement;
 
 public class FriendlyNPC : MonoBehaviour
 {
-    public GameObject dialoguePanel;
-    public TextMeshProUGUI dialogueText;
-    public string[] dialogue;
+    private Dialogue dialogueManager;
 
-    private int index;
+    [Header("Dialogue Window settings")]
+    public Sprite image;
+    public string NPCName;
 
-    public GameObject continueButton;
-    public float wordSpeed;
+    [Header("Misc")]
     public bool playerIsClose;
     public bool isWorldSpirit = false;
+    [SerializeField] private string[] dialogue;
 
-    GameObject textObjext;
-    Renderer textRenderer;
+
+    private GameObject textObjext;
+    private Renderer textRenderer;
+
+
+    private void Start()
+    {
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Dialogue>();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && playerIsClose)
+        if (Input.GetKeyDown(KeyCode.F) && playerIsClose)
         {
-            if(dialoguePanel.activeInHierarchy)
+            dialogueManager.setOnLineListener((text) =>
             {
-                zeroText();
-            } else
-            {
-                dialoguePanel.SetActive(true);
-                StartCoroutine(Typing());
-            }
-        }
+                if (isWorldSpirit && text == "")
+                {
+                    SceneManager.LoadScene(5);
+                } 
+            });
 
-        if (dialogueText.text == dialogue[index])
-        {
-            continueButton.SetActive(true);
-        }
-    }
-
-    public void zeroText()
-    {
-        dialogueText.text = "";
-        index = 0;
-        dialoguePanel.SetActive(false);
-    }
-
-    IEnumerator Typing()
-    {
-        foreach(char letter in dialogue[index].ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(wordSpeed);
+            // Sets the values for the dialogue window
+            dialogueManager.setImage(image);
+            dialogueManager.setNameOfTalker(NPCName);
+            dialogueManager.setDialogue(dialogue);
+            dialogueManager.ToggleText();
         }
     }
 
-    public void NextLine()
-    {
-        continueButton.SetActive(false);
 
-        if (index < dialogue.Length -1)
-        {
-            index++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
-        } else
-        {
-            zeroText();
-            if(isWorldSpirit)
-            {
-                SceneManager.LoadScene(5);
-            }
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -86,7 +61,7 @@ public class FriendlyNPC : MonoBehaviour
 
             //textObject is child of this object
             textObjext = gameObject.transform.GetChild (0).gameObject;
-                 
+
             textRenderer = textObjext.GetComponent<Renderer>();
             textRenderer.enabled = true;
         }
@@ -98,7 +73,7 @@ public class FriendlyNPC : MonoBehaviour
         {
             playerIsClose = false;
             textRenderer.enabled = false;
-            zeroText();
+            dialogueManager.zeroText();
         }
     }
 }

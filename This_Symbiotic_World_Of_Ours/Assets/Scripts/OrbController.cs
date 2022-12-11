@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class OrbController : MonoBehaviour
 {
+    [Header("Dialogue Window")]
+    [SerializeField] private string[] dialogue;
+    public Sprite image;
+
+    private Dialogue dialogueManager;
+
     public enum Element{
     Water,
     Earth
@@ -20,21 +28,23 @@ public class OrbController : MonoBehaviour
         Dash
     }
 
+    [Header("Orb spesifications")]
     public Element OrbElement;
-
     public Powerup powerup;
 
     private CharacterController2D controller;
-
     private PlayerMovement movement;
 
     SpriteRenderer sprite;
-
     ParticleSystem orbLight;
 
 
+    void Start() 
+    {
+        // Finds the dialogue window the orbs want to interact with
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Dialogue>();
 
-    void Start() {
+
         GameObject[] playerTaggedObjects = GameObject.FindGameObjectsWithTag("Player");
         if (playerTaggedObjects.Length <= 0) Debug.Log("Error fordi det ikke finnes en player??? dette skal egt ikke skje");
         GameObject player = playerTaggedObjects[0];
@@ -59,13 +69,13 @@ public class OrbController : MonoBehaviour
         }
     }
 
+
     //This is called whenever the player collides with a "ontrigger" collision object
     private void OnTriggerEnter2D(Collider2D hit)
     {
-
         if (hit.gameObject.tag == "Player")
         {
-
+            //Update the amount of orbs collected by 1
             switch (powerup)
             {
                 case Powerup.DoubleJump:
@@ -93,13 +103,24 @@ public class OrbController : MonoBehaviour
                     controller.DashPowerup = true;
                     break;
             }
+            dialogueManager.setOnLineListener((text) =>
+            {
+            });
 
-            // Update the amount of orbs collected for each orb type
-            controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
-            
-            // Delete the Orb
-            Destroy(gameObject);
+            // Sets all the values for the dialogue window for the orbs
+            dialogueManager.setImage(image);
+            dialogueManager.setNameOfTalker(OrbElement.ToString() + " Fragment");
+            dialogueManager.setDialogue(dialogue);
+            dialogueManager.ToggleText();
         }
-    
-     }
+
+
+        // Update the amount of orbs collected for each orb type
+        controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
+
+        // Destroys the orb after being picked up
+        Destroy(gameObject);
+    }
 }
+     
+
