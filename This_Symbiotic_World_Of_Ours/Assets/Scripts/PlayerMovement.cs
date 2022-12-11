@@ -20,13 +20,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool dashPowerup = false;
     //Dash controls
-    private bool canDash = true;
-    private bool isDashing;
+    public bool canDash = true;
+    public bool isDashing;
     private float dashingPower = 44f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 3f;
+    public float dashingCooldown = 3f;
     private bool isPulling = false;
-    private bool isLight = true;
+
+    //Is the character glowing
+    public bool isLight = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     //Gliding fields
     [SerializeField] private float GlidingFallingSpeed;
     private float _InitialGravity;
+    public bool isGliding = false;
 
     private void Start()
     {
@@ -69,19 +72,19 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        var GlidingInput = Input.GetButton("Jump");
-
         //If the player wants to glide, is falling and has the powerup, the player will glide
-        if (GlidingInput && rb.velocity.y <= 0 && controller.GlidePowerup)
+        if (Input.GetButton("Jump") && rb.velocity.y <= 0 && controller.GlidePowerup)
         {
-            print("Gliding");
+            isGliding = true;
             rb.gravityScale = 0;
             rb.velocity = new Vector2(rb.velocity.x, -GlidingFallingSpeed);
         }
         else if (!isSwimming)
         {
+            isGliding = false;
             rb.gravityScale = _InitialGravity;
         }
+        else { isGliding = false; }
         
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -155,7 +158,6 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = originalGravity;
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
-        print("CanDash " + canDash + ", cooldown "+dashingCooldown);
         canDash = true;
     }
 

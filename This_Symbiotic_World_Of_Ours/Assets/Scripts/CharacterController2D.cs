@@ -271,11 +271,9 @@ public class CharacterController2D : MonoBehaviour
 	{
 		//add downward and upward movement instead of crouch and jump when is swimming
 		if(swimUp && swim){
-			print("Swim up");
 			m_Rigidbody2D.AddForce(new Vector2(0f, 20f));  // add a vertical force to the rb
 		}
 		if(swimDown && swim){
-			print("swim down");
 			m_Rigidbody2D.AddForce(new Vector2(0f, -10f));  // add a vertical force to the rb
 		}
 		else

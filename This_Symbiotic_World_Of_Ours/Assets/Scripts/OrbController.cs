@@ -65,7 +65,6 @@ public class OrbController : MonoBehaviour
 
         if (hit.gameObject.tag == "Player")
         {
-            //Update the amount of orbs collected by 1
 
             switch (powerup)
             {
@@ -92,7 +91,6 @@ public class OrbController : MonoBehaviour
 
                 case Powerup.Dash:
                     controller.DashPowerup = true;
-                    print("dash collision");
                     break;
             }
 
