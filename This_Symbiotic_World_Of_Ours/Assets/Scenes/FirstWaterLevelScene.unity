@@ -5104,6 +5104,7 @@ MonoBehaviour:
     but there still remains something.
   - In the deepest parts of our waters the balance is still not yet been restored.
   - 'You have to help us or else our most sacred waters will be lost forever! '
+  - But before you go, you should find light to guide you through the darkness.
 --- !u!61 &522512737
 BoxCollider2D:
   m_ObjectHideFlags: 0

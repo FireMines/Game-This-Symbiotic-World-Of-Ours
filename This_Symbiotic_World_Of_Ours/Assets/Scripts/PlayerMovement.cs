@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //If the player wants to glide, is falling and has the powerup, the player will glide
-        if (Input.GetButton("Jump") && rb.velocity.y <= 0 && controller.GlidePowerup)
+        if (Input.GetButton("Jump") && rb.velocity.y <= 0 && controller.GlidePowerup && !isSwimming)
         {
             isGliding = true;
             rb.gravityScale = 0;

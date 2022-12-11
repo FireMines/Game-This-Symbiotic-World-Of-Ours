@@ -2,7 +2,7 @@
 ## Students
 Lars Blütecher Holter
 Lillian Alice Wangerud
-Sarah Siefert
+Sarah Seifert
 Matthias David Greeven
 
 ## Video of our game
