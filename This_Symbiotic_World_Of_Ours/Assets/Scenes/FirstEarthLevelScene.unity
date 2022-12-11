@@ -13128,7 +13128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548364, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: dialogue.Array.data[1]
-      value: Press F to toggle the ability.
+      value: Press TAB to toggle the ability.
       objectReference: {fileID: 0}
     - target: {fileID: 7989845656390548365, guid: 1b3624b0282688242a40fae366a8b6d0, type: 3}
       propertyPath: m_RootOrder
@@ -15028,7 +15028,7 @@ Transform:
   m_GameObject: {fileID: 650079672}
   m_LocalRotation: {x: -0, y: -0, z: -0.015878584, w: 0.99987394}
   m_LocalPosition: {x: 284.86, y: 31.09, z: 0}
-  m_LocalScale: {x: 1.1374, y: 1.2276855, z: 1}
+  m_LocalScale: {x: 1.1374, y: 1.0967939, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1985292890}
