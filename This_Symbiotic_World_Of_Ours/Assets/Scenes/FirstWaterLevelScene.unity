@@ -5104,6 +5104,7 @@ MonoBehaviour:
     but there still remains something.
   - In the deepest parts of our waters the balance is still not yet been restored.
   - 'You have to help us or else our most sacred waters will be lost forever! '
+  - But before you go, you should find light to guide you through the darkness.
 --- !u!61 &522512737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25708,7 +25709,7 @@ Transform:
   - {fileID: 1623294662}
   - {fileID: 522512735}
   m_Father: {fileID: 2098378278}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023116094
 GameObject:
@@ -29950,9 +29951,9 @@ Transform:
   - {fileID: 710189746}
   - {fileID: 1304769586}
   - {fileID: 963807714}
+  - {fileID: 2015239602}
   - {fileID: 50935897}
   - {fileID: 1813249934}
-  - {fileID: 2015239602}
   - {fileID: 300079559}
   - {fileID: 532979897}
   m_Father: {fileID: 0}
