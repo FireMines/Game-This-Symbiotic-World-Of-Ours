@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class WaterMovement : MonoBehaviour
 {
 
-    public GameObject obstacle;
+    public GameObject obstacle = null;
     private float obstacleStartPosx;
    
     public float distanceToActivate;
@@ -18,6 +18,7 @@ public class WaterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //finds the startign position of the obstacle
         obstacleStartPosx = obstacle.transform.position.x;
         
     }
@@ -27,10 +28,12 @@ public class WaterMovement : MonoBehaviour
     {
         if (!obstacle) WaterDrain();
 
-        if (Mathf.Abs(obstacle.transform.position.x - obstacleStartPosx) >= distanceToActivate) WaterRise();
-        
+        else if (Mathf.Abs(obstacle.transform.position.x - obstacleStartPosx) >= distanceToActivate) WaterRise(); 
     }
 
+    /// <summary>
+    /// Rises the water in Water Level
+    /// </summary>
     private void WaterRise()
     {
         if (transform.position.y < _NewY)
@@ -39,6 +42,9 @@ public class WaterMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Drains the water in Earth Level
+    /// </summary>
     private void WaterDrain()
     {
         if (transform.position.y > _NewY) { 
