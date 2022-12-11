@@ -24789,10 +24789,10 @@ MonoBehaviour:
   isWorldSpirit: 0
   dialogue:
   - Oh the misery!
-  - Tirips, this lushous forest has been the subject of a big flood!
+  - Tirips, this luscious forest has been the subject of a big flood!
   - All this rain from the clouds just wont stop!
-  - If its not fixed soon then I'm afraid this whole forest will drown and die! Could
-    you see if you could help us out here?
+  - If it's not fixed soon then I'm afraid this whole forest will drown and die!
+    Could you see if you can help us out here?
 --- !u!61 &1046467424
 BoxCollider2D:
   m_ObjectHideFlags: 0

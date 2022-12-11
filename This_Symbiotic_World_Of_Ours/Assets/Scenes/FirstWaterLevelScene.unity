@@ -20392,13 +20392,13 @@ MonoBehaviour:
   dialogue:
   - Well met!
   - Do you know what happened here?
-  - There used to be a rich body of water here, but now it seems this lovely water
+  - There used to be a rich body of water here but now it seems this lovely water
     hole has been dried up!
-  - Can you help fix it please? Luckily my house has grown to the extent that you
-    can get out of here if you feel bouncy
+  - Can you help us fix it please? Luckily, my house has grown so much that you can
+    get out of here, if you feel bouncy
   - Oh and by the way, when I woke up today I found this strange looking orb outside
-    my home. While I was holding it, it made me able to jump twice! I believe you
-    are of more use of it then me so take it.
+    my home. While I was holding it, it made me able to jump twice! I believe it
+    will be of more use to you than to me, so take it.
 --- !u!70 &1623294660
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -25721,7 +25721,7 @@ Transform:
   - {fileID: 1623294662}
   - {fileID: 522512735}
   m_Father: {fileID: 2098378278}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023116094
 GameObject:
@@ -29962,8 +29962,8 @@ Transform:
   m_Children:
   - {fileID: 710189746}
   - {fileID: 1304769586}
-  - {fileID: 963807714}
   - {fileID: 2015239602}
+  - {fileID: 963807714}
   - {fileID: 50935897}
   - {fileID: 1813249934}
   - {fileID: 300079559}

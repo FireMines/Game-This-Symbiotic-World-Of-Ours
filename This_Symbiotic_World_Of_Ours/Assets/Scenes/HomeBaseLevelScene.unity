@@ -3658,10 +3658,10 @@ MonoBehaviour:
   - The spirits of the sea and land are no longer in harmony!
   - Instead of borrowing from each other, they have now gone to war and stolen each
     others cores!
-  - You can probably feel it the way I do as well, all my powers are lost!
-  - The consequences of this you can see in the once lush forest and the riverlands.
-  - The drougth and floodings are horrible! Sadly im too old to do anything about
-    this, but you can. You are after all the young harmonic spirit of this world.
+  - You can probably feel it the way I do as well. All my powers are lost!
+  - You can see the consequences of this in the once lush forest and in the riverlands.
+  - The drougth and floodings are horrible! Sadly I'm too old to do anything about
+    this but you can. You are after all the young harmonic spirit of this world.
   - Locate all the 6 elemental fragments of the world to regain your powers and restore
     this world back to a symbiotic world! There are 3 water and 3 earth fragments.
   - Best of luck my young Tirips!
@@ -9153,7 +9153,7 @@ MonoBehaviour:
   - My dearest Tirips!
   - Thank you so much for restoring this symbiotic world of ours back to harmony
   - Without your heroic act by restoring all the elemental fragments I would have
-    died
+    died!
   - 'And with me, all of this world. '
 --- !u!61 &918635386
 BoxCollider2D:
