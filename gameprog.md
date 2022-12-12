@@ -18,9 +18,6 @@ Matthias David Greeven (Wolf) _- Link to individual report_
 ## **Video of our game**
 
 
-## **Video of our code**
-
-
 ## **Work distribution**
 
 
