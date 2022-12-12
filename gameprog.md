@@ -19,7 +19,7 @@ Matthias David Greeven (Wolf) _- Link to individual report_
 
 ## **Game Design file**
 
-[Link to the gamedesign.md file](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/gamedesign.md9
+[Link to the gamedesign.md file](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/gamedesign.md)
 
 This file was used for our initial game planning. We didn't continously use it but it shows some of the thoughts we had during our early development stages.
 
