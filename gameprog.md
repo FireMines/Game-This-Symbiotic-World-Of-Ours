@@ -253,3 +253,5 @@ Every meeting started off with a scrum meeting where we discussed the issue boar
 
 At the start of the project, we assigned ourselves roles during the lecture. These were not used by us that much, as we didn’t need them a lot during our group work. The only role that was often mentioned and used by us was the role of the bear as he was also the person who came up with the idea for the game, so he acted as our scrum master during the meetings.
 
+All in all, the teamwork and most of the stuff surrounding it went smoothly and we are all pleased with the group and the outcome of the project.
+
