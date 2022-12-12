@@ -20,7 +20,7 @@
   <tr>
    <td>Code video
    </td>
-   <td>0
+   <td>5
    </td>
   </tr>
   <tr>
@@ -44,14 +44,14 @@
   <tr>
    <td>Reflection
    </td>
-   <td>30
+   <td>25
    </td>
   </tr>
 </table>
 
+# Code video
 
-
-
+https://youtu.be/BYaHD4nPdn0
 
 # Good code
 
