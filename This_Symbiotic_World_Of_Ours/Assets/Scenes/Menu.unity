@@ -1064,7 +1064,6 @@ GameObject:
   - component: {fileID: 1030253555}
   - component: {fileID: 1030253554}
   - component: {fileID: 1030253553}
-  - component: {fileID: 1030253552}
   m_Layer: 5
   m_Name: Crossfade
   m_TagString: Crossfade
@@ -1072,18 +1071,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1030253552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030253551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8389a77cbe5f7c641b4d2a767f0cf592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1030253553
 MonoBehaviour:
   m_ObjectHideFlags: 0
