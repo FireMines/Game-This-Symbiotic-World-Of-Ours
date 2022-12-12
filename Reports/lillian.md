@@ -61,7 +61,7 @@ One of these problem areas was within the ObstaclePush.cs. The original issue wa
 
 At the time the solution I came up with was a check for if the tree rotated past a certain point and to then turn the tree not pushable past that point. This point is hardcoded, which is considered bad coding practice and should rather have been a check for object collision. 
 
-![image]()
+![image](./Images/ObstaclePush_rotation.png)
 
 
 
@@ -71,7 +71,7 @@ For me it was a bit difficult rating what I considered good code that I have wri
 
 I would consider this good code as the entire script is pretty easy to read and understand even for someone who hasn't worked with the script. The script is used to move the water object if the player manages to remove an obstacle, either by pushing/pulling it away or by destroying it.
 
-![image]()
+![image](./Images/WaterMovement_script.png)
 
 I have also made sure that the code is modular and easy to reuse on different gameObjects that might need to move. The code also makes sure that obstacle gameObject is null and is not called or used in the case of the obstacle being destroyed or not applied to the script. This is to avoid any errors that may occur if the code tries to access a non-existent gameObject. 
 
