@@ -53,7 +53,11 @@ public class AbilitiesHUD : MonoBehaviour
         AbilityLuminate();
     }
 
-
+    /**
+     * Checks if the luminate ability is collected
+     * 
+     * When this ability is active, change colour of ability to show useage
+     */
     void AbilityLuminate()
     {
         if (!controllerScript.LightPowerup) { abilityLuminateImageBW.fillAmount = 1; return; }
@@ -62,25 +66,44 @@ public class AbilitiesHUD : MonoBehaviour
         if (!movementScript.isLight) { abilityLuminateImage.color = new Color(0,1,0); }
         else { abilityLuminateImage.color = new Color(1, 1, 1); }
     }
+
+    /**
+     * Checks if the glide ability is collected
+     * 
+     * If the player is gliding, change colour of ability to show useage
+     */
     void AbilityGlide()
     {
         if (!controllerScript.GlidePowerup) { abilityGlideImageBW.fillAmount = 1; return; }
         else { abilityGlideImageBW.fillAmount = 0; }
 
-        //If the player is gliding, change colour of ability to show useage
+        
         if (movementScript.isGliding){ abilityGlideImage.color = new Color(0, 1, 0); }
         else{ abilityGlideImage.color = new Color(1, 1, 1); }
     }
+
+    /**
+     * Checks if the charged attack ability is collected
+     */
     void AbilityChargeAttack()
     {
         if (!controllerScript.ChargeAttackPowerup) { abilityChargeAttackImageBW.fillAmount = 1; }
         else { abilityChargeAttackImageBW.fillAmount = 0; }
     }
+
+    /**
+     * Checks if the attack ability is collected
+     */
     void AbilityAttack()
     {
         if (!controllerScript.AttackPowerup) { abilityAttackImageBW.fillAmount = 1; }
         else { abilityAttackImageBW.fillAmount = 0; }
     }
+
+    /**
+     * Checks if the double jump ability is collected
+     * as long as the player has more jumps available, the ability will show on screen
+     */
     void AbilityDoubleJump()
     {
         if (controllerScript.extraJumps == 0) { abilityDoubleJumpImageBW.fillAmount = 1; return; }
@@ -94,6 +117,12 @@ public class AbilitiesHUD : MonoBehaviour
             abilityDoubleJumpImageBW.fillAmount = 1;
         }
     }
+
+    /**
+     * Checks if the dash ability is collected
+     * if the dash ability is used, it will hide the ability, and slowly "fill" the image up again
+     * the timer is equal to the cooldown of the ability
+     */
     void AbilityDash()
     {
         if (!controllerScript.DashPowerup) { abilityDashImageBW.fillAmount = 1; return; }

@@ -14,11 +14,13 @@ public class OrbController : MonoBehaviour
 
     private Dialogue dialogueManager;
 
+    //determine the element of the orb
     public enum Element{
     Water,
     Earth
     }
 
+    //the different powerups the orbs can have
     public enum Powerup
     {
         DoubleJump,
@@ -29,12 +31,12 @@ public class OrbController : MonoBehaviour
         Dash
     }
 
+    //In the editor, choose what element and what powerup this orb has
     [Header("Orb spesifications")]
     public Element OrbElement;
     public Powerup powerup;
 
     private CharacterController2D controller;
-    private PlayerMovement movement;
 
     SpriteRenderer sprite;
     ParticleSystem orbLight;
@@ -45,19 +47,23 @@ public class OrbController : MonoBehaviour
         // Finds the dialogue window the orbs want to interact with
         dialogueManager = GameObject.FindGameObjectWithTag("DialogueWindow").GetComponent<Dialogue>();
 
-
+        // retrieve player object, check if it exists
         GameObject[] playerTaggedObjects = GameObject.FindGameObjectsWithTag("Player");
         if (playerTaggedObjects.Length <= 0) Debug.Log("Error fordi det ikke finnes en player??? dette skal egt ikke skje");
         GameObject player = playerTaggedObjects[0];
+
+        // retrieve charactercontroller, check if it exists
         controller = player.GetComponent<CharacterController2D>();
         if (controller == null) Debug.Log("Error fordi det ikke finnes en playercontroller??? dette skal egt ikke skje");
 
+        //
         sprite = GetComponentInChildren<SpriteRenderer>();
 
         orbLight = GetComponentInChildren<ParticleSystem>();
 
         sprite.sprite = image;
 
+        //change colour of the orb and it's light depending on the element
         switch (OrbElement)
         {
             case Element.Water:
@@ -72,15 +78,14 @@ public class OrbController : MonoBehaviour
         }
     }
 
-
-    //This is called whenever the player collides with a "ontrigger" collision object
     private void OnTriggerEnter2D(Collider2D hit)
     {
         if (hit.gameObject.tag == "Player")
         {
-            //Update the amount of orbs collected by 1
+            // Activate the powerup associated with the collected orb
             switch (powerup)
             {
+                //Update the amount of jumps the player can do
                 case Powerup.DoubleJump:
                     controller.extraJumps = 1;
                     controller.jumpsLeft = 1;

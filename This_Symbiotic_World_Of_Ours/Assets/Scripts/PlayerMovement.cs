@@ -148,8 +148,8 @@ public class PlayerMovement : MonoBehaviour
 
     /// <summary>
     /// Dash ability
+    /// A co-routine that suspends itself when it cannot be called again
     /// </summary>
-    /// <returns>Cooldown for the dash ability</returns>
     private IEnumerator Dash()
     {
         canDash = false;
@@ -158,10 +158,14 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         tr.emitting = true;
+
+        //Suspend the function until the time dashing is complete
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
+
+        //Suspend the function until the cooldown is over
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
