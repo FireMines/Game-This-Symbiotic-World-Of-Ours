@@ -54,7 +54,7 @@ public class AbilitiesHUD : MonoBehaviour
     }
 
     /**
-     * Checks if the luminate ability is collected
+     * Checks if the luminate ability is collected, set the black image to full if false
      * 
      * When this ability is active, change colour of ability to show useage
      */
@@ -68,7 +68,7 @@ public class AbilitiesHUD : MonoBehaviour
     }
 
     /**
-     * Checks if the glide ability is collected
+     * Checks if the glide ability is collected, set the black image to full if false
      * 
      * If the player is gliding, change colour of ability to show useage
      */
@@ -83,7 +83,7 @@ public class AbilitiesHUD : MonoBehaviour
     }
 
     /**
-     * Checks if the charged attack ability is collected
+     * Checks if the charged attack ability is collected , set the black image to full if false
      */
     void AbilityChargeAttack()
     {
@@ -92,7 +92,7 @@ public class AbilitiesHUD : MonoBehaviour
     }
 
     /**
-     * Checks if the attack ability is collected
+     * Checks if the attack ability is collected, set the black image to full if false
      */
     void AbilityAttack()
     {
@@ -101,7 +101,7 @@ public class AbilitiesHUD : MonoBehaviour
     }
 
     /**
-     * Checks if the double jump ability is collected
+     * Checks if the double jump ability is collected, set the black image to full if false
      * as long as the player has more jumps available, the ability will show on screen
      */
     void AbilityDoubleJump()
@@ -119,7 +119,7 @@ public class AbilitiesHUD : MonoBehaviour
     }
 
     /**
-     * Checks if the dash ability is collected
+     * Checks if the dash ability is collected, set the black image to full if false
      * if the dash ability is used, it will hide the ability, and slowly "fill" the image up again
      * the timer is equal to the cooldown of the ability
      */
