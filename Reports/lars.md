@@ -4,11 +4,11 @@
 |Description | Weight |
 |----|----|
 |Gameplay video | 10 |
-|Code video | 10 |
-|Good Code  | 20 |
-|Bad Code | 10 |
-|Development process | 25 |
-|Reflection | 20 |
+|Code video | 0 |
+|Good Code  | 30 |
+|Bad Code | 15 |
+|Development process | 20 |
+|Reflection | 25 |
 
 ## Code Video
 [Code video](https://youtu.be/bSV5ilOX9GE)
