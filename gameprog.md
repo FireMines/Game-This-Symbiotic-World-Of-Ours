@@ -12,7 +12,8 @@ Lillian Alice Wangerud (Owl) _- Link to individual report_
 
 Sarah Seifert (Cat) _- [Link to individual report](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/Reports/sarah.md)_
 
-Matthias David Greeven (Wolf) _- Link to individual report_
+Matthias David Greeven (Wolf) _- [Link to individual report](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/Reports/matthias.md)_
+
 
 
 ## **Video of our game**
