@@ -10,31 +10,41 @@
 |Development process | 25 |
 |Reflection | 20 |
 
+## Code Video
+[Code video]()
+
 ## Good code
 Throughout the project I have grown quite proud of a bunch of the code that I wrote. The parts that I would say are the best are probably the way I coded the ranged attacks. 
 
-Function from CharacterController2D.cs script.
+![image](./Images/selectTarget_function.png)
+
+*Function from [CharacterController2D.cs](../This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs) script.*
 
 When the player has picked up the attack orbs and tries to attack an enemy nearby, the SelectTarget() function is called. What happens here is that it gets a list of every gameobject tagged as “Enemy” and then looks through them to see which one is closest by calculating the distance. If an enemy is found, it sets the target and it’s now ready to attack the target. If you try to attack once more, it goes through this process again and if the selected unit is out of sight or too far away, it unselects the target. 
 
 To increase the calculation time, efficiency and to make sure that the player only is able to attack enemies that weren't hiding or behind any other object in the game, I created the GameObjectIsInLineOfSight() function. 
 
+![image](./Images/LOS_function.png)
 
-Function from the CharacterController2D.cs script.
+*Function from the [CharacterController2D.cs](../This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs) script.*
 
 What this function does is that it utilizes Raycasts to check whether or not the first ray hit in a straight line between the player and the enemy is in fact the enemy. Here it also takes into consideration the attack range we have given the player. Considering there are other gameobjects sometimes in the way, I added a check to see if it was a “approved” gameobject to pass through like the water or player character or not.
 
+![image](./Images/rangedAttack_function.png)
 
-Function from the CharacterController2D.cs script.
+*Function from the [CharacterController2D.cs](../This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs) script.*
 
 If the attack ability passes through the previous functions, it gets sent to the RangedAttack() function. Here we spawn the projectile and animates how it looks. In here we randomize the way the attacks look and feel to make it the orbs feel more special while playing. These randomizations change the direction the orb spawns in, the curving while shooting and velocity to name a few.
 
+![image](./Images/charged_attack.png)
 
-Function from the RangedAttack.cs script.
+*Function from the [RangedAttack.cs](../This_Symbiotic_World_Of_Ours/Assets/Scripts/RangedAttack.cs) script.*
 
 Once the attack has been created, we administer the projectile in the FixedUpdate() function for the RangedAttack.cs script. Here we check whether or not the player has let go of the attack button. This is because the second attack ability is the same as the first one, but you are able to charge the attack to spawn in several projectiles. For this we make sure that the orb's position moves with the character while at the same time orbiting and accelerating around the player. It’s first when the player let go of the mouse left click the orbs are launched at the enemy target.
 
-Function from the RangedAttack.cs script.
+![image](./Images/hitTarget_function.png)
+
+*Function from the [RangedAttack.cs](../This_Symbiotic_World_Of_Ours/Assets/Scripts/RangedAttack.cs) script.*
 
 After the projectile had been launched towards the enemy, I added a new check to see if the target had been destroyed already or not. This is because the charge attack can charge up more projectiles than needed to destroy something and if that happens, the projectile will evaporate in game/ destroy itself. 
 
@@ -46,7 +56,9 @@ Once the projectile is within a close enough range of the target to “touch” 
 ## Bad code
 Even though i'm quite proud of the code written, there are some code snippets that I don't consider to be of the same high quality. An example of this is how I created the health pictures and updated them. 
 
-Functions from the DisplayPlayerHealth.cs script.
+![image](./Images/healthDisplay_function.png)
+
+*Functions from the [DisplayPlayerHealth.cs](../This_Symbiotic_World_Of_Ours/Assets/Scripts/DisplayPlayerHealth.cs) script.*
 
 My plan with this code was to automatically create the health images on a canvas based on how much health we allow the player to have if we later on decide to give the player power ups to increase its health beyond the starting amount. I then made it so that the position of these objects were spawned on the first image and then adjusted the size and position of it to be the same size and more to the right so it doesn't overlap. The way i did this however was by hard coding in the values of the sizeDelta and the value i added onto the previous position.
 
