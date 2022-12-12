@@ -60,7 +60,7 @@ Generally, out of all the code I have written for this project, the [Enemy.cs](h
 An example of good code is the EnemyMovement function in the [Enemy.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/Enemy.cs) file:
 
 
-picture of enemy.cs
+![enemy file](/Images/enemies_sarah.png)
  
 
 _Lines 56 to 81 in _[Enemy.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/Enemy.cs)
@@ -84,21 +84,21 @@ Particularly bad here is the handling of the isSwimming variables. In line 144 o
 
 
 
-picture
+![enemy file](/Images/ontrigger_sarah.png)
 
 
 _OnTriggerEnter2D and OnTriggerExit2D functions in [CharacterController2D.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs)_
 
 
 
-picture
+![enemy file](/Images/playermovement_sarah.png)
 
 
 _FixedUpdate function in [PlayerMovement.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/PlayerMovement.cs)_
 
 
 
-picture
+![enemy file](/Images/move_sarah.png)
 
 
 _Lines 276 to 284 of the [CharacterController2D.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs) _
