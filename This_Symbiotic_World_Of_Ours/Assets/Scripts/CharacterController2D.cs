@@ -57,8 +57,6 @@ public class CharacterController2D : MonoBehaviour
 
     private void Start()
     {
-		AudioListener.volume = PlayerPrefs.GetFloat("volume");
-
 		//Initialize the enum Dictionary (OrbsCollected)
 		foreach (OrbController.Element orbType in Enum.GetValues(typeof(OrbController.Element)))
         {

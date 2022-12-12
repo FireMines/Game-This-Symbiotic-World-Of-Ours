@@ -67,15 +67,4 @@ public class SoundManager : MonoBehaviour
 		EffectsSource.clip = clips[randomIndex];
 		EffectsSource.Play();
 	}
-
-
-	/// <summary>
-	/// Changes the volume of the game based on slider
-	/// </summary>
-	/// <param name="newVolume">Slider volume</param>
-	public void changeVolume(float newVolume)
-	{
-		PlayerPrefs.SetFloat("volume", newVolume);
-		AudioListener.volume = PlayerPrefs.GetFloat("volume");
-	}
 }
