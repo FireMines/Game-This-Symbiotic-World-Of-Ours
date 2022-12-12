@@ -17,13 +17,13 @@
   <tr>
    <td>Code video
    </td>
-   <td>10
+   <td>15
    </td>
   </tr>
   <tr>
    <td>Good code
    </td>
-   <td>15
+   <td>10
    </td>
   </tr>
   <tr>
@@ -47,6 +47,7 @@
 </table>
 
 
+[Code video](https://youtu.be/deQWULvPSts)
 
 ## Code
 
