@@ -33,12 +33,13 @@ public class Enemy : MonoBehaviour
         enemyMovement();
     }
 
-
+    /// <summary>
+    /// defines the enemies movement making it move left and right when no player is in range and making it move towards the player if he is in range
+    /// </summary>
     private void enemyMovement(){
 
         GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPos = playerGameObject.transform.position;
-        //player detection, meaning as soon as ememy "sees" player (player is within range distance) it walks towards him
         float playerDistance = Vector2.Distance(playerPos, transform.position);
   
         if(playerDistance <= targetRange){
@@ -78,7 +79,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// flips the enemy sprite
+    /// </summary>
     private void Flip()
 	{
 		// Switch the way the enemy is labelled as facing.
@@ -100,6 +103,10 @@ public class Enemy : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// pushes the object over if the e key is pressed
+    /// </summary>
+    /// <param name="collision">the player object that the enemy collided with</param>
     private IEnumerator Damage(Collision2D collision)
     {
         canDamage = false;
