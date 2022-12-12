@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
     
 	private bool m_FacingRight = true;              // For determining which way the enemy is currently facing.
 
-    private bool isBouncing = false;
     private bool canDamage = true;
     private float damageCooldown = 1f;
 
@@ -114,15 +113,8 @@ public class Enemy : MonoBehaviour
         //enemy "bounces" back when it hits the player
         float bounceForce = 225f; //amount of force to apply
         _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
-        isBouncing = true;
         Invoke("StopBouncing", 0.2f);
         yield return new WaitForSeconds(damageCooldown);
         canDamage = true;
-    }
-    
-
-    private void StopBouncing()
-    {
-        isBouncing = false;
     }
 }

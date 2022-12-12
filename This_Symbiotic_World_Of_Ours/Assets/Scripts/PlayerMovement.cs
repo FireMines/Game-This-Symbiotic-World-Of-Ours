@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        if(Input.GetKeyDown(KeyCode.F) && controller.LightPowerup)
+        if(Input.GetKeyDown(KeyCode.Tab) && controller.LightPowerup)
         {
             controller.lumination.enabled = isLight;
             isLight = !isLight;
