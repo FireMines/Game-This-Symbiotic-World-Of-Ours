@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: []
-  image: {fileID: -89533699, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
+  image: {fileID: 21300000, guid: b4365db2a057db54e922defb4b16ae62, type: 3}
   OrbElement: 1
   powerup: 0
 --- !u!50 &1052751710114277928
