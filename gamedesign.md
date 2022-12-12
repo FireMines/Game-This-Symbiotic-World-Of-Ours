@@ -92,7 +92,7 @@ Shift + left click Heavy attack
 ### “Roles”:
 Mats: Audio / Abilities / Orbs
 Lillian: Character Design, Visual work, glowing ,parallaxing  
-Sarah: Dialogue / Story (?) / Audio
+Sarah: Pushing and Pulling / Swimming / Enemies / Health
 Lars: Level layout / puzzle design / Abilities / Attack and health / Music / Dialog
 
 ### Potential Abilities:
