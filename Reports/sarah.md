@@ -65,7 +65,6 @@ An example of good code is the EnemyMovement function in the [Enemy.cs](https://
 
 *Lines 56 to 81 in* [Enemy.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/Enemy.cs)
 
- 
 
 Lines 56 to 81 in this file implement the movement of an enemy as long as the player is not within the target range. I decided on moving the enemy instead of having it idle as I thought this would look better if an enemy is on screen but the player is not yet in their target range. For this, the distance sets how many “steps” the enemy is supposed to walk. These steps are counted in the movement index and the counterUp variable defines whether the enemy moves left or right. The switch case function in line 56 makes the enemy move into the corresponding direction depending on this variable.
 
@@ -87,21 +86,21 @@ Particularly bad here is the handling of the isSwimming variables. In line 144 o
 ![on trigger functions from character controller](./Images/ontrigger_sarah.png)
 
 
-*OnTriggerEnter2D and OnTriggerExit2D functions in* [CharacterController2D.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs)_
+*OnTriggerEnter2D and OnTriggerExit2D functions in* [CharacterController2D.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs)
 
 
 
 ![Player movement](./Images/playermovement_sarah.png)
 
 
-*FixedUpdate function in* [PlayerMovement.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/PlayerMovement.cs)_
+*FixedUpdate function in* [PlayerMovement.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/PlayerMovement.cs)
 
 
 
 ![move function in character controller](./Images/move_sarah.png)
 
 
-*Lines 276 to 284 of the* [CharacterController2D.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs) _
+*Lines 276 to 284 of the* [CharacterController2D.cs](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/This_Symbiotic_World_Of_Ours/Assets/Scripts/CharacterController2D.cs) 
 
 
 # Reflection
