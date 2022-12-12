@@ -11,7 +11,7 @@
 |Reflection | 20 |
 
 ## Code Video
-[Code video]()
+[Code video](https://youtu.be/bSV5ilOX9GE)
 
 ## Good code
 Throughout the project I have grown quite proud of a bunch of the code that I wrote. The parts that I would say are the best are probably the way I coded the ranged attacks. 
