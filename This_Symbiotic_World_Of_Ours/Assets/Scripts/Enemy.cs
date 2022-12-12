@@ -43,9 +43,7 @@ public class Enemy : MonoBehaviour
   
         if(playerDistance <= targetRange){
             //if player pos>enemy pos and enemy is facing left -> flip
-            if(playerPos.x < XPosition && m_FacingRight){
-                Flip();
-            } else if(playerPos.x > transform.position.x  &&! m_FacingRight){
+            if((playerPos.x < XPosition && m_FacingRight) || (playerPos.x > transform.position.x  &&! m_FacingRight)){
                 Flip();
             }
             //if player pos<enemy pos and enemy is facing right -> flip
@@ -108,10 +106,8 @@ public class Enemy : MonoBehaviour
         HealthController playerHealthController = collision.gameObject.GetComponent<HealthController>();
 
         playerHealthController.takeDamage(damage);
-        //Debug.Log("Damage " + damage + " taken" + " Health left: " + playerHealthController.health);
-
         //enemy "bounces" back when it hits the player
-        float bounceForce = 225f; //amount of force to apply
+        float bounceForce = 225f; //amount of force to apply to the bounce
         _enemyRB.AddForce(collision.contacts[0].normal * bounceForce);
         Invoke("StopBouncing", 0.2f);
         yield return new WaitForSeconds(damageCooldown);
