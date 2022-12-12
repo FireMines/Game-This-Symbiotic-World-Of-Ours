@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206178854324966641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.442, y: 0.2, z: 0}
+  m_LocalPosition: {x: -0.14500007, y: 0.14700003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,7 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  displayHP: 0
 --- !u!114 &2731369356026188915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +316,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6187201502352004605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -485,9 +484,14 @@ MonoBehaviour:
   controller: {fileID: 7439605657110653244}
   animator: {fileID: 0}
   runSpeed: 40
+  canDash: 1
+  isDashing: 0
+  dashingCooldown: 3
+  isLight: 1
   rb: {fileID: -8207243141080425102}
   tr: {fileID: 4550384260200319664}
   GlidingFallingSpeed: 0
+  isGliding: 0
 --- !u!1 &7665280035027010388
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8356054440228466583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.398, y: 0.103, z: 0}
+  m_LocalPosition: {x: 0.695, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -609,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 8280699403196511264, guid: d767c0aecc02f024db388ff51fa068e8, type: 3}
       propertyPath: m_Name
       value: CharacterLumination
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280699403196511266, guid: d767c0aecc02f024db388ff51fa068e8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8280699403196511267, guid: d767c0aecc02f024db388ff51fa068e8, type: 3}
       propertyPath: m_RootOrder
