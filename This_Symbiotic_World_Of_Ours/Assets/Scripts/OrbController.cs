@@ -125,10 +125,13 @@ public class OrbController : MonoBehaviour
 
         // Update the amount of orbs collected for each orb type
         controller.UpdateOrbAmount(controller.GetOrbAmount(OrbElement) + 1, OrbElement);
+      
+
 
         // Destroys the orb after being picked up
         Destroy(gameObject);
     }
+
 }
      
 

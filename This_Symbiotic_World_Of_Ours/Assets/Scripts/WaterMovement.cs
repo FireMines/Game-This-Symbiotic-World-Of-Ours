@@ -26,8 +26,10 @@ public class WaterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //check if object is destroyed
         if (!obstacle) WaterDrain();
 
+        //check if object is moved
         else if (Mathf.Abs(obstacle.transform.position.x - obstacleStartPosx) >= distanceToActivate) WaterRise(); 
     }
 
@@ -47,9 +49,10 @@ public class WaterMovement : MonoBehaviour
     /// </summary>
     private void WaterDrain()
     {
-        if (transform.position.y > _NewY) { 
-        transform.position = new Vector3(transform.position.x, transform.position.y+speed, 0);
-            }
+        if (transform.position.y > _NewY) 
+        { 
+            transform.position = new Vector3(transform.position.x, transform.position.y+speed, 0);
+        }
 
     }
 

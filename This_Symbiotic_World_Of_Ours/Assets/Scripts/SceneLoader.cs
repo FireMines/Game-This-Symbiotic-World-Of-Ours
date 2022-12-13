@@ -22,6 +22,8 @@ public class SceneLoader : MonoBehaviour
     {
         triggerCollider = GetComponent<Collider2D>();
         if (triggerCollider == null) Debug.Log("Error! Couldn't find trigger.");
+
+        
     }
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class SceneLoader : MonoBehaviour
     /// </summary>
     private void ChangeScene()
     {
+     
         // Find crossfade
         GameObject[] crossfadeObjects = GameObject.FindGameObjectsWithTag("Crossfade");
         if (crossfadeObjects.Length > 0)
