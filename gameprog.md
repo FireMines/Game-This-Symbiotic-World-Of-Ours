@@ -17,7 +17,7 @@ Matthias David Greeven (Wolf) _- [Link to individual report](https://git.gvk.idi
 
 
 ## **Video of our game**
-https://youtu.be/oAlwnTl6eJ8
+https://drive.google.com/drive/folders/1GOGhturCn8d5bN_hG1zGZJHAqvIaheqC?usp=sharing
 
 ## **Game Design file**
 
