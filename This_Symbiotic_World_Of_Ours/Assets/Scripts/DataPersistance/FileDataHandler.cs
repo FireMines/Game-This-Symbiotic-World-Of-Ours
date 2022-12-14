@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 
 public class FileDataHandler
-{
+{/*
     private string dirPath = "";
     private string fileName = "";
 
@@ -79,5 +79,5 @@ public class FileDataHandler
             Debug.LogError("Error while writing to file at " + fullPath + "\n" + e);
         }
 
-    }
+    }*/
 }

@@ -165,8 +165,10 @@ public class CharacterController2D : MonoBehaviour
 
 		if (m_Grounded && !wasGrounded) jumpsLeft = extraJumps;
 
+		//if (Input.GetKeyDown(KeyCode.K)) SceneLoader.Instance.LoadAllItemsWhenSceneChanges();
+
 		// Attack
-		if(Input.GetMouseButton(0) && AttackTimer <= 0f && AttackPowerup)
+		if (Input.GetMouseButton(0) && AttackTimer <= 0f && AttackPowerup)
         {
 			AttackTimer = AttackCooldown;
 			SelectTarget();

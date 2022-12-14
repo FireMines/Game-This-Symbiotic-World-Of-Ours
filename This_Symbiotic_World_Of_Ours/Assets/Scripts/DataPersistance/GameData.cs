@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/*
 [System.Serializable]
 private class GameData
 {
@@ -17,3 +17,4 @@ private class GameData
     public GameObject[] orbs;
 
 }
+*/
