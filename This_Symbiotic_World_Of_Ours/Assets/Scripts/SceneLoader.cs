@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +24,7 @@ public class SceneLoader : MonoBehaviour
 
     public static SceneLoader Instance { get; private set; }
 
-    bool hei = false;
+    bool sceneLoaded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,24 +36,17 @@ public class SceneLoader : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Don't update if we're in a different scene
-        /**if (SceneManager.GetActiveScene().name != BelongsToScene)
-        {
-            print(SceneManager.GetActiveScene().name);
-            return;
-        }*/
-
-
+        
         // Check for collisions with the trigger-box
         List<Collider2D> colliders = new List<Collider2D>();
         Physics2D.OverlapCollider(triggerCollider, TriggerFilter, colliders);
 
         if (colliders.Count > 0)
         {
-            if (!hei)
+            if (!sceneLoaded)
             {
                 ChangeScene();
-                hei = true;
+                sceneLoaded = true;
             }
         }
     }
@@ -69,41 +64,38 @@ public class SceneLoader : MonoBehaviour
             CrossfadeScript crossfade = crossfadeObjects[0].GetComponent<CrossfadeScript>();
             crossfade.StartCrossfade();
         }
+
+        //Loads scene
         SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Additive);
-        StartCoroutine(tester2());
 
-        //LoadAllItemsWhenSceneChanges();
-        //Scene test;
-        // Unload all other scenes that arent DoNotUnload
+        //loads item changes
+        StartCoroutine(loadItems());
 
-
-
-        // Load scene
-        StartCoroutine(tester());
-
-        //SceneManager.UnloadScene(test);
+        //Unloads unused scenes after loading items
+        StartCoroutine(unloadScenes());
     }
 
-    IEnumerator tester2()
+    /// <summary>
+    /// Loads the items of the scene
+    /// </summary>
+    IEnumerator loadItems()
     {
-        yield return new WaitForSeconds(0.1F);
-        LoadAllItemsWhenSceneChanges();
-
-
+        yield return new WaitForSeconds(0.01F);
+        LoadAllItemChanges();
     }
 
-
-    IEnumerator tester()
+    /// <summary>
+    /// Unloads scenes after att items are loaded
+    /// </summary>
+    IEnumerator unloadScenes()
     {
-        yield return new WaitForSeconds(0.2F);
+        yield return new WaitForSeconds(0.02F);
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             // Skips unloading if its in the DoNotUnload Scene
             if (SceneManager.GetSceneAt(i).name == "DoNotUnload") continue;
             if (SceneManager.GetSceneAt(i).name == SceneToLoad) continue;
 
-            //LoadAllItemsWhenSceneChanges();
-            //test = SceneManager.GetSceneAt(i);
             // Unloads all scenes passed through
             SceneManager.UnloadScene(SceneManager.GetSceneAt(i));
         }
@@ -111,106 +103,51 @@ public class SceneLoader : MonoBehaviour
 
     }
 
-
-    public void LoadAllItemsWhenSceneChanges()
+    /// <summary>
+    /// Loads changes that has happened to items in the scene
+    /// </summary>
+    public void LoadAllItemChanges()
     {
-        //GameObject.FindGameObjectsWithTag("Collectable")
-        //rock = GameObject.FindGameObjectWithTag("rock").GetComponent<CharacterController2D>();
-        //GameObject[] orbsObjects = ;
+        
+        //finds player
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController2D>();
-        print(GameObject.FindGameObjectWithTag("Collectable"));
-        print("VENTET 3 SEC NÅ");
 
+        //Iterates orbs
         foreach (GameObject orbsObject in GameObject.FindGameObjectsWithTag("Collectable"))
         {
             OrbController getOrb = orbsObject.GetComponent<OrbController>();
-            print("tihi: " + orbsObject);
 
+            //Checks if orbcontroller is null
             if (getOrb == null) continue;
+
+            //if orb controller exists add it to orbs list
             orbs.Add(getOrb);
         }
 
-        // Loader alle ting riktig
-        //rock.transform.position.x = PlayerPrefs.GetFloat("Rock1x");
-
+        //Iterates all the orbs found
         foreach (OrbController orb in orbs)
         {
-            print("tihi");
-            print(orb);
+            //Checks if a player has the power assosiated with the orbs and deletes it if the player has the power
             if (player.AttackPowerup && orb.powerup == OrbController.Powerup.RangedAttack)
                 Destroy(orb.gameObject);
+
             if (player.ChargeAttackPowerup && orb.powerup == OrbController.Powerup.ChargedRangedAttack)
                 Destroy(orb.gameObject);
+
             if (player.LightPowerup && orb.powerup == OrbController.Powerup.CharacterGlowing)
                 Destroy(orb.gameObject);
+
             if (player.extraJumps > 0 && orb.powerup == OrbController.Powerup.DoubleJump)
                 Destroy(orb.gameObject);
+
             if (player.GlidePowerup && orb.powerup == OrbController.Powerup.Glide)
                 Destroy(orb.gameObject);
+
             if (player.DashPowerup && orb.powerup == OrbController.Powerup.Dash)
                 Destroy(orb.gameObject);
 
         }
 
-
-
-        /*
-        // Unload all other scenes that arent DoNotUnload
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            // Skips unloading if its in the DoNotUnload Scene
-            if (SceneManager.GetSceneAt(i).name == "DoNotUnload") continue;
-            
-            if (SceneManager.GetActiveScene().name == "FirstEarthLevelScene")
-            {
-            }
-            if (SceneManager.GetActiveScene().name == "FirstWaterLevelScene")
-            {
-                // Loader alle ting riktig
-                //rock.transform.position.x = PlayerPrefs.GetFloat("Rock1x");
-                if (player.DashPowerup)
-                {
-                    foreach (OrbController orb in orbs)
-                    {
-                        if (orb.powerup == OrbController.Powerup.DoubleJump)
-                            Destroy(orb);
-                        if (orb.powerup == OrbController.Powerup.Dash)
-                            Destroy(orb);
-                        if (orb.powerup == OrbController.Powerup.Glide)
-                            Destroy(orb);
-                    }
-                }
-            }
-
-
-        }
-
-        //if Playerprefs.getint(dashorb == 1) for all orbs get powerups;  destroy(orbs.powerup) 
-        // else //load som vanlig
-        */
     }
-
-    /*
-    private void SetAllItemsWhenSceneChanges()
-    {
-        rock = GameObject.FindGameObjectWithTag("rock").GetComponent<CharacterController2D>();
-
-        // Unload all other scenes that arent DoNotUnload
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            // Skips unloading if its in the DoNotUnload Scene
-            if (SceneManager.GetSceneAt(i).name == "DoNotUnload") continue;
-
-            if (SceneManager.GetActiveScene().name == "FirstWaterLevelScene")
-            {
-                // Setter alle ting riktig
-                PlayerPrefs.SetFloat("Rock1x", rock.transform.position.x)
-            }
-
-        }
-
-        PlayerPrefs.SetInt("d",player.getDashBool())
-
-    }*/
 
 }

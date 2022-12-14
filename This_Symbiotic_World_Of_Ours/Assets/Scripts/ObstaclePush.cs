@@ -15,7 +15,7 @@ public class ObstaclePush : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement; //player movement script
     [SerializeField] private Transform m_pushCheck_c1;  //first corner of the collision check
     [SerializeField] private Transform m_pushCheck_c2;  //second corner of the collision check
-
+    
     void Start(){
         //initalize the player speed to that set in the player movement script
         playerSpeed = playerMovement.runSpeed;
@@ -142,4 +142,5 @@ public class ObstaclePush : MonoBehaviour
                 pushObject = null;
             }
     }
+
 }

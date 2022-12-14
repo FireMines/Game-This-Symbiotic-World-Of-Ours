@@ -508,7 +508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -525}
+  m_AnchoredPosition: {x: 0, y: -444}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1235355135
@@ -822,9 +822,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tCreators\n\n\n\tLars Bl\xFCtecher Holter\n\n\n\n\tLillian Alice Wangerud\n\n\n\n\tLars
+  m_text: "\tCreators\n\n\n\tLars Bl\xFCtecher Holter\n\n\n\tLillian Alice Wangerud\n\n\n\tLars
     Bl\xFCtecher Holter\n\tLillian Alice Wangerud\n\tMatthias David Greeven\n\tSarah
-    Seifert\n\n\n\tSimon McCallum\n\tRichard barlow\n\tOur moms and dads :)"
+    Seifert\n\n\n\tLillian Alice Wangerud\n\tAnna Pham \n\n\n\tOur friends and family\n\n\n\tSimon
+    McCallum\n\tRichard Barlow\n\tOur moms and dads :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -887,7 +888,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -220.98883}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1069,7 +1070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "This Symbiotic World of Ours \nTeam roles\n\nCEO (Bear of the group)\n\n\n\nAnimators\n\n\n\nProgrammers\n\n\n\n\n\nSpecial
+  m_text: "This Symbiotic World of Ours \n\n\nIdea Creator\n\n\nAnimators\n\n\nProgrammers\n\n\n\n\n\nDesigners\n\n\n\nPlaytesters\n\n\nSpecial
     Thanks\n\t\n\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1133,7 +1134,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -229.68921}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
