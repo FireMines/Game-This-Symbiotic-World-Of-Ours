@@ -11202,7 +11202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  image: {fileID: 21300000, guid: 8330540f4e792004c9b6a5c10758e828, type: 3}
   NPCName: Timmothy
   playerIsClose: 0
   isWorldSpirit: 0
@@ -11227,9 +11227,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.029434681, y: 1.0317724}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.44, y: 0.53249997, z: 0.53499997, w: 0.34}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.78125}
+    oldSize: {x: 2.25, y: 2.25}
     newSize: {x: 1, y: 0.78125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11251,8 +11251,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05977559, y: -0.16224837}
-  m_Size: {x: 0.67550325, y: 0.67550325}
+  m_Offset: {x: 0.015339066, y: 0.114440195}
+  m_Size: {x: 0.8913455, y: 1.2288803}
   m_Direction: 0
 --- !u!212 &493809016
 SpriteRenderer:
@@ -11295,7 +11295,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8330540f4e792004c9b6a5c10758e828, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -23926,7 +23926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975902477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0504173, y: 0.7654429, z: 5.655981}
+  m_LocalPosition: {x: -1.0504173, y: 1.11, z: 5.655981}
   m_LocalScale: {x: 0.80938894, y: 0.6656017, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24023,7 +24023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992277916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0504173, y: 0.7654429, z: 5.655981}
+  m_LocalPosition: {x: -0.96, y: 1.06, z: 5.655981}
   m_LocalScale: {x: 0.80938894, y: 0.6656017, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25581,7 +25581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249f99a849aa3349bc4dd2890cf84c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  image: {fileID: 21300000, guid: 8330540f4e792004c9b6a5c10758e828, type: 3}
   NPCName: Bob
   playerIsClose: 0
   isWorldSpirit: 0
@@ -25606,9 +25606,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.029434681, y: 1.0317724}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.44, y: 0.53249997, z: 0.53499997, w: 0.34}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.78125}
+    oldSize: {x: 2.25, y: 2.25}
     newSize: {x: 1, y: 0.78125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -25630,8 +25630,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05977559, y: -0.16224837}
-  m_Size: {x: 0.67550325, y: 0.67550325}
+  m_Offset: {x: -0.06617491, y: 0.11610456}
+  m_Size: {x: 0.9274043, y: 1.232209}
   m_Direction: 0
 --- !u!212 &1046467426
 SpriteRenderer:
@@ -25674,9 +25674,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1277430759, guid: 6df8693ebb99fd1449968df63c87cb64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8330540f4e792004c9b6a5c10758e828, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 0.78125}
