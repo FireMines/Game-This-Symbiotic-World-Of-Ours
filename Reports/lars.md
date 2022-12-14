@@ -3,12 +3,12 @@
 ## Score weighting
 |Description | Weight |
 |----|----|
-|Gameplay video | 10 |
+|Gameplay video | 5 |
 |Code video | 0 |
 |Good Code  | 30 |
 |Bad Code | 15 |
 |Development process | 20 |
-|Reflection | 25 |
+|Reflection | 30 |
 
 ## Code Video
 [Code video](https://youtu.be/bSV5ilOX9GE)
