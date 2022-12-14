@@ -8,7 +8,7 @@
 
 Lars Blütecher Holter (Bear) _- [Link to individual report](./Reports/lars.md)
 
-Lillian Alice Wangerud (Owl) _- [Link to individual report](./Report/lillian.md)
+Lillian Alice Wangerud (Owl) _- [Link to individual report](./Reports/lillian.md)
 
 Sarah Seifert (Cat) _- [Link to individual report](https://git.gvk.idi.ntnu.no/course/imt3603/imt3603-2022-workspace/symbiosis/this-symbiotic-world-of-ours/-/blob/main/Reports/sarah.md)_
 
